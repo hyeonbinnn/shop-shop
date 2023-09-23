@@ -4,15 +4,19 @@ import ProductList from '../components/Product/ProductList';
 
 const ProductData = () => {
   const [data, setData] = useState([]);
+  const apiKey = process.env.REACT_APP_API_KEY;
+  const apiEndPoint = 'mall';
+
+  const apiUrl = `${apiKey}${apiEndPoint}`;
 
   useEffect(() => {
     axios
-      .get('http://35.76.53.28:8080/mall ')
+      .get(apiUrl)
       .then((response) => {
         setData(response.data);
       })
       .catch((error) => {
-        console.error('데이터를 불러오는 중 에러 발생');
+        console.error('데이터를 불러오는 중 에러 발생', error);
       });
   }, []);
 
