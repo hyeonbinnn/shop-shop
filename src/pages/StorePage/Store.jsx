@@ -1,7 +1,12 @@
 import React from 'react';
+import ProductData from './../../data/ProductData';
 
 const Store = () => {
-  return <div>Store</div>;
+  return (
+    <>
+      <ProductData />
+    </>
+  );
 };
 
 export default Store;
