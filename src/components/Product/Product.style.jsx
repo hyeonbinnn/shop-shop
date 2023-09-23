@@ -3,32 +3,46 @@ import styled from 'styled-components';
 export const Product = styled.main`
   display: flex;
   justify-content: center;
-  margin-top: 160px;
-  padding-bottom: 156px;
+  padding: 50px;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    padding: 10px 50px;
+  }
 `;
 
 export const ProductList = styled.ul`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 60px;
-  width: 1260px;
-  margin-right: 60px;
+  margin: 0px auto;
+  padding: 0px 30px;
+  width: 1280px;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    padding: 0px;
+  }
 `;
 
 export const ProductItem = styled.li`
   position: relative;
-  display: flex;
-  flex-direction: column;
   cursor: pointer;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+  }
 `;
 
 export const ProductImg = styled.div`
   position: relative;
-  width: 380px;
-  height: 380px;
-  border: ${({ theme }) => `1px solid ${theme.colors.third}`}
+  width: 100%;
+  aspect-ratio: 280/280;
+  object-fit: cover;
+  vertical-align: top;
+  border: ${({ theme }) => `1px solid ${theme.colors.third}`};
   border-radius: 10px;
   overflow: hidden;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+  }
 `;
 
 export const ProductName = styled.strong`

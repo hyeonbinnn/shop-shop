@@ -1,7 +1,6 @@
 import React from 'react';
 import Product from './Product';
 import * as S from './Product.style';
-import CartBtn from '../common/Button/CartBtn';
 
 const ProductList = ({ data }) => {
   return (
@@ -11,7 +10,6 @@ const ProductList = ({ data }) => {
           <Product key={item.id} product={item} />
         ))}
       </S.ProductList>
-      <CartBtn />
     </S.Product>
   );
 };
