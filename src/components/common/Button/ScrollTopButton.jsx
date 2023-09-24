@@ -46,7 +46,7 @@ const Button = styled.button`
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     bottom: 60px;
-    right: 30px;
+    right: 25px;
 
     img {
       width: 45px;
