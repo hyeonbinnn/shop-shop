@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import normalize from 'styled-normalize';
+import heart from '../assets/icon-heart.svg';
 
 const GlobalStyle = createGlobalStyle`
 ${normalize}
@@ -102,7 +103,7 @@ body {
       width: 22px;
       height: 22px;
       border: none;
-      background: url(../assets/icon-heart.svg) no-repeat center / contain;
+      background: url(${heart}) no-repeat center / contain;
     }
 
   
