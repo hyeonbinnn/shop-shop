@@ -1,78 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import * as S from './Header.style';
+import logo from '../../../assets/icon-logo.svg';
 import cart from '../../../assets/icon-cart.svg';
 import user from '../../../assets/icon-user.svg';
 
 const Header = () => {
   return (
-    <LogoHeader>
-      <LogoBox>
-        <Link to="/">{/* <LinkImg src={logo} alt="쇼핑몰 로고" /> */}</Link>
-      </LogoBox>
-      <TopBar>
-        <BarList>
-          <Link>
-            <ListBox>
-              <img src={cart} alt="장바구니 아이콘" />
-              <span>장바구니</span>
-            </ListBox>
+    <S.HeaderWrap>
+      <S.Container>
+        <S.LogoBox>
+          <Link to="/">
+            <S.LogoImg src={logo} alt="쇼핑몰 로고 아이콘" />
           </Link>
-        </BarList>
-        <BarList>
+        </S.LogoBox>
+        <S.HeaderMenuList>
           <Link>
-            <ListBox>
-              <img src={user} alt="로그인 아이콘" />
-              <span>로그인</span>
-            </ListBox>
+            <S.List>
+              <S.ListBox>
+                <img src={cart} alt="장바구니 아이콘" />
+                <span>장바구니</span>
+              </S.ListBox>
+            </S.List>
           </Link>
-        </BarList>
-      </TopBar>
-    </LogoHeader>
+          <Link>
+            <S.List>
+              <S.ListBox>
+                <img src={user} alt="로그인 아이콘" />
+                <span>로그인</span>
+              </S.ListBox>
+            </S.List>
+          </Link>
+        </S.HeaderMenuList>
+      </S.Container>
+    </S.HeaderWrap>
   );
 };
 
 export default Header;
-
-const LogoHeader = styled.header`
-  display: flex;
-`;
-
-// 로고
-const LogoBox = styled.div`
-  width: 300px;
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-  }
-`;
-
-const LinkImg = styled.img`
-  width: 100%;
-  height: 100%;
-`;
-
-// 장바구니, 로그인
-const TopBar = styled.ul`
-  display: flex;
-  gap: 20px;
-`;
-
-const BarList = styled.li`
-  display: flex;
-  align-items: center;
-`;
-
-const ListBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  img {
-    width: 30px;
-    margin-bottom: 5px;
-  }
-
-  span {
-    font-weight: bold;
-  }
-`;
