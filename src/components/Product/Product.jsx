@@ -6,9 +6,9 @@ const Product = ({ product }) => {
 
   return (
     <S.ProductItem>
-      <S.ProductImg>
-        <img src={imgUrl} alt={product.productName} />
-      </S.ProductImg>
+      <S.ProductBox>
+        <S.ProductImg src={imgUrl} alt={product.productName} />
+      </S.ProductBox>
       <S.ProductName className="product-name sl-ellipsis">{product.productName}</S.ProductName>
       <S.LikeBtn className="like-btn"></S.LikeBtn>
       <S.ProductPrice>
