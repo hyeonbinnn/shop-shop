@@ -4,7 +4,6 @@ import banner1 from '../../assets/banner1.svg';
 import banner2 from '../../assets/banner2.svg';
 import banner3 from '../../assets/banner3.svg';
 import banner4 from '../../assets/banner4.svg';
-import banner5 from '../../assets/banner5.svg';
 
 const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -23,7 +22,7 @@ const ImageSlider = () => {
     setCurrentIndex(index);
   };
 
-  const images = [banner1, banner2, banner3, banner4, banner5];
+  const images = [banner1, banner2, banner3, banner4];
 
   useEffect(() => {
     const intervalId = setInterval(() => {
