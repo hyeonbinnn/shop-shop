@@ -5,6 +5,8 @@ const colors = {
   text: '#333333',
   white: '#ffffff',
   gray: '#c9c9c9b8',
+  footer: '#F2F2F2',
+  footerTxt: '#767676',
 };
 
 const mediaQuery = {
