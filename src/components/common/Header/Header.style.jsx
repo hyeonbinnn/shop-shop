@@ -4,7 +4,6 @@ import styled from 'styled-components';
 export const HeaderWrap = styled.div`
   max-width: 1280px;
   margin: 0 auto;
-  border-bottom: ${({ theme }) => `1px solid ${theme.colors.third}`};
 `;
 
 export const Container = styled.header`
@@ -28,14 +27,20 @@ export const LogoImg = styled.img`
 `;
 
 // 장바구니, 로그인
+export const HeaderNav = styled.nav`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 40px;
+`;
+
 export const HeaderMenuList = styled.ul`
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-right: 40px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    gap: 15px;
+    gap: 10px;
   }
 `;
 
@@ -54,17 +59,20 @@ export const ListBox = styled.div`
 
   span {
     font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     img {
       width: 25px;
       height: 25px;
-      margin-bottom: 7px;
+      margin-bottom: 3px;
     }
 
     span {
       font-weight: bold;
+      font-size: 13px;
     }
   }
 `;

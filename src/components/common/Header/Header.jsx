@@ -14,24 +14,26 @@ const Header = () => {
             <S.LogoImg src={logo} alt="쇼핑몰 로고 아이콘" />
           </Link>
         </S.LogoBox>
-        <S.HeaderMenuList>
-          <Link>
-            <S.List>
-              <S.ListBox>
-                <img src={cart} alt="장바구니 아이콘" />
-                <span>장바구니</span>
-              </S.ListBox>
-            </S.List>
-          </Link>
-          <Link>
-            <S.List>
-              <S.ListBox>
-                <img src={user} alt="로그인 아이콘" />
-                <span>로그인</span>
-              </S.ListBox>
-            </S.List>
-          </Link>
-        </S.HeaderMenuList>
+        <S.HeaderNav>
+          <S.HeaderMenuList>
+            <Link>
+              <S.List>
+                <S.ListBox>
+                  <img src={cart} alt="장바구니 아이콘" />
+                  <span>장바구니</span>
+                </S.ListBox>
+              </S.List>
+            </Link>
+            <Link>
+              <S.List>
+                <S.ListBox>
+                  <img src={user} alt="로그인 아이콘" />
+                  <span>로그인</span>
+                </S.ListBox>
+              </S.List>
+            </Link>
+          </S.HeaderMenuList>
+        </S.HeaderNav>
       </S.Container>
     </S.HeaderWrap>
   );
