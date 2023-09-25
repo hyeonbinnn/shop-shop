@@ -3,6 +3,7 @@ import styled from 'styled-components';
 // Footer 레이아웃
 export const FooterWrap = styled.footer`
   background-color: ${({ theme }) => theme.colors.footer};
+  padding: 0px 30px;
 `;
 
 // Footer 상단
@@ -43,7 +44,6 @@ export const FooterMenuList = styled.ul`
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     margin-bottom: 30px;
-    padding: 0px 30px;
   }
 `;
 
@@ -51,6 +51,7 @@ export const List = styled.li`
   button {
     font-size: 16px;
     font-weight: bold;
+    background-color: transparent;
   }
 `;
 

@@ -37,11 +37,7 @@ export const HeaderNav = styled.nav`
 export const HeaderMenuList = styled.ul`
   display: flex;
   align-items: center;
-  gap: 20px;
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    gap: 10px;
-  }
+  gap: 10px;
 `;
 
 export const List = styled.li``;

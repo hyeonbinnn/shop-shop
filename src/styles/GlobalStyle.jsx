@@ -52,7 +52,6 @@ body {
     border: none;
     cursor: pointer;
     padding: 0;
-    background-color: transparent;
   }
 
   /* 숨김 텍스트 처리 */
