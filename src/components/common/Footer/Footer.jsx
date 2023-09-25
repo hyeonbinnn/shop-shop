@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import * as S from './Footer.style';
 import insta from '../../../assets/icon-insta.svg';
 import facebook from '../../../assets/icon-facebook.svg';
@@ -8,52 +7,64 @@ import youtube from '../../../assets/icon-youtube.svg';
 const Footer = () => {
   return (
     <S.FooterWrap>
-      {/* 왼쪽바 */}
-      <S.FooterNav>
+      <S.FooterSection>
         <S.FooterMenuList>
-          <Link>
-            <S.List>이용안내</S.List>
-          </Link>
-          <Link>
-            <S.List>이용약관</S.List>
-          </Link>
-          <Link>
-            <S.List>개인정보처리방침</S.List>
-          </Link>
-          <Link>
-            <S.List>회사정보</S.List>
-          </Link>
-          <Link>
-            <S.List>고객센터</S.List>
-          </Link>
+          <S.List>
+            <button>숍숍소개</button>
+          </S.List>
+          <S.List>
+            <button>이용약관</button>
+          </S.List>
+          <S.List>
+            <button>개인정보처리방침</button>
+          </S.List>
+          <S.List>
+            <button>전자금융거래약관</button>
+          </S.List>
+          <S.List>
+            <button>청소년보호정책</button>
+          </S.List>
+          <S.List>
+            <button>제휴문의</button>
+          </S.List>
         </S.FooterMenuList>
-      </S.FooterNav>
 
-      {/* 오른쪽 소셜바 */}
-      <S.FooterSocialList>
-        <S.SocialList>
-          <S.SocialLink href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-            <span className="a11y-hidden">인스타그램</span>
-            <img src={insta} alt="인스타그램 아이콘" />
-          </S.SocialLink>
-        </S.SocialList>
-        <S.SocialList>
-          <S.SocialLink
-            href="https://ko-kr.facebook.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className="a11y-hidden">페이스북</span>
-            <img src={facebook} alt="페이스북 아이콘" />
-          </S.SocialLink>
-        </S.SocialList>
-        <S.SocialList>
-          <S.SocialLink href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
-            <span className="a11y-hidden">유튜브</span>
-            <img src={youtube} alt="유튜브 아이콘" />
-          </S.SocialLink>
-        </S.SocialList>
-      </S.FooterSocialList>
+        <S.FooterSocialList>
+          {[
+            {
+              link: 'https://www.instagram.com/',
+              icon: insta,
+              alt: '인스타그램 아이콘',
+              text: '인스타그램',
+            },
+            {
+              link: 'https://ko-kr.facebook.com/',
+              icon: facebook,
+              alt: '페이스북 아이콘',
+              text: '페이스북',
+            },
+            {
+              link: 'https://www.youtube.com/',
+              icon: youtube,
+              alt: '유튜브 아이콘',
+              text: '유튜브',
+            },
+          ].map((social, index) => (
+            <S.SocialList key={index}>
+              <S.SocialLink href={social.link} target="_blank" rel="noopener noreferrer">
+                <span className="a11y-hidden">{social.text}</span>
+                <img src={social.icon} alt={social.alt} />
+              </S.SocialLink>
+            </S.SocialList>
+          ))}
+        </S.FooterSocialList>
+      </S.FooterSection>
+      <S.FooterBox>
+        <strong>(주) SHOP SHOP</strong>
+        <span>서울특별시 가나구 다나동 아자로 2 카타빌딩 3층</span>
+        <span>사업자 번호 : 000-0000-0000 | 통신판매업</span>
+        <span>대표 : 김쇼핑</span>
+      </S.FooterBox>
     </S.FooterWrap>
   );
 };

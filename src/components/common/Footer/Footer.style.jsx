@@ -2,58 +2,98 @@ import styled from 'styled-components';
 
 // Footer 레이아웃
 export const FooterWrap = styled.footer`
+  background-color: ${({ theme }) => theme.colors.footer};
+`;
+
+// Footer 상단
+export const FooterSection = styled.section`
+  max-width: 1280px;
+  position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0 auto;
-  padding: 10px 0px;
-  border-top: ${({ theme }) => `1px solid ${theme.colors.third}`};
+  padding: 50px 0px 25px 0px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: ${({ theme }) => theme.colors.gray};
+  }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px 30px 30px;
+    padding-bottom: 30px;
+
+    &::after {
+      display: none;
+    }
   }
 `;
 
 // 왼쪽바
-export const FooterNav = styled.nav`
-  padding: 30px 0px;
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    padding: 30px;
-  }
-`;
-
 export const FooterMenuList = styled.ul`
   display: flex;
+  align-items: center;
   gap: 20px;
 
-  li {
-    font-size: 16px;
-    font-weight: 600;
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    margin-bottom: 30px;
+    padding: 0px 30px;
   }
 `;
 
-export const List = styled.li``;
+export const List = styled.li`
+  button {
+    font-size: 16px;
+    font-weight: bold;
+  }
+`;
 
 // 오른쪽 소셜바
 export const FooterSocialList = styled.ul`
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 `;
 
 export const SocialList = styled.li`
-  width: 50px;
-  height: 50px;
-  text-align: center;
+  width: 40px;
+  height: 40px;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    width: 35px;
+    height: 35px;
+  }
 `;
 
-export const SocialLink = styled.a`
-  img {
-    width: 100%;
-    border-radius: 10px;
+export const SocialLink = styled.a``;
+
+// Footer 하단
+export const FooterBox = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 25px;
+  padding-bottom: 50px;
+  color: ${({ theme }) => theme.colors.footerTxt};
+
+  strong {
+    display: block;
+    padding: 10px 0px;
+    font-size: 15px;
+  }
+
+  span {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    text-align: center;
+    padding-top: 0px;
   }
 `;
