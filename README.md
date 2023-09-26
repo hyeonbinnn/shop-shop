@@ -1,1 +1,1 @@
-# Shop-Shop 오픈 마켓 서비스
+# 🛍️ Shop-Shop 오픈 마켓 서비스
