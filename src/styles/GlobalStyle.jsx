@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import normalize from 'styled-normalize';
-import heart from '../assets/icon-heart.svg';
+import heart from '../assets/icon/icon-heart.svg';
 
 const GlobalStyle = createGlobalStyle`
 ${normalize}

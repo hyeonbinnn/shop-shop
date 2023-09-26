@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import * as S from './ImageSlider.style';
-import banner1 from '../../assets/banner1.svg';
-import banner2 from '../../assets/banner2.svg';
-import banner3 from '../../assets/banner3.svg';
-import banner4 from '../../assets/banner4.svg';
+import banner1 from '../../assets/banner/banner1.svg';
+import banner2 from '../../assets/banner/banner2.svg';
+import banner3 from '../../assets/banner/banner3.svg';
+import banner4 from '../../assets/banner/banner4.svg';
 
 const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
-    const nextIndex = (currentIndex + 1) % images.length;
-    setCurrentIndex(nextIndex);
-  };
-
   const prevSlide = () => {
     const prevIndex = (currentIndex - 1 + images.length) % images.length;
     setCurrentIndex(prevIndex);
+  };
+
+  const nextSlide = () => {
+    const nextIndex = (currentIndex + 1) % images.length;
+    setCurrentIndex(nextIndex);
   };
 
   const goToSlide = (index) => {
@@ -36,9 +36,9 @@ const ImageSlider = () => {
 
   return (
     <S.SlideContainer>
-      <S.NextButton onClick={nextSlide}></S.NextButton>
-      <img src={images[currentIndex]} alt={`배너 이미지 ${currentIndex}`} />
       <S.PrevButton onClick={prevSlide}></S.PrevButton>
+      <img src={images[currentIndex]} alt={`배너 이미지 ${currentIndex}`} />
+      <S.NextButton onClick={nextSlide}></S.NextButton>
       <S.Indicators>
         {images.map((_, index) => (
           <S.Indicator

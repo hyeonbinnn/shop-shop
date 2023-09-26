@@ -25,7 +25,7 @@ export const SlideContainer = styled.section`
   }
 `;
 
-export const NextButton = styled.button`
+export const PrevButton = styled.button`
   left: 20px;
   top: 50%;
   transform: translateY(-50%);
@@ -35,7 +35,7 @@ export const NextButton = styled.button`
   }
 `;
 
-export const PrevButton = styled.button`
+export const NextButton = styled.button`
   right: 20px;
   top: 50%;
   transform: translateY(-50%);

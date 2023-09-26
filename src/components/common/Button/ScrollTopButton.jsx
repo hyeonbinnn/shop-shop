@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import scroll from '../../../assets/icon-scroll.svg';
+import scroll from '../../../assets/icon/icon-scroll.svg';
 
 const ScrollTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
