@@ -2,13 +2,13 @@ import React from 'react';
 import Footer from '../../components/common/Footer/Footer';
 import Header from '../../components/common/Header/Header';
 import ProductData from '../../components/Product/ProductData';
-import ImageSlider from '../../components/Slider/ImageSlider';
+import Slider from '../../components/Slider/Slider';
 
 const Store = () => {
   return (
     <>
       <Header />
-      <ImageSlider />
+      <Slider />
       <ProductData />
       <Footer />
     </>
