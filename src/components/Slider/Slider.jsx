@@ -4,6 +4,8 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { ReactComponent as Prev } from '../../assets/icon/icon-prev.svg';
+import { ReactComponent as Next } from '../../assets/icon/icon-next.svg';
 import banner1 from '../../assets/banner/banner1.svg';
 import banner2 from '../../assets/banner/banner2.svg';
 import banner3 from '../../assets/banner/banner3.svg';
@@ -28,8 +30,16 @@ const ImageSlider = () => {
     autoplaySpeed: 3000,
     adaptiveHeight: true,
     lazyLoad: 'ondemand',
-    prevArrow: <S.Prev />,
-    nextArrow: <S.Next />,
+    prevArrow: (
+      <S.PrevDiv>
+        <Prev />
+      </S.PrevDiv>
+    ),
+    nextArrow: (
+      <S.NextDiv>
+        <Next />
+      </S.NextDiv>
+    ),
   };
 
   useEffect(() => {

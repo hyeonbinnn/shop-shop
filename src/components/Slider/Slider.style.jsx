@@ -2,10 +2,6 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 
 export const SlideContainer = styled(Slider)`
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-
   .slick-prev::before,
   .slick-next::before {
     opacity: 0;
@@ -16,40 +12,18 @@ export const SlideContainer = styled(Slider)`
   }
 `;
 
-export const Prev = styled.button`
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.black};
+export const PrevDiv = styled.div`
+  width: 30px;
+  height: 30px;
+  margin-left: 40px;
   z-index: 10;
-
-  &::after {
-    content: '<';
-  }
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    left: 10px;
-    font-size: 40px;
-  }
 `;
 
-export const Next = styled.button`
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.black};
+export const NextDiv = styled.div`
+  width: 30px;
+  height: 30px;
+  margin-right: 40px;
   z-index: 10;
-
-  &::after {
-    content: '>';
-  }
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    right: 20px;
-    font-size: 40px;
-  }
+  transform: rotate(180deg);
+  margin-top: -14px;
 `;
