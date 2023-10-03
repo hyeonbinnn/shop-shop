@@ -10,14 +10,16 @@ import banner1 from '../../assets/banner/banner1.svg';
 import banner2 from '../../assets/banner/banner2.svg';
 import banner3 from '../../assets/banner/banner3.svg';
 import banner4 from '../../assets/banner/banner4.svg';
+import banner5 from '../../assets/banner/banner5.svg';
 
 const ImageSlider = () => {
   const [loading, setLoading] = useState(true);
   const images = useRef([
-    { src: banner1, alt: '특별 프로모션 배너' },
+    { src: banner1, alt: '팔로우 이벤트 배너' },
     { src: banner2, alt: '추석 연휴 안내 배너' },
     { src: banner3, alt: '한국은행 프로모션 배너' },
-    { src: banner4, alt: '케이카드 혜택 배너' },
+    { src: banner4, alt: '특별 프로모션 배너' },
+    { src: banner5, alt: '케이카드 혜택 배너' },
   ]);
 
   // slick-carousel 동작 및 스타일 제어
