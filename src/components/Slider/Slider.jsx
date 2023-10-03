@@ -61,7 +61,7 @@ const ImageSlider = () => {
   return (
     <>
       {loading ? (
-        <Skeleton width="100%" height="400px" />
+        <Skeleton width="100%" height="350px" />
       ) : (
         <S.SlideContainer {...settings}>
           {images.current.map((img, i) => (
