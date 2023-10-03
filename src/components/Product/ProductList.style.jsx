@@ -8,7 +8,7 @@ export const Product = styled.main`
   margin: 30px 0px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    padding: 60px 50px;
+    padding: 50px;
     margin: 10px 0px;
   }
 `;
