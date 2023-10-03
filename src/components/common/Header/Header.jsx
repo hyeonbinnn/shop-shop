@@ -4,16 +4,23 @@ import * as S from './Header.style';
 import cart from '../../../assets/icon/icon-cart.svg';
 import user from '../../../assets/icon/icon-user.svg';
 import logo from '../../../assets/icon/icon-logo.svg';
+import search from '../../../assets/icon/icon-search.svg';
 
 const Header = () => {
   return (
     <S.HeaderWrap>
       <S.Container>
-        <S.LogoBox>
-          <Link to="/">
-            <S.LogoImg src={logo} alt="쇼핑몰 로고 아이콘" />
-          </Link>
-        </S.LogoBox>
+        <S.LogoSearchBox>
+          <S.LogoBox>
+            <Link to="/">
+              <S.LogoImg src={logo} alt="쇼핑몰 로고 아이콘" />
+            </Link>
+          </S.LogoBox>
+          <S.SearchBox>
+            <input type="text" placeholder="상품을 검색해주세요" />
+            <img src={search} alt="검색 아이콘" />
+          </S.SearchBox>
+        </S.LogoSearchBox>
         <S.HeaderNav>
           <S.HeaderMenuList>
             <Link>
