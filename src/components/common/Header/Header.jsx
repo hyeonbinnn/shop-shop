@@ -23,7 +23,7 @@ const Header = () => {
         </S.LogoSearchBox>
         <S.HeaderNav>
           <S.HeaderMenuList>
-            <Link>
+            <Link to="/cart">
               <S.List>
                 <S.ListBox>
                   <img src={cart} alt="장바구니 아이콘" />
