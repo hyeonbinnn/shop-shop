@@ -3,7 +3,7 @@ import { axiosInstance } from '../axios';
 
 export const useAuth = () => {
   // 사용자 로그인 인증
-  const login = async (data, loginType, setError, reset, goToHome) => {
+  const loginUser = async (data, loginType, setError, reset, goToHome) => {
     try {
       const res = await axiosInstance.post('accounts/login/', {
         username: data.id,
@@ -277,7 +277,7 @@ export const useAuth = () => {
   };
 
   return {
-    login,
+    loginUser,
     buyerSignUp,
     sellerSignUp,
     validUser,
