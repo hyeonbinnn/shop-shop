@@ -40,17 +40,18 @@ const Button = styled.button`
   border-radius: 50%;
 
   img {
-    width: 55px;
-    height: 55px;
+    width: 45px;
+    height: 45px;
+    opacity: 0.5;
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    bottom: 60px;
+    bottom: 50px;
     right: 30px;
 
     img {
-      width: 45px;
-      height: 45px;
+      width: 40px;
+      height: 40px;
     }
   }
 `;
