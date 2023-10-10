@@ -6,6 +6,7 @@ const colors = {
   white: '#ffffff',
   gray: '#c9c9c9b8',
   black: '#000000',
+  red: '#ff0000',
   footer: '#F2F2F2',
   footerTxt: '#767676',
 };
