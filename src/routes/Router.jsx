@@ -7,6 +7,7 @@ import SignUp from './../pages/SignUpPage/SignUp';
 import Payment from './../pages/PaymentPage/Payment';
 import ProductDetail from './../pages/ProductPage/ProductDetail';
 import Error404 from './../pages/ErrorPage/Error404';
+import ComingSoon from './../pages/ErrorPage/ComingSoon';
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path="/payment" element={<Payment />} />
         <Route path="/productDetail/:product_id" element={<ProductDetail />} />
         <Route path="*" element={<Error404 />} />
+        <Route path="/ComingSoon" element={<ComingSoon />} />
       </Routes>
     </BrowserRouter>
   );
