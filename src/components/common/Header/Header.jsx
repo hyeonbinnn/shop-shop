@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as S from './Header.style';
-import cart from '../../../assets/icon/icon-cart.svg';
-import user from '../../../assets/icon/icon-user.svg';
-import logo from '../../../assets/icon/icon-logo.svg';
-import search from '../../../assets/icon/icon-search.svg';
+import cart from '../../../assets/icons/icon-cart.svg';
+import user from '../../../assets/icons/icon-user.svg';
+import logo from '../../../assets/icons/icon-logo.svg';
+import search from '../../../assets/icons/icon-search.svg';
 
 const Header = () => {
   return (

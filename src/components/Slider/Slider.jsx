@@ -4,13 +4,13 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { ReactComponent as Prev } from '../../assets/icon/icon-prev.svg';
-import { ReactComponent as Next } from '../../assets/icon/icon-next.svg';
-import banner1 from '../../assets/banner/banner1.svg';
-import banner2 from '../../assets/banner/banner2.svg';
-import banner3 from '../../assets/banner/banner3.svg';
-import banner4 from '../../assets/banner/banner4.svg';
-import banner5 from '../../assets/banner/banner5.svg';
+import { ReactComponent as Prev } from '../../assets/icons/icon-prev.svg';
+import { ReactComponent as Next } from '../../assets/icons/icon-next.svg';
+import banner1 from '../../assets/images/banner1.svg';
+import banner2 from '../../assets/images/banner2.svg';
+import banner3 from '../../assets/images/banner3.svg';
+import banner4 from '../../assets/images/banner4.svg';
+import banner5 from '../../assets/images/banner5.svg';
 
 const ImageSlider = () => {
   const [loading, setLoading] = useState(true);

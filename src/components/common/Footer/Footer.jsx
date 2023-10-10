@@ -1,8 +1,8 @@
 import React from 'react';
 import * as S from './Footer.style';
-import insta from '../../../assets/icon/icon-insta.svg';
-import facebook from '../../../assets/icon/icon-facebook.svg';
-import youtube from '../../../assets/icon/icon-youtube.svg';
+import insta from '../../../assets/icons/icon-insta.svg';
+import facebook from '../../../assets/icons/icon-facebook.svg';
+import youtube from '../../../assets/icons/icon-youtube.svg';
 
 const Footer = () => {
   return (
