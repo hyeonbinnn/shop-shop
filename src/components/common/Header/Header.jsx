@@ -31,7 +31,7 @@ const Header = () => {
                 </S.ListBox>
               </S.List>
             </Link>
-            <Link>
+            <Link to="/Login">
               <S.List>
                 <S.ListBox>
                   <img src={user} alt="로그인 아이콘" />
