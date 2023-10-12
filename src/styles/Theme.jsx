@@ -6,7 +6,8 @@ const colors = {
   white: '#ffffff',
   gray: '#c9c9c9b8',
   black: '#000000',
-  red: '#ff0000',
+  error: '#ff0000',
+  pass: '#1dc143ee',
   footer: '#F2F2F2',
   footerTxt: '#767676',
 };
