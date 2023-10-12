@@ -219,7 +219,7 @@ export const useAuth = () => {
   };
 
   // 사용자 계정 유효성 검증
-  const validUser = async (id, setError) => {
+  const validID = async (id, setError) => {
     try {
       const res = await axiosInstance.post('accounts/signup/valid/username/', {
         username: id,
@@ -280,7 +280,7 @@ export const useAuth = () => {
     loginUser,
     buyerSignUp,
     sellerSignUp,
-    validUser,
+    validID,
     validSellerCode,
   };
 };
