@@ -1,1 +1,1 @@
-# 🛍️ 숍숍 오픈 마켓 서비스
+# 🛍️ SHOPSHOP OPEN MARKET
