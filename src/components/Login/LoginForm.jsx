@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as S from './LoginForm.style';
 import { useNavigate, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useAuth } from '../../api/useAuth';
+import { useAuth } from '../../auth/useAuth';
 import logo from '../../assets/icons/icon-logo.svg';
 
 const LoginForm = () => {

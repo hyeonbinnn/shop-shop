@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.section`
   padding: 30px 20px;
   text-algin: center;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const Header = styled.header`
@@ -61,7 +62,7 @@ export const LoginForm = styled.form`
   box-sizing: border-box;
 
   p {
-    color: ${({ theme }) => theme.colors.red};
+    color: ${({ theme }) => theme.colors.error};
     margin-top: -7px;
     font-size: 13px;
     margin-left: 8px;
