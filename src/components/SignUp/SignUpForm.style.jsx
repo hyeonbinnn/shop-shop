@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import select from '../../assets/icons/icon-select.svg';
 
 export const Container = styled.section`
   padding: 30px 20px;
@@ -44,7 +45,8 @@ export const SignUpTabList = styled.li`
   line-height: 22px;
   text-align: center;
   box-sizing: border-box;
-  background-color: ${(props) => (props.isSelected === true ? 'white' : '#f2f2f2')};
+  background-color: ${({ theme, isSelected }) =>
+    isSelected === true ? theme.colors.white : theme.colors.lightGray};
   cursor: pointer;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
@@ -59,25 +61,31 @@ export const SignUpForm = styled.form`
   flex-direction: column;
   margin-bottom: 30px;
   padding: 40px;
-  gap: 40px;
+  gap: 35px;
   border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
   border-top: none;
   border-radius: 0 0 10px 10px;
   box-sizing: border-box;
 
   p {
-    color: ${({ theme }) => theme.colors.error};
-    margin-top: -7px;
+    margin: -7px 0px 15px 0px;
     font-size: 13px;
-    margin-left: 8px;
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    padding: 40px 30px;
+    padding: 40px 25px 30px 25px;
     p {
       margin-top: -9px;
     }
   }
+`;
+
+export const Error = styled.p`
+  color: ${({ theme }) => theme.colors.error};
+`;
+
+export const Pass = styled.p`
+  color: ${({ theme }) => theme.colors.pass};
 `;
 
 export const Label = styled.label`
@@ -126,6 +134,41 @@ export const DoubleCheckBox = styled.div`
   }
 `;
 
+export const PhoneBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  input {
+    text-align: center;
+  }
+`;
+
+export const Select = styled.select`
+  width: 60%;
+  padding: 15px 20px 15px 50px;
+  border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 10px 0px 15px 0px;
+  appearance: none;
+  background: url(${select}) right center/25px auto no-repeat;
+  background-position: 100px 10px;
+
+  option {
+    font-weight: bold;
+  }
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    width: 60%;
+    padding: 15px 20px;
+    background-size: 20px;
+    background-position: 55px 13px;
+  }
+`;
+
 export const Section = styled.section``;
 
 export const CheckBox = styled.div`
@@ -150,8 +193,10 @@ export const SignUpButton = styled.button`
   border-radius: 5px;
   font-size: 17px;
   font-weight: bold;
-  background-color: ${({ theme }) => theme.colors.black};
-  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme, disabled }) =>
+    disabled ? theme.colors.lightGray : theme.colors.black};
+  color: ${({ theme, disabled }) => (disabled ? theme.colors.black : theme.colors.white)};
+  border: ${({ theme, disabled }) => (disabled ? `1px solid ${theme.colors.gray}` : 'none')};
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     width: 350px;
