@@ -10,7 +10,7 @@ const colors = {
   black: '#000000',
 
   error: '#ff0000',
-  pass: '#1dc143ee',
+  pass: '#0032fad2',
 
   footer: '#F2F2F2',
   footerTxt: '#767676',
