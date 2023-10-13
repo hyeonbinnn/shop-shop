@@ -29,7 +29,7 @@ export const useAuth = () => {
             'password',
             {
               type: 'loginError',
-              message: '※ 아이디 또는 비밀번호가 일치하지 않습니다.',
+              message: '아이디 또는 비밀번호가 일치하지 않습니다.',
             },
             { shouldFocus: true }
           );
@@ -79,7 +79,7 @@ export const useAuth = () => {
           reset();
           setError('password', {
             type: 'loginError',
-            message: '※ 아이디 또는 비밀번호가 일치하지 않습니다.',
+            message: '아이디 또는 비밀번호가 일치하지 않습니다.',
           });
         } else {
           return error.response.data;
@@ -131,7 +131,7 @@ export const useAuth = () => {
   // 판매자 회원가입 인증
   const sellerSignUp = async (data, phonenum, setError, reset, goToLogin) => {
     try {
-      await axiosInstance.post('/accounts/signup_seller/', {
+      await axiosInstance.post('accounts/signup_seller/', {
         username: data.userID,
         password: data.password,
         password2: data.password2,
@@ -149,7 +149,7 @@ export const useAuth = () => {
           reset();
           setError('password', {
             type: 'loginError',
-            message: '※ 아이디 또는 비밀번호가 일치하지 않습니다.',
+            message: '아이디 또는 비밀번호가 일치하지 않습니다.',
           });
         } else {
           return error.response.data;
@@ -234,11 +234,11 @@ export const useAuth = () => {
         setError(
           'userID',
           {
-            message: '※ 아이디를 입력해 주세요.',
+            message: '아이디를 입력해 주세요.',
           },
           { shouldFocus: true }
         );
-      } else if (error.response.data.FAIL_Message === '※ 이미 사용 중인 아이디입니다.') {
+      } else if (error.response.data.FAIL_Message === '이미 사용 중인 아이디입니다.') {
         setError(
           'userID',
           {
@@ -263,7 +263,7 @@ export const useAuth = () => {
         });
       }
     } catch (error) {
-      if (error.response.data.FAIL_Message === '※ 이미 등록된 사업자등록번호입니다.') {
+      if (error.response.data.FAIL_Message === '이미 등록된 사업자등록번호입니다.') {
         setError(
           'sellerCode',
           {
