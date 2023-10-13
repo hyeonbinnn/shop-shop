@@ -2,12 +2,16 @@ const colors = {
   primary: '#c769a4',
   secondary: '#5970f5',
   third: '#E0E0E0',
+
   text: '#333333',
   white: '#ffffff',
   gray: '#c9c9c9b8',
+  lightGray: '#f2f2f2',
   black: '#000000',
+
   error: '#ff0000',
   pass: '#1dc143ee',
+
   footer: '#F2F2F2',
   footerTxt: '#767676',
 };
