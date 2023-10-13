@@ -40,7 +40,8 @@ export const LoginTabList = styled.li`
   line-height: 22px;
   text-align: center;
   box-sizing: border-box;
-  background-color: ${(props) => (props.isSelected === true ? 'white' : '#f2f2f2')};
+  background-color: ${({ theme, isSelected }) =>
+    isSelected === true ? theme.colors.white : theme.colors.lightGray};
   cursor: pointer;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
