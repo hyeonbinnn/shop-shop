@@ -68,7 +68,7 @@ const LoginForm = () => {
             type="text"
             placeholder="아이디"
             {...register('id', {
-              required: '※ 아이디를 입력해 주세요.',
+              required: '아이디를 입력해 주세요.',
             })}
           />
           {errors.id && <p>{errors.id?.message}</p>}
@@ -80,7 +80,7 @@ const LoginForm = () => {
             id="password"
             placeholder="비밀번호"
             {...register('password', {
-              required: '※ 비밀번호를 입력해 주세요.',
+              required: '비밀번호를 입력해 주세요.',
             })}
           />
           {errors.password && <p>{errors.password?.message}</p>}

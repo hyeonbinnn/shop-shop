@@ -64,9 +64,8 @@ export const LoginForm = styled.form`
 
   p {
     color: ${({ theme }) => theme.colors.error};
-    margin-top: -7px;
+    margin-top: -10px;
     font-size: 13px;
-    margin-left: 8px;
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
@@ -81,14 +80,10 @@ export const Label = styled.label``;
 
 export const Input = styled.input`
   width: 100%;
-  padding: 20px 10px;
+  padding: 15px 5px;
   border: none;
   border-bottom: ${({ theme }) => `1px solid ${theme.colors.gray}`};
   font-weight: bold;
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    padding: 15px 10px;
-  }
 `;
 
 export const LoginButton = styled.button`
