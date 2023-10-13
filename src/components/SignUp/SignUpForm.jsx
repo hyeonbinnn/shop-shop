@@ -73,8 +73,10 @@ const SignUpForm = () => {
       </S.Main>
 
       <S.CheckBox>
-        <label />
-        <input />
+        <label htmlFor="check" className="a11y-hidden">
+          약관동의 체크박스
+        </label>
+        <input id="check" type="checkbox" />
         <span>
           SHOPSHOP <strong>이용약관</strong> 및 <strong>개인정보처리방침</strong>에 대한 내용을
           확인하였고 동의합니다.

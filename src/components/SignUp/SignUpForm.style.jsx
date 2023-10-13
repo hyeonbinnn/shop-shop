@@ -4,6 +4,10 @@ export const Container = styled.section`
   padding: 30px 20px;
   text-algin: center;
   background-color: ${({ theme }) => theme.colors.white};
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    padding: 30px 0px;
+  }
 `;
 
 export const Header = styled.header`
@@ -53,7 +57,7 @@ export const SignUpForm = styled.form`
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   padding: 40px;
   gap: 40px;
   border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
@@ -125,12 +129,16 @@ export const DoubleCheckBox = styled.div`
 export const Section = styled.section``;
 
 export const CheckBox = styled.div`
+  display: flex;
+  flex: row;
+  align-items: center;
+  justify-content: center;
   width: 600px;
   margin: 0 auto;
+  gap: 10px;
 
-  span {
-    strong {
-    }
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    width: 350px;
   }
 `;
 
@@ -138,7 +146,7 @@ export const SignUpButton = styled.button`
   display: block;
   width: 550px;
   padding: 18px 0px;
-  margin: 20px auto 70px;
+  margin: 30px auto 80px;
   border-radius: 5px;
   font-size: 17px;
   font-weight: bold;
