@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 import select from '../../assets/icons/icon-select.svg';
+import check_on from '../../assets/icons/icon-check-on.svg';
+import check_off from '../../assets/icons/icon-check-off.svg';
+import checkBoxEmpty from '../../assets/icons/icon-check-box.svg';
+import checkBoxFill from '../../assets/icons/icon-check-fill-box.svg';
 
 export const Container = styled.section`
   padding: 30px 20px;
@@ -100,6 +104,12 @@ export const Input = styled.input`
   border-radius: 5px;
   font-weight: bold;
   margin: 10px 0px 15px 0px;
+
+  &.user-password {
+    background: url(${(props) => (props.checked ? check_on : check_off)}) no-repeat right;
+    background-size: 28px 28px;
+    background-origin: content-box;
+  }
 `;
 
 export const DoubleCheckBox = styled.div`
@@ -178,10 +188,28 @@ export const CheckBox = styled.div`
   justify-content: center;
   width: 600px;
   margin: 0 auto;
-  gap: 10px;
+  gap: 12px;
+
+  input {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: url(${checkBoxEmpty}) center/contain no-repeat;
+    cursor: pointer;
+
+    &:checked {
+      background: url(${checkBoxFill}) center/contain no-repeat;
+    }
+  }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     width: 350px;
+    gap: 15px;
+
+    input {
+      width: 23px;
+      height: 23px;
+    }
   }
 `;
 

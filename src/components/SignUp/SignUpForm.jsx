@@ -131,6 +131,7 @@ const SignUpForm = () => {
             <S.Input
               id="userPW"
               type="password"
+              className="user-password"
               {...register('password', {
                 required: '비밀번호를 입력해 주세요.',
                 minLength: {
@@ -155,6 +156,7 @@ const SignUpForm = () => {
             <S.Input
               id="userPW2"
               type="password"
+              className="user-password"
               {...register('password2', {
                 required: '비밀번호가 일치하지 않습니다.',
               })}
@@ -257,10 +259,10 @@ const SignUpForm = () => {
       </S.Main>
 
       <S.CheckBox>
+        <input id="check" type="checkbox" {...register('checkBox')} />
         <label htmlFor="check" className="a11y-hidden">
           약관동의 체크박스
         </label>
-        <input id="check" type="checkbox" {...register('checkBox')} />
         <span>
           SHOPSHOP <strong>이용약관</strong> 및 <strong>개인정보처리방침</strong>에 대한 내용을
           확인하였고 동의합니다.
