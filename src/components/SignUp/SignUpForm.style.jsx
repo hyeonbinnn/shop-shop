@@ -4,83 +4,33 @@ import check_on from '../../assets/icons/icon-check-on.svg';
 import check_off from '../../assets/icons/icon-check-off.svg';
 import checkBoxEmpty from '../../assets/icons/icon-check-box.svg';
 import checkBoxFill from '../../assets/icons/icon-check-fill-box.svg';
+import {
+  CommonContainer,
+  CommonForm,
+  CommonHeader,
+  CommonMain,
+  CommonTabList,
+} from '../../styles/CommonStyle';
 
-export const Container = styled.section`
-  padding: 30px 20px;
-  text-algin: center;
-  background-color: ${({ theme }) => theme.colors.white};
+export const Container = styled(CommonContainer)``;
 
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    padding: 30px 0px;
-  }
-`;
+export const Header = styled(CommonHeader)``;
 
-export const Header = styled.header`
-  width: 350px;
-  margin: 30px auto;
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    width: 300px;
-  }
-`;
-
-export const Main = styled.main`
-  width: 600px;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    width: 400px;
-  }
-`;
+export const Main = styled(CommonMain)``;
 
 export const SignUpTab = styled.ul``;
 
-export const SignUpTabList = styled.li`
-  display: inline-block;
-  width: 50%;
-  padding: 20px;
-  border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
-  border-bottom: none;
-  border-radius: 10px 10px 0 0;
-  font-size: 17px;
-  font-weight: bold;
-  line-height: 22px;
-  text-align: center;
-  box-sizing: border-box;
-  background-color: ${({ theme, isSelected }) =>
-    isSelected === true ? theme.colors.white : theme.colors.lightGray};
-  cursor: pointer;
+export const SignUpTabList = styled(CommonTabList)``;
 
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    padding: 15px;
-    font-size: 15px;
-  }
-`;
-
-export const SignUpForm = styled.form`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 30px;
-  padding: 40px;
+export const SignUpForm = styled(CommonForm)`
   gap: 35px;
-  border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
-  border-top: none;
-  border-radius: 0 0 10px 10px;
-  box-sizing: border-box;
 
   p {
     margin: -7px 0px 15px 0px;
-    font-size: 13px;
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     padding: 40px 25px 30px 25px;
-    p {
-      margin-top: -9px;
-    }
   }
 `;
 
@@ -217,7 +167,7 @@ export const SignUpButton = styled.button`
   display: block;
   width: 550px;
   padding: 18px 0px;
-  margin: 30px auto 80px;
+  margin: 30px auto 60px;
   border-radius: 5px;
   font-size: 17px;
   font-weight: bold;
