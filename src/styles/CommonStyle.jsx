@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // LoginForm, SignUpForm 공통 스타일
 export const CommonContainer = styled.section`
@@ -71,6 +71,50 @@ export const CommonForm = styled.form`
   @media ${(props) => props.theme.mediaQuery.mobile} {
     p {
       margin-top: -9px;
+    }
+  }
+`;
+
+// Error404, ComingSoon 공통 스타일
+export const commonErrorContainer = css`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+`;
+
+export const commonErrorWrap = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    gap: 40px;
+  }
+`;
+
+export const commonErrorLogoBox = css`
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    font-weight: bold;
+    line-height: 30px;
+  }
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    width: 460px;
+
+    span {
+      line-height: 27px;
     }
   }
 `;
