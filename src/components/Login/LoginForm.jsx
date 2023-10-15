@@ -17,7 +17,7 @@ const LoginForm = () => {
     handleSubmit,
     setError,
     reset,
-  } = useForm({ mode: 'onBlur' });
+  } = useForm({ mode: 'onBlur', shouldUnregister: false });
 
   const goToHome = () => {
     navigate('/');
