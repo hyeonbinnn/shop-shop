@@ -32,7 +32,7 @@ const SignUpForm = () => {
     const phonenum = data.phonenum1 + data.phonenum2 + data.phonenum3;
 
     if (data.password !== data.password2) {
-      setError('password2', { message: '비밀번호가 일치하지 않습니다.' }, { shouldFocus: true });
+      setError('password2', { message: '비밀번호가 일치하지 않습니다.' });
     }
 
     if (isSelected) {
@@ -56,6 +56,7 @@ const SignUpForm = () => {
         message: '올바른 비밀번호입니다 :)',
       });
     } else {
+      setCheckedPW(false);
       setError('password', {
         message: '8~16자 영문 대소문자, 숫자, 특수문자를 사용하세요.',
       });
@@ -70,6 +71,9 @@ const SignUpForm = () => {
       setError('password2', {
         message: '비밀번호 확인 완료!',
       });
+    } else {
+      setCheckedPW2(false);
+      setError('password2', { message: '비밀번호가 일치하지 않습니다.' });
     }
   };
 
@@ -158,7 +162,7 @@ const SignUpForm = () => {
               type="password"
               className="user-password"
               {...register('password2', {
-                required: '비밀번호가 일치하지 않습니다.',
+                required: '비밀번호 재확인이 필요합니다.',
               })}
               onChange={onValidPW2}
               checked={checkedPW2}
