@@ -37,13 +37,11 @@ const Button = styled.button`
   bottom: 80px;
   right: 50px;
   z-index: 10;
-  border-radius: 60%;
-  background-color: ${({ theme }) => theme.colors.white};
 
   img {
     width: 45px;
     height: 45px;
-    opacity: 0.55;
+    opacity: 0.5;
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
