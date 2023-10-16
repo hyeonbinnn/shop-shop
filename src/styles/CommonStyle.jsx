@@ -94,14 +94,15 @@ export const commonErrorWrap = css`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  gap: 40px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    gap: 40px;
+    gap: 30px;
   }
 `;
 
 export const commonErrorLogoBox = css`
-  width: 800px;
+  width: 700px;
   display: flex;
   flex-direction: column;
 

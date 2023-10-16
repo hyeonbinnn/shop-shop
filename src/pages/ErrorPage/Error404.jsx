@@ -37,37 +37,34 @@ const Container = styled.div`
 `;
 
 const Wrap = styled.div`
-  gap: 70px;
   ${commonErrorWrap}
 `;
 
 const LogoBox = styled.div`
   ${commonErrorLogoBox}
-  gap: 10px;
+  gap: 5px;
 
   img {
-    margin-top: -30px;
+    margin-top: -40px;
   }
 
   strong {
-    font-size: 24px;
-    margin-bottom: 30px;
+    font-size: 23px;
+    margin-bottom: 20px;
   }
 
   span {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    width: 460px;
-
     strong {
-      font-size: 20px;
+      font-size: 18px;
       margin-bottom: 10px;
     }
 
     span {
-      font-size: 16px;
+      font-size: 15px;
     }
   }
 `;

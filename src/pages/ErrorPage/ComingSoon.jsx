@@ -35,7 +35,6 @@ const Container = styled.div`
 `;
 
 const Wrap = styled.div`
-  gap: 60px;
   ${commonErrorWrap}
 `;
 
@@ -43,12 +42,11 @@ const LogoBox = styled.div`
   ${commonErrorLogoBox}
 
   span {
-    font-size: 20px;
+    font-size: 18px;
+    margin-top: -15px;
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    width: 460px;
-
     span {
       font-size: 17px;
     }
