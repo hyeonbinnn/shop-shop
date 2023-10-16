@@ -1,7 +1,14 @@
 import styled from 'styled-components';
+import search from '../../../assets/icons/icon-search.svg';
+import cart from '../../../assets/icons/icon-cart.svg';
+import cart2 from '../../../assets/icons/icon-cart2.svg';
+import user from '../../../assets/icons/icon-user.svg';
+import user2 from '../../../assets/icons/icon-user2.svg';
 
 // Header 레이아웃
-export const HeaderWrap = styled.div`
+export const Container = styled.header`
+  display: flex;
+  justify-content: space-between;
   max-width: 1280px;
   margin: 20px auto;
   padding: 0px 30px;
@@ -11,16 +18,11 @@ export const HeaderWrap = styled.div`
   }
 `;
 
-export const Container = styled.header`
-  display: flex;
-  justify-content: space-between;
-`;
-
 // 로고, 검색바
 export const LogoSearchBox = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 13px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     flex-direction: column;
@@ -44,97 +46,118 @@ export const LogoImg = styled.img`
 
 // 검색창
 export const SearchBox = styled.div`
-  position: relative;
   margin-top: 70px;
 
-  input {
-    width: 300px;
-    height: 40px;
-    border: ${({ theme }) => `2px solid ${theme.colors.text}`};
-    border-radius: 30px;
-    padding: 10px 0px 10px 15px;
-  }
+  label {
+    position: relative;
 
-  img {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    right: 10px;
-    top: 20px;
-    transform: translateY(-50%);
-    cursor: pointer;
+    input {
+      width: 300px;
+      border: ${({ theme }) => `2px solid ${theme.colors.text}`};
+      border-radius: 30px;
+      padding: 12px 18px;
+      box-sizing: border-box;
+      font-size: 15px;
+
+      ::placeholder {
+        font-weight: bold;
+      }
+    }
+
+    button {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      right: 12px;
+      top: 9px;
+      transform: translateY(-50%);
+      background: url(${search}) center/contain no-repeat;
+      cursor: pointer;
+    }
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     margin-top: 0;
 
-    input {
-      width: 200px;
-      height: 30px;
-      font-size: 12px;
-      padding: 3px 0px 5px 15px;
-      margin-left: 13px;
-    }
+    label {
+      input {
+        width: 200px;
+        font-size: 13px;
+        padding: 8px 17px;
+        margin-left: 14px;
+      }
 
-    img {
-      width: 25px;
-      height: 25px;
-      position: absolute;
-      right: 25px;
-      top: 15px;
-      transform: translateY(-50%);
-      cursor: pointer;
+      button {
+        width: 25px;
+        height: 25px;
+        right: 9px;
+        top: 10px;
+      }
     }
   }
 `;
 
 // 장바구니, 로그인
-export const HeaderNav = styled.nav`
+export const MenuContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-right: 10px;
+  gap: 14px;
+  margin: 15px 20px 0px 0px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
+    gap: 10px;
     margin-top: 100px;
   }
 `;
 
-export const HeaderMenuList = styled.ul`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-`;
-
-export const List = styled.li``;
-
-export const ListBox = styled.div`
+export const MenuBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 5px;
 
-  img {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 5px;
+  button {
+    width: 32px;
+    height: 32px;
   }
 
   span {
+    font-size: 15px;
     font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
+    color: ${({ theme }) => theme.colors.footerTxt};
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    img {
-      width: 25px;
-      height: 25px;
-      margin-bottom: 3px;
+    gap: 3px;
+
+    button {
+      width: 28px;
+      height: 28px;
     }
 
     span {
-      font-weight: bold;
       font-size: 13px;
     }
   }
 `;
+
+export const UserBtn = styled.button`
+  background: ${(props) =>
+    props.modal === true
+      ? `url(${user2}) center/contain no-repeat `
+      : `url(${user}) center/contain no-repeat `};
+  :active {
+    background: url(${user2}) center/contain no-repeat;
+  }
+`;
+
+export const CartBtn = styled.button`
+  background: url(${cart}) center/contain no-repeat;
+  :active {
+    background: url(${cart2}) center/contain no-repeat;
+  }
+`;
+
+export const SellerBtn = styled.button``;
