@@ -22,7 +22,7 @@ export const LoginForm = styled(CommonForm)`
 
   p {
     color: ${({ theme }) => theme.colors.error};
-    margin-top: -10px;
+    margin-top: -11px;
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
@@ -34,10 +34,14 @@ export const Label = styled.label``;
 
 export const Input = styled.input`
   width: 100%;
-  padding: 15px 5px;
+  padding: 15px 10px;
   border: none;
   border-bottom: ${({ theme }) => `1px solid ${theme.colors.gray}`};
   font-weight: bold;
+
+  &:focus {
+    border-radius: 5px;
+  }
 `;
 
 export const LoginButton = styled.button`
