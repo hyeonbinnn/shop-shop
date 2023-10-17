@@ -10,10 +10,11 @@ const DropDown = () => {
 
   const userLogout = async () => {
     try {
-      await axiosInstance.post('accounts/logout');
+      await axiosInstance.post('accounts/logout/');
       removeCookie('token');
       removeCookie('loginType');
       navigate('/');
+      window.location.reload();
     } catch (error) {
       return error.response.data;
     }
@@ -30,7 +31,11 @@ const DropDown = () => {
 export default DropDown;
 
 const Menu = styled.ul`
+  position: absolute;
+  top: 70px;
+  left: -25px;
   width: 130px;
+  z-index: 11;
   padding: 10px;
   border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
   border-radius: 10px;
@@ -73,5 +78,29 @@ const Menu = styled.ul`
     transform: rotate(45deg);
     border-radius: 4px;
     z-index: -10;
+  }
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    top: 65px;
+    left: -18px;
+    width: 100px;
+    padding: 7px;
+
+    li {
+      margin-bottom: 6px;
+      padding: 7px;
+      font-size: 13px;
+    }
+
+    :before {
+      width: 15px;
+      height: 15px;
+      left: 43px;
+      top: -8px;
+      background-color: ${({ theme }) => theme.colors.white};
+      transform: rotate(45deg);
+      border-radius: 4px;
+      z-index: -10;
+    }
   }
 `;
