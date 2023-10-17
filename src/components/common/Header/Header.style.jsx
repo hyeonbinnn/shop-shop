@@ -4,6 +4,7 @@ import cart from '../../../assets/icons/icon-cart.svg';
 import cart2 from '../../../assets/icons/icon-cart2.svg';
 import user from '../../../assets/icons/icon-user.svg';
 import user2 from '../../../assets/icons/icon-user2.svg';
+import shoppingBag from '../../../assets/icons/icon-shopping-bag.svg';
 
 // Header 레이아웃
 export const Container = styled.header`
@@ -99,6 +100,7 @@ export const SearchBox = styled.div`
 
 // 장바구니, 로그인
 export const MenuContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -107,26 +109,32 @@ export const MenuContainer = styled.div`
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     gap: 10px;
-    margin-top: 100px;
+    margin: 100px 15px 0px 0px;
   }
 `;
 
 export const MenuBox = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   gap: 5px;
+  color: ${(props) =>
+    props.modal === true ? props.theme.colors.secondary : props.theme.colors.footerTxt};
 
   button {
     width: 32px;
     height: 32px;
+    :active + span {
+      color: ${({ theme }) => theme.colors.secondary};
+    }
   }
 
   span {
     font-size: 15px;
     font-weight: bold;
-    color: ${({ theme }) => theme.colors.footerTxt};
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
@@ -160,4 +168,39 @@ export const CartBtn = styled.button`
   }
 `;
 
-export const SellerBtn = styled.button``;
+export const SellerBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  padding: 12px 0;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.secondary};
+
+  ::before {
+    content: '';
+    margin-right: 8px;
+    height: 32px;
+    width: 32px;
+    background: url(${shoppingBag}) no-repeat center / 32px 32px;
+  }
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    flex-direction: column;
+    width: 90px;
+    padding: 9px 0px;
+    font-size: 13px;
+    gap: 5px;
+    margin-bottom: 3px;
+
+    ::before {
+      margin-right: 0px;
+      height: 27px;
+      width: 27px;
+      background: url(${shoppingBag}) no-repeat center / 27px 27px;
+    }
+  }
+`;

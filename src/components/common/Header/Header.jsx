@@ -16,7 +16,7 @@ const Header = () => {
   const [searchText, setSearchText] = useState('');
 
   const toggleMenu = () => {
-    setIsOpen(true);
+    setIsOpen(!isOpen);
   };
 
   const handleSearch = (e) => {
@@ -62,7 +62,7 @@ const Header = () => {
 
       {loginType === 'SELLER' ? (
         <S.MenuContainer>
-          <S.MenuBox modal={isOpen} width="56">
+          <S.MenuBox modal={isOpen}>
             <S.UserBtn onClick={toggleMenu} modal={isOpen} />
             <span>마이페이지</span>
             {isOpen && <DropDown />}
@@ -90,14 +90,14 @@ const Header = () => {
           )}
 
           {token ? (
-            <S.MenuBox modal={isOpen} width="56">
+            <S.MenuBox modal={isOpen}>
               <S.UserBtn onClick={toggleMenu} modal={isOpen} />
               <span>마이페이지</span>
               {isOpen && <DropDown />}
             </S.MenuBox>
           ) : (
             <Link to="/login">
-              <S.MenuBox width="56">
+              <S.MenuBox>
                 <S.UserBtn />
                 <span>로그인</span>
               </S.MenuBox>
