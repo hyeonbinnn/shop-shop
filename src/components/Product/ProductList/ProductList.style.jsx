@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // Product 레이아웃
-export const Product = styled.main`
+export const Container = styled.main`
   display: flex;
   justify-content: center;
   padding: 80px 50px;
@@ -33,7 +33,7 @@ export const ProductItem = styled.li`
 `;
 
 // 상품 이미지
-export const ProductBox = styled.div`
+export const ProductImg = styled.img`
   position: relative;
   width: 100%;
   aspect-ratio: 280/280;
@@ -44,12 +44,19 @@ export const ProductBox = styled.div`
   overflow: hidden;
 `;
 
-export const ProductImg = styled.img``;
+// 상품 가게 이름
+export const ProductStore = styled.span`
+  display: block;
+  margin: 15px 0px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.footerTxt};
+`;
 
 // 상품 이름
 export const ProductName = styled.strong`
   width: 338px;
-  margin: 20px 0 10px;
+  margin-bottom: 10px;
 `;
 
 // 좋아요 버튼
