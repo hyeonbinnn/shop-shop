@@ -32,7 +32,7 @@ const SignUpForm = () => {
     const phonenum = data.phonenum1 + data.phonenum2 + data.phonenum3;
 
     if (data.password !== data.password2) {
-      setError('password2', { message: '비밀번호가 일치하지 않습니다.' });
+      setError('password2', { message: '비밀번호가 일치하지 않습니다.' }, { shouldFocus: true });
     }
 
     if (isSelected) {
@@ -81,10 +81,6 @@ const SignUpForm = () => {
     const code = getValues('sellerCode');
     code.length === 10 && validSellerCode(code, setError);
   };
-
-  console.log('isValid:', isValid);
-  console.log('checkValid:', checkValid);
-  console.log('Errors:', errors);
 
   return (
     <S.Container>
