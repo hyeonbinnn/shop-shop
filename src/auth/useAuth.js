@@ -196,7 +196,7 @@ export const useAuth = () => {
 
         if (error.response.data.company_registration_number) {
           setError(
-            'phonenum2',
+            'sellerCode',
             {
               message: error.response.data.company_registration_number[0],
             },
