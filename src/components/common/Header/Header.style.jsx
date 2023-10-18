@@ -7,22 +7,27 @@ import user2 from '../../../assets/icons/icon-user2.svg';
 import shoppingBag from '../../../assets/icons/icon-shopping-bag.svg';
 
 // Header 레이아웃
-export const Container = styled.header`
+export const HeaderContainer = styled.header`
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+`;
+
+export const HeaderWrap = styled.div`
   display: flex;
   justify-content: space-between;
   max-width: 1280px;
-  margin: 20px auto;
-  padding: 0px 30px;
+  padding: 20px 30px;
+  margin: 0 auto;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    margin: 20px auto 30px;
+    padding: 20px 30px 30px 30px;
   }
 `;
 
 // 로고, 검색바
 export const LogoSearchBox = styled.div`
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 13px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
@@ -33,29 +38,20 @@ export const LogoSearchBox = styled.div`
 
 // 로고
 export const LogoBox = styled.div`
-  width: 300px;
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    width: 230px;
-  }
+  width: 230px;
 `;
 
-export const LogoImg = styled.img`
-  width: 100%;
-  height: 100%;
-`;
+export const LogoImg = styled.img``;
 
 // 검색창
 export const SearchBox = styled.div`
-  margin-top: 70px;
-
   label {
     position: relative;
 
     input {
       width: 300px;
       border: ${({ theme }) => `2px solid ${theme.colors.text}`};
-      border-radius: 30px;
+      border-radius: 10px;
       padding: 12px 18px;
       box-sizing: border-box;
       font-size: 15px;
@@ -85,7 +81,7 @@ export const SearchBox = styled.div`
         width: 200px;
         font-size: 13px;
         padding: 8px 17px;
-        margin-left: 14px;
+        margin-left: 5px;
       }
 
       button {
@@ -99,13 +95,13 @@ export const SearchBox = styled.div`
 `;
 
 // 장바구니, 로그인
-export const MenuContainer = styled.div`
+export const MenuWrap = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 14px;
-  margin: 15px 20px 0px 0px;
+  gap: 13px;
+  margin: 0px 20px 0px 0px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     gap: 10px;
@@ -125,15 +121,15 @@ export const MenuBox = styled.div`
     props.modal === true ? props.theme.colors.secondary : props.theme.colors.footerTxt};
 
   button {
-    width: 32px;
-    height: 32px;
+    width: 31px;
+    height: 31px;
     :active + span {
       color: ${({ theme }) => theme.colors.secondary};
     }
   }
 
   span {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
   }
 
@@ -175,7 +171,7 @@ export const SellerBtn = styled.button`
   width: 150px;
   padding: 12px 0;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.secondary};
