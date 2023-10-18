@@ -8,7 +8,7 @@ import { removeCookie } from '../../services/cookies';
 const DropDown = () => {
   const navigate = useNavigate();
 
-  const userLogout = async () => {
+  const logoutUser = async () => {
     try {
       await axiosInstance.post('accounts/logout/');
       removeCookie('token');
@@ -23,7 +23,7 @@ const DropDown = () => {
   return (
     <Menu>
       <li>마이페이지</li>
-      <li onClick={userLogout}>로그아웃</li>
+      <li onClick={logoutUser}>로그아웃</li>
     </Menu>
   );
 };
