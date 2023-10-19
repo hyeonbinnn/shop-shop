@@ -7,13 +7,11 @@ const colors = {
   white: '#ffffff',
   gray: '#c9c9c9b8',
   lightGray: '#f2f2f2',
+  lightGrayText: '#767676',
   black: '#000000',
 
   error: '#ff0000',
   pass: '#0032fad2',
-
-  footer: '#F2F2F2',
-  footerTxt: '#767676',
 };
 
 const mediaQuery = {

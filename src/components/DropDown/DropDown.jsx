@@ -33,7 +33,7 @@ export default DropDown;
 const Menu = styled.ul`
   position: absolute;
   top: 70px;
-  left: -25px;
+  left: -28px;
   width: 130px;
   z-index: 11;
   padding: 10px;
@@ -52,7 +52,7 @@ const Menu = styled.ul`
     border-radius: 5px;
     font-weight: bold;
     font-size: 15px;
-    color: ${({ theme }) => theme.colors.footerTxt};
+    color: ${({ theme }) => theme.colors.lightGrayText};
     background-color: ${({ theme }) => theme.colors.white};
     box-sizing: border-box;
     cursor: pointer;

@@ -5,7 +5,7 @@ export const Container = styled.main`
   display: flex;
   justify-content: center;
   padding: 80px 50px;
-  margin: 30px 0px;
+  margin: 0px 0px 30px 0px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     padding: 50px;
@@ -50,7 +50,7 @@ export const ProductStore = styled.span`
   margin: 15px 0px 10px;
   font-size: 14px;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.footerTxt};
+  color: ${({ theme }) => theme.colors.lightGrayText};
 `;
 
 // 상품 이름

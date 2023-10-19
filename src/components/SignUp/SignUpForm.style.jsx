@@ -43,7 +43,7 @@ export const Pass = styled.p`
 `;
 
 export const Label = styled.label`
-  color: ${({ theme }) => theme.colors.footerTxt};
+  color: ${({ theme }) => theme.colors.lightGrayText};
   font-weight: bold;
 `;
 

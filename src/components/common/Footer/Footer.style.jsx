@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 // Footer 레이아웃
 export const FooterWrap = styled.footer`
-  background-color: ${({ theme }) => theme.colors.footer};
+  background-color: ${({ theme }) => theme.colors.lightGray};
   padding: 0px 30px;
 `;
 
@@ -80,7 +80,7 @@ export const FooterBox = styled.div`
   margin: 0 auto;
   padding-top: 25px;
   padding-bottom: 50px;
-  color: ${({ theme }) => theme.colors.footerTxt};
+  color: ${({ theme }) => theme.colors.lightGrayText};
 
   strong {
     display: block;

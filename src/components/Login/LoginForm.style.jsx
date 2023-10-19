@@ -66,7 +66,7 @@ export const LinkBox = styled.div`
   gap: 10px;
 
   span {
-    color: ${({ theme }) => theme.colors.footerTxt};
+    color: ${({ theme }) => theme.colors.lightGrayText};
     font-weight: bold;
     font-size: 15px;
   }

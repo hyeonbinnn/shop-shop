@@ -51,7 +51,7 @@ export const SearchBox = styled.div`
     input {
       width: 300px;
       border: ${({ theme }) => `2px solid ${theme.colors.text}`};
-      border-radius: 10px;
+      border-radius: 30px;
       padding: 12px 18px;
       box-sizing: border-box;
       font-size: 15px;
@@ -118,7 +118,7 @@ export const MenuBox = styled.div`
   text-align: center;
   gap: 5px;
   color: ${(props) =>
-    props.modal === true ? props.theme.colors.secondary : props.theme.colors.footerTxt};
+    props.modal === true ? props.theme.colors.secondary : props.theme.colors.lightGrayText};
 
   button {
     width: 31px;
