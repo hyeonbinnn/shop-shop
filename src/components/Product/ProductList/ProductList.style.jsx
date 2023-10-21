@@ -47,8 +47,8 @@ export const ProductImg = styled.img`
 // 상품 가게 이름
 export const ProductStore = styled.span`
   display: block;
-  margin: 15px 0px 10px;
-  font-size: 14px;
+  margin: 15px 0px 12px;
+  font-size: 15px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.lightGrayText};
 `;
@@ -72,12 +72,12 @@ export const ProductPrice = styled.div`
   align-items: center;
 
   strong {
-    font-weight: 700;
+    font-weight: bold;
     font-size: 24px;
     line-height: 30px;
 
     span {
-      font-weight: 400;
+      font-weight: bold;
       font-size: 16px;
       line-height: 20px;
       margin-left: 2px;
