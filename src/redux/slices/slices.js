@@ -12,13 +12,22 @@ export const productSlice = createSlice({
     setProducts: (state, action) => {
       state.products = action.payload;
     },
-    getProduct: (state, action) => {
+  },
+});
+
+export const { setProducts } = productSlice.actions;
+
+export const productDetailSlice = createSlice({
+  name: 'productsDetail',
+  initialState,
+  reducers: {
+    getProducts: (state, action) => {
       state.products = action.payload;
     },
   },
 });
 
-export const { setProducts, getProduct } = productSlice.actions;
+export const { getProducts } = productDetailSlice.actions;
 
 export const cartSlice = createSlice({
   name: 'carts',
