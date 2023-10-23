@@ -8,7 +8,7 @@ export const Container = styled.main`
   margin: 0px 0px 30px 0px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    padding: 50px;
+    padding: 50px 40px;
     margin: 10px 0px;
   }
 `;
@@ -17,7 +17,7 @@ export const Container = styled.main`
 export const ProductList = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 60px;
+  gap: 70px;
   margin: 0px auto;
   padding: 0px 30px;
   width: 1280px;
@@ -47,7 +47,7 @@ export const ProductImg = styled.img`
 // 상품 가게 이름
 export const ProductStore = styled.span`
   display: block;
-  margin: 15px 0px 12px;
+  margin: 15px 0px 10px;
   font-size: 15px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.lightGrayText};
@@ -56,6 +56,7 @@ export const ProductStore = styled.span`
 // 상품 이름
 export const ProductName = styled.strong`
   width: 338px;
+  font-size: 20px;
   margin-bottom: 10px;
 `;
 
@@ -70,14 +71,13 @@ export const LikeBtn = styled.button`
 export const ProductPrice = styled.div`
   display: flex;
   align-items: center;
+  font-weight: bold;
 
   strong {
-    font-weight: bold;
-    font-size: 24px;
+    font-size: 25px;
     line-height: 30px;
 
     span {
-      font-weight: bold;
       font-size: 16px;
       line-height: 20px;
       margin-left: 2px;

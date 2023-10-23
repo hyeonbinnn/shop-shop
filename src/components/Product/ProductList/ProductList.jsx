@@ -43,7 +43,7 @@ const ProductList = () => {
               <S.LikeBtn className="like-btn"></S.LikeBtn>
               <S.ProductPrice>
                 <strong>
-                  {item.price}
+                  {item.price.toLocaleString()}
                   <span>원</span>
                 </strong>
               </S.ProductPrice>
