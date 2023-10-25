@@ -25,6 +25,10 @@ export const Fieldset = styled.fieldset`
     font-weight: 400;
     line-height: 23px;
   }
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    padding: 25px 0;
+  }
 `;
 
 export const MinusButton = styled.button`
