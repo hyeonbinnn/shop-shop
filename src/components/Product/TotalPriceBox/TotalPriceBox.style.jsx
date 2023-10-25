@@ -4,8 +4,7 @@ export const Section = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  width: 630px;
-  padding: 32px 0 22px;
+  padding: 32px 0px 25px;
   white-space: nowrap;
 `;
 
@@ -19,7 +18,6 @@ export const TotalPrice = styled.div`
   color: ${({ theme }) => theme.colors.secondary};
   font-size: 36px;
   font-weight: bold;
-  line-height: 45px;
 
   span {
     font-size: 18px;
@@ -42,5 +40,48 @@ export const TotalQuantity = styled.span`
     top: -3px;
     margin: 0px 12px;
     color: ${({ theme }) => theme.colors.lightGrayText};
+  }
+`;
+
+export const SpanUnit = styled.span`
+  margin-left: 5px;
+`;
+
+export const SoldOutButton = styled.button``;
+
+export const ButtonBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: bold;
+`;
+
+export const BuyButton = styled.button`
+  width: calc(60% - 5px);
+  background-color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.white};
+  padding: 20px 10px;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+
+  :disabled {
+    background-color: ${({ theme }) => theme.colors.gray};
+  }
+`;
+
+export const CartButton = styled.button`
+  width: calc(40% - 5px);
+  background-color: ${({ theme }) => theme.colors.gray};
+  color: ${({ theme }) => theme.colors.black};
+  padding: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+
+  :disabled {
+    background-color: ${({ theme }) => theme.colors.gray};
   }
 `;
