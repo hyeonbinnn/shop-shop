@@ -13,7 +13,7 @@ export const Main = styled.main`
 export const Container = styled.section`
   display: flex;
   margin-bottom: 100px;
-  gap: 70px;
+  gap: 60px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     flex-direction: column;
@@ -26,7 +26,7 @@ export const Container = styled.section`
 export const H1 = styled.h1``;
 
 export const DetailBox = styled.div`
-  width: 780px;
+  width: 680px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     width: 400px;
@@ -34,8 +34,8 @@ export const DetailBox = styled.div`
 `;
 
 export const ProductImg = styled.img`
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 600px;
   border: ${({ theme }) => `1px solid ${theme.colors.third}`};
   border-radius: 10px;
   object-fit: cover;
@@ -47,7 +47,7 @@ export const ProductImg = styled.img`
 `;
 
 export const ProductStore = styled.span`
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.lightGrayText};
 
@@ -95,15 +95,18 @@ export const ProductPrice = styled.div`
 
 export const Shipping = styled.p`
   color: ${({ theme }) => theme.colors.lightGrayText};
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
-  margin: 150px 0px 20px 0px;
+  margin: 160px 0px 20px 0px;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    margin-top: 60px;
+  }
 `;
 
 export const ProductInfo = styled.section`
   display: flex;
   align-items: center;
-  box-sizing: border-box;
 
   label {
     display: inline-block;
@@ -130,5 +133,10 @@ export const ProductInfo = styled.section`
   }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
+    label {
+      font-size: 18px;
+      margin-bottom: 300px;
+      padding: 17px 0 16px;
+    }
   }
 `;

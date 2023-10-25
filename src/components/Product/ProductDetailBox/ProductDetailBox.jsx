@@ -11,7 +11,7 @@ const ProductDetailBox = ({ product_id, loading }) => {
   const detail = useSelector((state) => state.productsDetail.products);
   const price = detail.price;
   const stock = detail.stock;
-  const totalPrice = orderNum + price;
+  const totalPrice = orderNum * price;
 
   const minusStock = () => {
     if (orderNum === 1) {
