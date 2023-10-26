@@ -33,7 +33,10 @@ const ProductList = () => {
           products.map((item) => (
             <S.ProductItem
               key={item.product_id}
-              onClick={() => navigate(`/productDetail/${item.product_id}`)}
+              onClick={() => {
+                window.scrollTo(0, 0);
+                navigate(`/productDetail/${item.product_id}`, { replace: true });
+              }}
             >
               <S.ProductImg src={item.image} alt={item.product_name} />
               <S.ProductStore>{item.store_name}</S.ProductStore>
