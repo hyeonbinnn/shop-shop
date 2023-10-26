@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import * as S from './TotalPriceBox.style';
+import * as S from './TotalPrice.style';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getCookie } from '../../../services/cookies';
 import { getCartList, postAddCart } from '../../../api/cart';
 import Modal from '../../common/Modal/Modal';
 
-const TotalPriceBox = ({ detail, quantity, totalPrice, loginType }) => {
+const TotalPrice = ({ detail, quantity, totalPrice, loginType }) => {
   const navigate = useNavigate();
   const { product_id } = useParams();
   const token = getCookie('token');
@@ -52,7 +52,7 @@ const TotalPriceBox = ({ detail, quantity, totalPrice, loginType }) => {
     getCartList(token);
   }, [token]);
 
-  const isCart = cart?.filter((i) => i.product_id === parseInt(product_id));
+  const isCart = cart?.filter((i) => i.product_id === product_id);
 
   return (
     <>
@@ -92,4 +92,4 @@ const TotalPriceBox = ({ detail, quantity, totalPrice, loginType }) => {
   );
 };
 
-export default TotalPriceBox;
+export default TotalPrice;

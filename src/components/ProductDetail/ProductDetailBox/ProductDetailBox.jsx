@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import * as S from './DetailBox.style';
+import * as S from './ProductDetailBox.style';
 import { getCookie } from '../../../services/cookies';
 import QuantityButton from '../QuantityButton/QuantityButton';
 
-const DetailBox = ({ loading }) => {
+const ProductDetailBox = ({ loading }) => {
   const [orderNum, setOrderNum] = useState(1);
   const loginType = getCookie('loginType');
 
@@ -84,4 +84,4 @@ const DetailBox = ({ loading }) => {
   );
 };
 
-export default DetailBox;
+export default ProductDetailBox;

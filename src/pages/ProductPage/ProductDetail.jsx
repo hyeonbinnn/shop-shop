@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Loading from '../../components/common/Loading/Loading';
 import Header from './../../components/common/Header/Header';
 import Footer from './../../components/common/Footer/Footer';
-import DetailBox from '../../components/ProductDetail/DetailBox/DetailBox';
+import ProductDetailBox from '../..//components/ProductDetail/ProductDetailBox/ProductDetailBox';
 import { getDetailProduct } from '../../api/product';
 import { getProducts } from '../../redux/slices/slices';
 
@@ -24,7 +24,7 @@ const ProductDetail = () => {
     <>
       {loading && <Loading />}
       <Header />
-      <DetailBox productId={product_id} loading={loading} />
+      <ProductDetailBox productId={product_id} loading={loading} />
       <Footer />
     </>
   );
