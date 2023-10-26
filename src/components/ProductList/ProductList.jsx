@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import * as S from './ProductList.style';
-import { getAllProduct } from '../../../api/product';
-import { setProducts } from '../../../redux/slices/slices';
-import Loading from '../../common/Loading/Loading';
+import { getAllProduct } from '../../api/product';
+import { setProducts } from '../../redux/slices/slices';
+import Loading from '../common/Loading/Loading';
 
 const ProductList = () => {
   const dispatch = useDispatch();
