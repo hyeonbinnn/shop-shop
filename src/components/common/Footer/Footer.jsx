@@ -7,7 +7,7 @@ import youtube from '../../../assets/icons/icon-youtube.svg';
 const Footer = () => {
   return (
     <S.FooterWrap>
-      <S.FooterSection>
+      <S.FooterBox1>
         <S.FooterMenuList>
           <S.List>
             <button>숍숍소개</button>
@@ -58,13 +58,13 @@ const Footer = () => {
             </S.SocialList>
           ))}
         </S.FooterSocialList>
-      </S.FooterSection>
-      <S.FooterBox>
+      </S.FooterBox1>
+      <S.FooterBox2>
         <strong>(주) SHOP SHOP</strong>
         <span>서울특별시 가나구 다나동 아자로 2 카타빌딩 3층</span>
         <span>사업자 번호 : 000-0000-0000 | 통신판매업</span>
         <span>대표 : 김쇼핑</span>
-      </S.FooterBox>
+      </S.FooterBox2>
     </S.FooterWrap>
   );
 };

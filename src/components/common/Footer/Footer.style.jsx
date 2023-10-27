@@ -3,17 +3,21 @@ import styled from 'styled-components';
 // Footer 레이아웃
 export const FooterWrap = styled.footer`
   background-color: ${({ theme }) => theme.colors.lightGray};
-  padding: 0px 30px;
+  padding: 50px 50px;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    padding: 50px 30px;
+  }
 `;
 
 // Footer 상단
-export const FooterSection = styled.section`
+export const FooterBox1 = styled.div`
   max-width: 1280px;
   position: relative;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 50px 0px 25px 0px;
+  padding-bottom: 25px;
 
   &::after {
     content: '';
@@ -28,7 +32,6 @@ export const FooterSection = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 30px;
 
     &::after {
       display: none;
@@ -75,11 +78,10 @@ export const SocialList = styled.li`
 export const SocialLink = styled.a``;
 
 // Footer 하단
-export const FooterBox = styled.div`
+export const FooterBox2 = styled.div`
   max-width: 1280px;
   margin: 0 auto;
   padding-top: 25px;
-  padding-bottom: 50px;
   color: ${({ theme }) => theme.colors.lightGrayText};
 
   strong {
