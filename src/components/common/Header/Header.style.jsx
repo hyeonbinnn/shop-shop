@@ -9,18 +9,19 @@ import shoppingBag from '../../../assets/icons/icon-shopping-bag.svg';
 // Header 레이아웃
 export const HeaderContainer = styled.header`
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-`;
-
-export const HeaderWrap = styled.div`
-  display: flex;
-  justify-content: space-between;
-  max-width: 1280px;
-  padding: 20px 30px;
-  margin: 0 auto;
+  padding: 20px 50px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     padding: 20px 30px 30px 30px;
   }
+`;
+
+export const HeaderWrap = styled.div`
+  display: flex;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  justify-content: space-between;
 `;
 
 // 로고, 검색바
@@ -78,10 +79,10 @@ export const SearchBox = styled.div`
 
     label {
       input {
-        width: 200px;
+        width: 250px;
         font-size: 13px;
         padding: 8px 17px;
-        margin-left: 5px;
+        margin-left: 10px;
       }
 
       button {
@@ -101,11 +102,11 @@ export const MenuWrap = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 13px;
-  margin: 0px 20px 0px 0px;
+  margin-right: 10px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     gap: 10px;
-    margin: 100px 15px 0px 0px;
+    margin: 100px 5px 0px 0px;
   }
 `;
 
