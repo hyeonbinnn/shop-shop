@@ -19,11 +19,9 @@ export const ProductList = styled.ul`
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 70px;
   margin: 0px auto;
-  padding: 0px 30px;
   width: 1280px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    padding: 0px;
   }
 `;
 
