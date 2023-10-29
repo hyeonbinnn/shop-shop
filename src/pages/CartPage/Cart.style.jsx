@@ -11,10 +11,22 @@ export const CartSection = styled.section`
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     padding: 30px;
+  }
+`;
 
-    h1 {
-      font-size: 28px;
-      margin-bottom: 40px;
-    }
+export const BuyButton = styled.button`
+  width: 220px;
+  margin: 20px 0px 150px 0px;
+  padding: 18px 0;
+  border-radius: 5px;
+  background-color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.white};
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 30px;
+
+  :disabled {
+    background-color: ${({ theme }) => theme.colors.lightGray};
+    color: ${({ theme }) => theme.colors.black};
   }
 `;

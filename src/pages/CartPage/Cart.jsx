@@ -128,9 +128,9 @@ const Cart = () => {
           <CartItemEmpty />
         )}
         <TotalPrice totalPrice={totalPrice} totalFee={totalFee} totalPay={totalPay} />
-        <button onClick={goToPayment} disabled={checkedArr.length === 0}>
+        <S.BuyButton onClick={goToPayment} disabled={checkedArr.length === 0}>
           주문하기
-        </button>
+        </S.BuyButton>
       </S.CartSection>
       <Footer />
     </>
