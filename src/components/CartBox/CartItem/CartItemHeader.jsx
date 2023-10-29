@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CartItemHeader = () => {
+const CartItemHeader = ({ checkedAllHandler }) => {
   return (
     <Container>
-      <input id="allCheckBox" type="checkbox" />
+      <input
+        id="allCheckBox"
+        type="checkbox"
+        onChange={(e) => checkedAllHandler(e.target.checked)}
+      />
       <span>상품정보</span>
-      <span>수량</span>
+      <Quantity>수량</Quantity>
       <span>상품금액</span>
     </Container>
   );
@@ -18,7 +22,7 @@ const Container = styled.div`
   max-width: 1280px;
   display: flex;
   justify-content: space-between;
-  padding: 18px 130px 18px 40px;
+  padding: 19px 140px 19px 30px;
   margin: 30px auto;
   background-color: ${({ theme }) => theme.colors.lightGray};
   border-radius: 10px;
@@ -50,25 +54,8 @@ const Container = styled.div`
       }
     }
   }
+`;
 
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    padding: 17px 50px 17px 30px;
-
-    span {
-      font-size: 16px;
-      line-height: 16px;
-    }
-
-    input[type='checkbox'] {
-      width: 18px;
-      height: 18px;
-
-      &:checked {
-        ::after {
-          width: 14px;
-          height: 14px;
-        }
-      }
-    }
-  }
+export const Quantity = styled.span`
+  margin: 0 -50px 0 50px;
 `;
