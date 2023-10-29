@@ -6,6 +6,7 @@ export const Section = styled.section`
   align-items: flex-end;
   padding: 32px 0px 25px;
   white-space: nowrap;
+  border-top: ${({ theme }) => `3px solid ${theme.colors.gray}`};
 `;
 
 export const TotalInfo = styled.span`

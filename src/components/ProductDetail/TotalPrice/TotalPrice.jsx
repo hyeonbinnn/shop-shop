@@ -15,7 +15,9 @@ const TotalPrice = ({ detail, quantity, totalPrice, loginType }) => {
   const [cart, setCart] = useState([]);
 
   const addCart = () => {
-    postAddCart(token, product_id, quantity).then(navigate('/cart'));
+    postAddCart(token, product_id, quantity).then(() => {
+      navigate('/cart');
+    });
   };
 
   const goToPayment = () => {
