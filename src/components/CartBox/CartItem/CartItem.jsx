@@ -106,18 +106,21 @@ const CartItem = ({
           onChange={(e) => checkedItemHandler(e.target.checked, cartItem, cartItem.product_id)}
           disabled={soldOut}
         />
-        <img
-          src={cartItem.image}
-          alt={cartItem.product_name}
-          onClick={() => navigate(`/productDetail/${product_id}`)}
-        />
-        <S.DeleteButton onClick={openDelModal} />
-        <S.ItemInfo>
-          <span>{cartItem.store_name}</span>
-          <strong>{cartItem.product_name}</strong>
-          <span>{cartItem.price?.toLocaleString()}원</span>
-          <span>{shipping(cartItem.shipping_method, cartItem.shipping_fee)}</span>
-        </S.ItemInfo>
+
+        <S.ItemInfoBox>
+          <img
+            src={cartItem.image}
+            alt={cartItem.product_name}
+            onClick={() => navigate(`/productDetail/${product_id}`)}
+          />
+          <S.ItemInfo>
+            <span>{cartItem.store_name}</span>
+            <strong>{cartItem.product_name}</strong>
+            <span>{cartItem.price?.toLocaleString()}원</span>
+            <p>{shipping(cartItem.shipping_method, cartItem.shipping_fee)}</p>
+          </S.ItemInfo>
+        </S.ItemInfoBox>
+
         <QuantityButton
           orderNum={orderNum}
           minusStock={minusStock}
@@ -125,11 +128,13 @@ const CartItem = ({
           loginType={loginType}
           soldOut={soldOut}
         />
+
         <S.ItemPrice>
-          <span>{(cartItem.price * quantity)?.toLocaleString()}원</span>
-          <button onClick={goToPayment} disabled={soldOut}>
+          <p>{(cartItem.price * quantity)?.toLocaleString()}원</p>
+          <S.BuyButton onClick={goToPayment} disabled={soldOut}>
             {soldOut ? '품절' : '주문하기'}
-          </button>
+          </S.BuyButton>
+          <S.DeleteButton onClick={openDelModal} />
         </S.ItemPrice>
       </S.ItemContainer>
 
