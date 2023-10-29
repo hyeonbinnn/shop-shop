@@ -97,7 +97,9 @@ export const Shipping = styled.p`
   color: ${({ theme }) => theme.colors.lightGrayText};
   font-size: 16px;
   font-weight: bold;
-  margin: 160px 0px 20px 0px;
+  margin-top: 160px;
+  padding-bottom: 20px;
+  border-bottom: ${({ theme }) => `3px solid ${theme.colors.gray}`};
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     margin-top: 60px;

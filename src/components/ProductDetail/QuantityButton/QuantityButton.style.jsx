@@ -6,9 +6,7 @@ export const Fieldset = styled.fieldset`
   display: flex;
   padding: 30px 0;
   text-align: center;
-  border: ${({ theme }) => `3px solid ${theme.colors.gray}`};
-  border-left: none;
-  border-right: none;
+  border: none;
 
   span,
   button {
@@ -22,7 +20,7 @@ export const Fieldset = styled.fieldset`
     padding-top: 13px;
     border: ${({ theme }) => `2px solid ${theme.colors.gray}`};
     font-size: 18px;
-    font-weight: 400;
+    font-weight: bold;
     line-height: 23px;
   }
 
