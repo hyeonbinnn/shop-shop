@@ -20,7 +20,6 @@ export const HeaderWrap = styled.div`
   display: flex;
   max-width: 1280px;
   margin: 0 auto;
-
   justify-content: space-between;
 `;
 
@@ -159,10 +158,15 @@ export const UserBtn = styled.button`
 `;
 
 export const CartBtn = styled.button`
-  background: url(${cart}) center/contain no-repeat;
+  background: url(${(props) => (props.active ? cart2 : cart)}) center/contain no-repeat;
   :active {
     background: url(${cart2}) center/contain no-repeat;
   }
+`;
+
+export const CartSpan = styled.span`
+  color: ${(props) =>
+    props.active ? props.theme.colors.secondary : props.theme.colors.lightGrayText};
 `;
 
 export const SellerBtn = styled.button`

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { getSearchProduct } from '../../../api/product';
 import { getCookie } from '../../../services/cookies';
 import * as S from './Header.style';
@@ -11,6 +11,7 @@ const Header = () => {
   const loginType = getCookie('loginType');
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [isOpen, setIsOpen] = useState(false);
   const [searchText, setSearchText] = useState('');
@@ -33,6 +34,49 @@ const Header = () => {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       onClickSearch();
+    }
+  };
+
+  const renderCartAndLogin = () => {
+    if (token) {
+      return (
+        <Link to="/cart">
+          <S.MenuBox>
+            <S.CartBtn active={location.pathname === '/cart'} />
+            <S.CartSpan active={location.pathname === '/cart'}>장바구니</S.CartSpan>
+          </S.MenuBox>
+        </Link>
+      );
+    } else {
+      return (
+        <Link to="/login">
+          <S.MenuBox>
+            <S.CartBtn />
+            <span>장바구니</span>
+          </S.MenuBox>
+        </Link>
+      );
+    }
+  };
+
+  const renderUserAndLogin = () => {
+    if (token) {
+      return (
+        <S.MenuBox modal={isOpen}>
+          <S.UserBtn onClick={toggleMenu} modal={isOpen} />
+          <span>마이페이지</span>
+          {isOpen && <DropDown />}
+        </S.MenuBox>
+      );
+    } else {
+      return (
+        <Link to="/login">
+          <S.MenuBox>
+            <S.UserBtn />
+            <span>로그인</span>
+          </S.MenuBox>
+        </Link>
+      );
     }
   };
 
@@ -74,36 +118,8 @@ const Header = () => {
           </S.MenuWrap>
         ) : (
           <S.MenuWrap>
-            {token ? (
-              <Link to="/cart">
-                <S.MenuBox>
-                  <S.CartBtn />
-                  <span>장바구니</span>
-                </S.MenuBox>
-              </Link>
-            ) : (
-              <Link to="/login">
-                <S.MenuBox>
-                  <S.CartBtn />
-                  <span>장바구니</span>
-                </S.MenuBox>
-              </Link>
-            )}
-
-            {token ? (
-              <S.MenuBox modal={isOpen}>
-                <S.UserBtn onClick={toggleMenu} modal={isOpen} />
-                <span>마이페이지</span>
-                {isOpen && <DropDown />}
-              </S.MenuBox>
-            ) : (
-              <Link to="/login">
-                <S.MenuBox>
-                  <S.UserBtn />
-                  <span>로그인</span>
-                </S.MenuBox>
-              </Link>
-            )}
+            {renderCartAndLogin()}
+            {renderUserAndLogin()}
           </S.MenuWrap>
         )}
       </S.HeaderWrap>
