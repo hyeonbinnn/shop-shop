@@ -121,13 +121,15 @@ const CartItem = ({
           </S.ItemInfo>
         </S.ItemInfoBox>
 
-        <QuantityButton
-          orderNum={orderNum}
-          minusStock={minusStock}
-          plusStock={plusStock}
-          loginType={loginType}
-          soldOut={soldOut}
-        />
+        <S.Custom>
+          <QuantityButton
+            orderNum={orderNum}
+            minusStock={minusStock}
+            plusStock={plusStock}
+            loginType={loginType}
+            soldOut={soldOut}
+          />
+        </S.Custom>
 
         <S.ItemPrice>
           <p>{(cartItem.price * quantity)?.toLocaleString()}원</p>

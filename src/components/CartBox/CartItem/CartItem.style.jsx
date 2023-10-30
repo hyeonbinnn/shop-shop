@@ -50,10 +50,12 @@ export const ItemInfoBox = styled.div`
     object-fit: cover;
     border-radius: 10px;
     cursor: pointer;
+    border: ${({ theme }) => `1px solid ${theme.colors.third}`};
   }
 `;
 
 export const ItemInfo = styled.div`
+  width: 280px;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -114,4 +116,8 @@ export const DeleteButton = styled.button`
   width: 22px;
   height: 22px;
   background: url(${deleteIcon}) no-repeat;
+`;
+
+export const Custom = styled.div`
+  margin: 0px 30px 0px -30px;
 `;
