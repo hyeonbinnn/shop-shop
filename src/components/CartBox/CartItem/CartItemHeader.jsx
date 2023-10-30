@@ -57,5 +57,5 @@ const Container = styled.div`
 `;
 
 export const Quantity = styled.span`
-  margin: 0 -50px 0 50px;
+  margin: 0 -75px 0 75px;
 `;
