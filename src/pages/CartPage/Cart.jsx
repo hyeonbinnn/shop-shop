@@ -21,7 +21,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const token = getCookie('token');
 
-  const [loading, setLoading] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [checkedArr, setCheckedArr] = useState([]);
 
   let cartArr = [];
@@ -29,11 +29,15 @@ const Cart = () => {
   const carts = useSelector((state) => state.carts.carts);
 
   useEffect(() => {
-    getCartList(token).then((res) => {
-      dispatch(setCarts(res.results));
-      setLoading(false);
-    });
-    setLoading(true);
+    getCartList(token)
+      .then((res) => {
+        dispatch(setCarts(res.results));
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('데이터 불러오는 중 에러 발생', error);
+        setLoading(false);
+      });
   }, [dispatch, token]);
 
   const getData = () => {

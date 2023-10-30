@@ -14,10 +14,15 @@ const ProductDetail = () => {
   const { product_id } = useParams();
 
   useEffect(() => {
-    getDetailProduct(product_id).then((response) => {
-      dispatch(getProducts(response));
-      setLoading(false);
-    });
+    getDetailProduct(product_id)
+      .then((response) => {
+        dispatch(getProducts(response));
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log('상품 정보를 불러오는 중 에러 발생', error);
+        setLoading(false);
+      });
   }, [product_id, dispatch]);
 
   return (

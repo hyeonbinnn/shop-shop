@@ -9,7 +9,7 @@ import Loading from '../common/Loading/Loading';
 const ProductList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getAllProduct()
