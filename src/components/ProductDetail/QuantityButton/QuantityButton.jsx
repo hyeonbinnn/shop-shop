@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import TotalPrice from '../TotalPrice/TotalPrice';
+import TotalPriceBox from '../TotalPriceBox/TotalPriceBox';
 import * as S from './QuantityButton.style';
 
 const QuantityButton = ({
@@ -23,7 +23,7 @@ const QuantityButton = ({
         <S.PlusButton onClick={() => loginType === 'BUYER' && plusStock()} disabled={soldOut} />
       </S.Fieldset>
       {pathname === '/cart' ? null : (
-        <TotalPrice
+        <TotalPriceBox
           detail={detail}
           quantity={orderNum}
           totalPrice={totalPrice}

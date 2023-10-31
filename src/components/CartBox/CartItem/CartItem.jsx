@@ -58,13 +58,13 @@ const CartItem = ({
     if (orderNum === 1) {
       alert('최수 주문 수량은 1개입니다.');
     } else if (cartItem.stock > 1 && orderNum > 0) {
-      setOrderNum(parseInt(orderNum - 1));
+      setOrderNum(orderNum - 1);
     }
   };
 
   const plusStock = () => {
     if (cartItem.stock > orderNum) {
-      setOrderNum(parseInt(orderNum + 1));
+      setOrderNum(orderNum + 1);
     }
   };
 
@@ -124,8 +124,8 @@ const CartItem = ({
         <S.Custom>
           <QuantityButton
             orderNum={orderNum}
-            minusStock={minusStock}
-            plusStock={plusStock}
+            minusStock={openQuantityModal}
+            plusStock={openQuantityModal}
             loginType={loginType}
             soldOut={soldOut}
           />
@@ -143,7 +143,7 @@ const CartItem = ({
       {delModal && (
         <Modal
           option="delete"
-          cartId="cart_item_id"
+          cartId={cart_item_id}
           openModal={openDelModal}
           closeModal={closeDelModal}
         />
