@@ -19,6 +19,7 @@ export const useAuth = () => {
         setCookie('loginType', loginType);
       }
 
+      alert('환영합니다!');
       goToHome();
     } catch (error) {
       if (error) {
