@@ -8,6 +8,7 @@ import Payment from './../pages/PaymentPage/Payment';
 import ProductDetail from './../pages/ProductPage/ProductDetail';
 import Error404 from './../pages/ErrorPage/Error404';
 import ComingSoon from './../pages/ErrorPage/ComingSoon';
+import SellerCenter from './../pages/SellerCenter/SellerCenter';
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/productDetail/:product_id" element={<ProductDetail />} />
+        <Route path="/sellerCenter" element={<SellerCenter />} />
         <Route path="*" element={<Error404 />} />
         <Route path="/ComingSoon" element={<ComingSoon />} />
       </Routes>
