@@ -19,7 +19,11 @@ const SellerHeader = () => {
 
 export default SellerHeader;
 
-const SellerHeaderContainer = styled(HeaderContainer)``;
+const SellerHeaderContainer = styled(HeaderContainer)`
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    padding: 20px 30px;
+  }
+`;
 
 const SellerHeaderWrap = styled(HeaderWrap)`
   justify-content: flex-start;
