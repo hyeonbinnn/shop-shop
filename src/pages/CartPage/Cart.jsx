@@ -40,10 +40,11 @@ const Cart = () => {
       });
   }, [dispatch, token]);
 
-  const getData = () => {
-    const result = Promise.all(
-      carts.map((el) => {
-        return getDetailProduct(el.product_id);
+  const getData = async () => {
+    const result = await Promise.all(
+      carts.map(async (el) => {
+        const detail = await getDetailProduct(el.product_id);
+        return detail;
       })
     );
     return result;
@@ -56,6 +57,9 @@ const Cart = () => {
       setCheckedArr(checkedArr.filter((i) => i.product_id !== id));
     }
 
+    console.log('체크 상태 변경:', checked, '상품 정보:', item);
+    console.log('업데이트된 checkedArr:', checkedArr);
+
     const allCheckBox = document.getElementById('allCheckBox');
     if (allCheckBox.checked && !checked) {
       allCheckBox.checked = false;
@@ -64,13 +68,15 @@ const Cart = () => {
     }
   };
 
-  const checkedAllHandler = (checked) => {
+  const checkedAllHandler = async (checked) => {
     if (checked) {
-      getData().then((arr) => {
+      try {
+        const arr = await getData();
         setCheckedArr(arr.filter((i) => i.stock !== 0));
-      });
-
-      console.log(checkedArr);
+        console.log(checkedArr);
+      } catch (error) {
+        console.log('데이터 가져오는 중 에러 발생', error);
+      }
     } else {
       setCheckedArr([]);
     }
