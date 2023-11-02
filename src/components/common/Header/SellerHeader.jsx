@@ -35,6 +35,6 @@ const LogoImg = styled.img`
   width: 230px;
 `;
 
-const LogoTitle = styled.h2`
+const LogoTitle = styled.h1`
   font-size: 28px;
 `;
