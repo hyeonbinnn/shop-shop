@@ -12,10 +12,10 @@ export const Main = styled.main`
 export const Container = styled.div`
   max-width: 1280px;
   margin: 0 auto;
-  /* padding: 0px 20px; */
+  padding: 0px 20px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    padding: 0px;
+    padding: 0px 10px;
   }
 `;
 
@@ -105,25 +105,25 @@ export const ItemHeader = styled.ul`
     font-size: 17px;
     font-weight: bold;
     padding: 15px 10px;
-  }
 
-  li:first-child {
-    margin-left: 120px;
-    margin-right: -120px;
-  }
+    :first-child {
+      margin-left: 120px;
+      margin-right: -120px;
+    }
 
-  li:nth-child(2) {
-    margin-left: 250px;
-    margin-right: -250px;
-  }
+    :nth-child(2) {
+      margin-left: 250px;
+      margin-right: -250px;
+    }
 
-  li:nth-child(3) {
-    margin-left: 180px;
-    margin-right: -180px;
-  }
+    :nth-child(3) {
+      margin-left: 180px;
+      margin-right: -180px;
+    }
 
-  li:last-child {
-    margin-left: 40px;
-    margin-right: -40px;
+    :last-child {
+      margin-left: 40px;
+      margin-right: -40px;
+    }
   }
 `;
