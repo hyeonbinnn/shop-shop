@@ -12,6 +12,7 @@ const colors = {
 
   error: '#ff0000',
   pass: '#0032fad2',
+  notice: '#FFEFE8',
 };
 
 const mediaQuery = {
