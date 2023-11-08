@@ -112,8 +112,8 @@ export const ItemHeader = styled.ul`
     }
 
     :nth-child(2) {
-      margin-left: 250px;
-      margin-right: -250px;
+      margin-left: 245px;
+      margin-right: -245px;
     }
 
     :nth-child(3) {

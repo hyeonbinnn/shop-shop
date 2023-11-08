@@ -23,6 +23,8 @@ export const ProductImg = styled.img`
   height: 70px;
   width: 70px;
   border-radius: 50%;
+  margin-right: 20px;
+  margin-left: -20px;
 `;
 
 export const ProductInfo = styled.div`
