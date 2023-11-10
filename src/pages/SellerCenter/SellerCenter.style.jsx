@@ -3,6 +3,10 @@ import plus from '../../assets/icons/icon-plus.svg';
 
 export const Main = styled.main`
   padding: 40px 50px;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    padding: 40px 30px;
+  }
 `;
 
 export const Container = styled.div`
