@@ -25,6 +25,7 @@ export const ProductImg = styled.img`
   border-radius: 50%;
   margin-right: 20px;
   margin-left: -20px;
+  cursor: pointer;
 `;
 
 export const ProductInfo = styled.div`
@@ -36,6 +37,7 @@ export const ProductInfo = styled.div`
 
   strong {
     font-size: 18px;
+    cursor: pointer;
   }
 
   span {

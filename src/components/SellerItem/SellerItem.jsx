@@ -38,11 +38,18 @@ const SellerItem = ({
     setDelModal(false);
   };
 
+  const goToProductDetail = () => {
+    window.scrollTo(0, 0);
+    navigate(`/productDetail/${product_id}`, { replace: true });
+  };
+
   return (
     <S.ItemBox>
-      <S.ProductImg src={image} alt={product_name} />
+      <S.ProductImg src={image} alt={product_name} key={product_id} onClick={goToProductDetail} />
       <S.ProductInfo>
-        <strong>{product_name}</strong>
+        <strong key={product_id} onClick={goToProductDetail}>
+          {product_name}
+        </strong>
         <span>재고 : {stock}개</span>
       </S.ProductInfo>
       <S.ProductPrice>{price.toLocaleString()}원</S.ProductPrice>
