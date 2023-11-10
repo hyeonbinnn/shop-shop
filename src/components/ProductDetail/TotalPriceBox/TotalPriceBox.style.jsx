@@ -84,5 +84,6 @@ export const CartButton = styled.button`
 
   :disabled {
     background-color: ${({ theme }) => theme.colors.gray};
+    color: ${({ theme }) => theme.colors.white};
   }
 `;

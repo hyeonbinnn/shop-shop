@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Main = styled.main`
-  max-width: 1280px;
-  margin: 0 auto;
+  /* max-width: 1280px; */
+
   padding: 100px 50px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
@@ -11,6 +11,8 @@ export const Main = styled.main`
 `;
 
 export const Container = styled.section`
+  max-width: 1280px;
+  margin: 0 auto;
   display: flex;
   margin-bottom: 100px;
   gap: 60px;
@@ -109,6 +111,8 @@ export const Shipping = styled.p`
 export const ProductInfo = styled.section`
   display: flex;
   align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
 
   label {
     display: inline-block;
