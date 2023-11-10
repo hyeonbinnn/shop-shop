@@ -2,10 +2,6 @@ import styled from 'styled-components';
 
 export const Main = styled.main`
   padding: 40px 50px;
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    padding: 30px;
-  }
 `;
 
 export const Container = styled.div`

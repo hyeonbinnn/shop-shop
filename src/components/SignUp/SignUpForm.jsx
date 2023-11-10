@@ -219,7 +219,7 @@ const SignUpForm = () => {
 
           {!isSelected && (
             <S.Section>
-              <S.Label htmlFor="sellerCode">사업자 등록번호</S.Label>
+              <S.Label htmlFor="sellerCode">사업자등록번호</S.Label>
               <S.DoubleCheckBox>
                 <S.Input
                   id="sellerCode"
@@ -238,7 +238,7 @@ const SignUpForm = () => {
                 </button>
               </S.DoubleCheckBox>
               {errors.sellerCode &&
-              errors.sellerCode.message === '사용 가능한 사업자 등록번호입니다.' ? (
+              errors.sellerCode.message === '사용 가능한 사업자등록번호입니다.' ? (
                 <S.Pass>{errors.sellerCode?.message}</S.Pass>
               ) : (
                 <S.Error>{errors.sellerCode?.message}</S.Error>

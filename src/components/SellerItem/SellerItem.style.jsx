@@ -54,13 +54,13 @@ export const ProductPrice = styled.strong`
 export const EditButton = styled.button`
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.secondary};
-  margin-left: 30px;
-  margin-right: -30px;
+  margin-left: 32px;
+  margin-right: -32px;
 `;
 
 export const DeleteButton = styled.button`
   border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
   background-color: ${({ theme }) => theme.colors.white};
-  margin-right: 28px;
-  margin-left: -28px;
+  margin-right: 24px;
+  margin-left: -24px;
 `;

@@ -3,20 +3,12 @@ import plus from '../../assets/icons/icon-plus.svg';
 
 export const Main = styled.main`
   padding: 40px 50px;
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    padding: 30px;
-  }
 `;
 
 export const Container = styled.div`
-  max-width: 1280px;
+  width: 1280px;
   margin: 0 auto;
   padding: 0px 20px;
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-    padding: 0px 10px;
-  }
 `;
 
 export const TitleBox = styled.div`
@@ -64,7 +56,7 @@ export const ContentBox = styled.div`
 export const Menu = styled.ul`
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 260px;
 
   li {
     text-align: left;
@@ -88,7 +80,7 @@ export const Menu = styled.ul`
 `;
 
 export const ProductBox = styled.div`
-  width: 80%;
+  width: 990px;
   border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
   background-color: ${({ theme }) => theme.colors.lightGray};
   border-radius: 5px;
