@@ -7,8 +7,58 @@ import * as S from './ProductUpload.style';
 import SellerHeader from './../../components/common/Header/SellerHeader';
 
 const ProductUpload = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const imageInput = useRef();
+  const token = getCookie('token');
+  const itemData = location.state;
+
   const [inputText, setInputText] = useState('');
-  const [previewImg, setPreviewImg] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
+  const [uploadImage, setUploadImage] = useState(null);
+  const [isSelected, setIsSelected] = useState(true);
+
+  const {
+    register,
+    formState: { errors, isValid },
+    handleSubmit,
+  } = useForm({ mode: 'onBlur', defaultValues: itemData });
+
+  const checkedMethod = () => {
+    setIsSelected(!isSelected);
+  };
+
+  const handleInputChange = (e) => {
+    setInputText(e.target.value);
+  };
+
+  const handleImage = () => {
+    imageInput.current.click();
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      setPreviewImage(reader.result);
+    };
+    setUploadImage(file);
+  };
+
+  const onSubmit = handleSubmit((data) => {
+    data.image = uploadImage;
+    !itemData
+      ? postCreateProduct(token, data).then((res) => navigate(`products/${data.product_id}`))
+      : putEditProduct(token, data).then(() => navigate('/sellerCenter'));
+  });
+
+  useEffect(() => {
+    if (itemData?.image) {
+      setPreviewImage(itemData.image);
+      setUploadImage(itemData.image);
+    }
+  }, [setPreviewImage, itemData?.image]);
 
   return (
     <>
@@ -33,55 +83,113 @@ const ProductUpload = () => {
                 </ul>
               </div>
             </S.TextBox>
-            <S.ContentBox>
+            <S.ContentBox onSubmit={onSubmit}>
               <S.TopSection>
                 <S.Image>
-                  <label htmlFor="iamge">상품 이미지</label>
-                  <S.ImageInputBox previewImg={previewImg}>
-                    <input type="file" accept=".jpg, .jpeg, .png, .svg" id="image" />
-                    <button type="button" />
+                  <label htmlFor="image">상품 이미지</label>
+                  <S.ImageInputBox previewImg={previewImage}>
+                    <input
+                      type="file"
+                      accept=".jpg, .jpeg, .png, .svg"
+                      id="image"
+                      {...register('image')}
+                      ref={imageInput}
+                      onChange={handleImageChange}
+                    />
+                    <button type="button" onClick={handleImage} />
                   </S.ImageInputBox>
                 </S.Image>
 
                 <S.Info>
                   <label htmlFor="product_name">상품명</label>
                   <S.NameInputBox>
-                    <input type="text" id="product_name" maxLength="20" />
+                    <S.Input
+                      type="text"
+                      id="product_name"
+                      maxLength="20"
+                      isError={errors.product_name}
+                      {...register('product_name')}
+                      onChange={handleInputChange}
+                    />
                     <span>{inputText.length} / 20</span>
                   </S.NameInputBox>
 
-                  <label htmlFor="">판매가</label>
+                  <label htmlFor="price">판매가</label>
                   <S.InputBox>
-                    <input type="text" />
-                    <span>원</span>
+                    <S.Input
+                      type="text"
+                      id="price"
+                      isError={errors.price}
+                      {...register('price', { pattern: /^[1-9]\d*$/ })}
+                    />
+                    <S.Span isError={errors.price}>원</S.Span>
                   </S.InputBox>
 
-                  <S.ShippingSpan>배송방법</S.ShippingSpan>
+                  <S.ShippingTitle>배송방법</S.ShippingTitle>
                   <S.ShippingBox>
-                    <button>택배,소포,등기</button>
-                    <button>직접배송(화물배달)</button>
+                    <button
+                      type="button"
+                      name="shipping_method"
+                      id="shipping_method"
+                      value="PARCEL"
+                      isSelected={isSelected}
+                      onClick={() => checkedMethod()}
+                      {...register('shipping_method')}
+                    >
+                      택배,소포,등기
+                    </button>
+                    <button
+                      type="button"
+                      name="shipping_method"
+                      id="shipping_method"
+                      value="DELIVERY"
+                      isSelected={!isSelected}
+                      onClick={() => checkedMethod()}
+                      {...register('shipping_method')}
+                    >
+                      직접배송(화물배달)
+                    </button>
                   </S.ShippingBox>
 
-                  <label htmlFor="">기본 배송비</label>
+                  <label htmlFor="shipping_fee">기본 배송비</label>
                   <S.InputBox>
-                    <input type="text" />
-                    <span>원</span>
+                    <S.Input
+                      type="text"
+                      id="shipping_fee"
+                      isError={errors.shipping_fee}
+                      {...register('shipping_fee', { pattern: /^[1-9]\d*$/ })}
+                    />
+                    <S.Span isError={errors.shipping_fee}>원</S.Span>
                   </S.InputBox>
 
-                  <label htmlFor="">재고</label>
+                  <label htmlFor="stock">재고</label>
                   <S.InputBox>
-                    <input type="text" />
-                    <span>개</span>
+                    <S.Input
+                      type="text"
+                      id="stock"
+                      isError={errors.stock}
+                      {...register('stock', {
+                        pattern: /^[1-9]\d*$/,
+                      })}
+                    />
+                    <S.Span isError={errors.stock}>개</S.Span>
                   </S.InputBox>
                 </S.Info>
               </S.TopSection>
               <S.BottomSection>
                 <label htmlFor="product_info">상품 상세 정보</label>
-                <input type="text" id='"product_info"' />
+                <input
+                  type="text"
+                  id="product_info"
+                  isError={errors.product_info}
+                  {...register('product_info')}
+                />
               </S.BottomSection>
               <S.ButtonBox>
-                <button>취소</button>
-                <button>저장하기</button>
+                <button onClick={() => navigate('/sellerCenter')}>취소</button>
+                <button disabled={!isValid || !uploadImage} onClick={onSubmit}>
+                  저장
+                </button>
               </S.ButtonBox>
             </S.ContentBox>
           </S.Section>

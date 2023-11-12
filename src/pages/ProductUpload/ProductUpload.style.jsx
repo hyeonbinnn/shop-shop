@@ -27,6 +27,10 @@ export const Title = styled.h1`
 export const Section = styled.section`
   display: flex;
   gap: 80px;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    gap: 40px;
+  }
 `;
 
 export const TextBox = styled.div`
@@ -81,9 +85,14 @@ export const ContentBox = styled.form`
   }
 
   input {
+    font-size: 15px;
     :focus {
       outline: none;
     }
+  }
+
+  span {
+    font-size: 15px;
   }
 `;
 
@@ -91,6 +100,10 @@ export const TopSection = styled.section`
   display: flex;
   justify-content: space-between;
   gap: 40px;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    flex-direction: column;
+  }
 `;
 
 export const Image = styled.div``;
@@ -104,12 +117,15 @@ export const ImageInputBox = styled.div`
   background: ${({ previewImg, theme }) =>
     previewImg ? `url(${preview}) no-repeat center / cover` : theme.colors.gray};
   border-radius: 5px;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    width: 100%;
+  }
 `;
 
 export const Info = styled.div`
   div {
     margin-bottom: 10px;
-
     :last-child {
       margin-bottom: 0px;
     }
@@ -118,16 +134,8 @@ export const Info = styled.div`
 
 export const InputBox = styled.div`
   display: flex;
-  width: 200px;
-  height: 50px;
-  border: ${({ theme }) => `2px solid ${theme.colors.gray}`};
-  background-color: ${({ theme }) => theme.colors.white};
-  border-radius: 5px;
-  font-size: 14px;
 
   input {
-    width: 100%;
-    border-radius: 5px 0 0 5px;
     padding: 0px 10px;
   }
 
@@ -137,30 +145,62 @@ export const InputBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: ${({ theme }) => theme.colors.gray};
     color: ${({ theme }) => theme.colors.white};
+    border-radius: 0 5px 5px 0;
   }
 `;
 
+export const Input = styled.input`
+  width: 145px;
+  height: 50px;
+  background-color: ${({ theme }) => theme.colors.white};
+  border: ${(props) =>
+    props.isError
+      ? `1px solid ${props.theme.colors.error}`
+      : `1px solid ${props.theme.colors.gray}`};
+  border-radius: 5px 0 0 5px;
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    width: 100%;
+  }
+`;
+
+export const Span = styled.span`
+  background-color: ${(props) =>
+    props.isError ? props.theme.colors.error : props.theme.colors.gray};
+  border: ${(props) =>
+    props.isError
+      ? `1px solid ${props.theme.colors.error}`
+      : `1px solid ${props.theme.colors.gray}`};
+`;
+
 export const NameInputBox = styled(InputBox)`
-  min-width: 430px;
   display: flex;
+  position: relative;
   justify-content: space-between;
 
   input {
-    width: 100%;
+    width: 400px;
+    border-radius: 5px;
   }
 
   span {
     width: 70px;
+    position: absolute;
+    top: 15px;
+    right: 0px;
     background-color: transparent;
-    padding: 0 5px;
     color: ${({ theme }) => theme.colors.gray};
+  }
+
+  @media ${(props) => props.theme.mediaQuery.mobile} {
+    input {
+      width: 100%;
+    }
   }
 `;
 
-export const ShippingSpan = styled.span`
-  display: block;
+export const ShippingTitle = styled.p`
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -171,23 +211,20 @@ export const ShippingBox = styled.div`
   display: flex;
 
   button {
-    width: 200px;
+    flex: 1;
     height: 50px;
     padding: 10px;
+    font-size: 15px;
     font-weight: bold;
     border-radius: 5px;
+    border: ${(props) => (props.isSelected ? 'none' : `1px solid ${props.theme.colors.gray}`)};
+    color: ${(props) =>
+      props.isSelected ? props.theme.colors.white : props.theme.colors.lightGrayText};
+    background-color: ${(props) =>
+      props.isSelected ? props.theme.colors.secondary : props.theme.colors.white};
 
-    :first-child {
+    &:first-child {
       margin-right: 10px;
-      background-color: ${({ theme }) => theme.colors.secondary};
-      color: ${({ theme }) => theme.colors.white};
-      border: ${({ theme }) => `2px solid ${theme.colors.secondary}`};
-    }
-
-    :last-child {
-      background-color: ${({ theme }) => theme.colors.white};
-      color: ${({ theme }) => theme.colors.lightGrayText};
-      border: ${({ theme }) => `2px solid ${theme.colors.gray}`};
     }
   }
 `;
@@ -198,27 +235,38 @@ export const BottomSection = styled.section`
     height: 700px;
     background-color: ${({ theme }) => theme.colors.lightGray};
     border-radius: 5px;
-    border: ${({ theme }) => `2px solid ${theme.colors.gray}`};
+    border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
     padding: 20px;
   }
 `;
 
-export const ButtonBox = styled(ShippingBox)`
+export const ButtonBox = styled.div`
+  display: flex;
   justify-content: flex-end;
 
   button {
+    width: 200px;
+    height: 50px;
+    padding: 10px;
     font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
 
-    :first-child {
+    &:first-child {
+      margin-right: 10px;
       background-color: ${({ theme }) => theme.colors.white};
       color: ${({ theme }) => theme.colors.lightGrayText};
-      border: ${({ theme }) => `2px solid ${theme.colors.gray}`};
+      border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
     }
 
-    :last-child {
+    &:last-child {
       background-color: ${({ theme }) => theme.colors.secondary};
       color: ${({ theme }) => theme.colors.white};
-      border: ${({ theme }) => `2px solid ${theme.colors.secondary}`};
+
+      &:disabled {
+        background-color: ${({ theme }) => theme.colors.gray};
+        border: none;
+      }
     }
   }
 `;
