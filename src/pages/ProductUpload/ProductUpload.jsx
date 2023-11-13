@@ -17,6 +17,8 @@ const ProductUpload = () => {
   const [previewImage, setPreviewImage] = useState(null);
   const [uploadImage, setUploadImage] = useState(null);
   const [isSelected, setIsSelected] = useState(true);
+  const [price, setPrice] = useState('');
+  const [shipping, setShipping] = useState('');
 
   const {
     register,
@@ -44,6 +46,16 @@ const ProductUpload = () => {
       setPreviewImage(reader.result);
     };
     setUploadImage(file);
+  };
+
+  const handlePriceChange = (e) => {
+    const priceValue = e.target.value.replace(/[^0-9]/g, '');
+    setPrice(priceValue === '' ? '' : Number(priceValue));
+  };
+
+  const handleShippingChange = (e) => {
+    const shippingValue = e.target.value.replace(/[^0-9]/g, '');
+    setShipping(shippingValue === '' ? '' : Number(shippingValue));
   };
 
   const onSubmit = handleSubmit((data) => {
@@ -87,10 +99,10 @@ const ProductUpload = () => {
               <S.TopSection>
                 <S.Image>
                   <label htmlFor="image">상품 이미지</label>
-                  <S.ImageInputBox previewImg={previewImage}>
+                  <S.ImageInputBox previewImage={previewImage}>
                     <input
                       type="file"
-                      accept=".jpg, .jpeg, .png, .svg"
+                      accept="image/"
                       id="image"
                       {...register('image')}
                       ref={imageInput}
@@ -119,8 +131,8 @@ const ProductUpload = () => {
                     <S.Input
                       type="text"
                       id="price"
-                      isError={errors.price}
-                      {...register('price', { pattern: /^[1-9]\d*$/ })}
+                      value={price.toLocaleString()}
+                      onChange={handlePriceChange}
                     />
                     <S.Span isError={errors.price}>원</S.Span>
                   </S.InputBox>
@@ -156,8 +168,8 @@ const ProductUpload = () => {
                     <S.Input
                       type="text"
                       id="shipping_fee"
-                      isError={errors.shipping_fee}
-                      {...register('shipping_fee', { pattern: /^[1-9]\d*$/ })}
+                      value={shipping.toLocaleString()}
+                      onChange={handleShippingChange}
                     />
                     <S.Span isError={errors.shipping_fee}>원</S.Span>
                   </S.InputBox>

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import preview from '../../assets/icons/icon-preview.png';
+import previewImageIcon from '../../assets/icons/icon-preview.png';
 
 export const Main = styled.main`
   padding: 40px 50px;
@@ -109,14 +109,26 @@ export const TopSection = styled.section`
 export const Image = styled.div``;
 
 export const ImageInputBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 410px;
   height: 410px;
-  background: ${({ previewImg, theme }) =>
-    previewImg ? `url(${preview}) no-repeat center / cover` : theme.colors.gray};
   border-radius: 5px;
+  background: ${(props) =>
+    props.previewImage
+      ? `url(${props.previewImage}) no-repeat center / cover`
+      : props.theme.colors.gray};
+
+  input {
+    display: none;
+  }
+
+  button {
+    position: relative;
+    top: 44%;
+    left: 45%;
+    width: 50px;
+    height: 50px;
+    background: url(${previewImageIcon}) no-repeat center / contain;
+  }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
     width: 100%;
