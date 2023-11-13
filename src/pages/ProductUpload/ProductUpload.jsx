@@ -17,8 +17,6 @@ const ProductUpload = () => {
   const [previewImage, setPreviewImage] = useState(null);
   const [uploadImage, setUploadImage] = useState(null);
   const [isSelected, setIsSelected] = useState(true);
-  const [price, setPrice] = useState('');
-  const [shipping, setShipping] = useState('');
 
   const {
     register,
@@ -48,20 +46,12 @@ const ProductUpload = () => {
     setUploadImage(file);
   };
 
-  const handlePriceChange = (e) => {
-    const priceValue = e.target.value.replace(/[^0-9]/g, '');
-    setPrice(priceValue === '' ? '' : Number(priceValue));
-  };
-
-  const handleShippingChange = (e) => {
-    const shippingValue = e.target.value.replace(/[^0-9]/g, '');
-    setShipping(shippingValue === '' ? '' : Number(shippingValue));
-  };
-
   const onSubmit = handleSubmit((data) => {
     data.image = uploadImage;
     !itemData
-      ? postCreateProduct(token, data).then((res) => navigate(`products/${data.product_id}`))
+      ? postCreateProduct(token, data).then((res) =>
+          navigate(`/productDetail/${res.data.product_id}`)
+        )
       : putEditProduct(token, data).then(() => navigate('/sellerCenter'));
   });
 
@@ -97,9 +87,9 @@ const ProductUpload = () => {
             </S.TextBox>
             <S.ContentBox onSubmit={onSubmit}>
               <S.TopSection>
-                <S.Image>
+                <S.ImageWrap>
                   <label htmlFor="image">상품 이미지</label>
-                  <S.ImageInputBox previewImage={previewImage}>
+                  <S.ImageBox previewImage={previewImage}>
                     <input
                       type="file"
                       accept="image/"
@@ -109,12 +99,12 @@ const ProductUpload = () => {
                       onChange={handleImageChange}
                     />
                     <button type="button" onClick={handleImage} />
-                  </S.ImageInputBox>
-                </S.Image>
+                  </S.ImageBox>
+                </S.ImageWrap>
 
-                <S.Info>
+                <S.InfoWrap>
                   <label htmlFor="product_name">상품명</label>
-                  <S.NameInputBox>
+                  <S.NameBox>
                     <S.Input
                       type="text"
                       id="product_name"
@@ -124,22 +114,24 @@ const ProductUpload = () => {
                       onChange={handleInputChange}
                     />
                     <span>{inputText.length} / 20</span>
-                  </S.NameInputBox>
+                  </S.NameBox>
 
                   <label htmlFor="price">판매가</label>
                   <S.InputBox>
                     <S.Input
                       type="text"
                       id="price"
-                      value={price.toLocaleString()}
-                      onChange={handlePriceChange}
+                      isError={errors.price}
+                      {...register('price', {
+                        pattern: /^[1-9]\d*$/,
+                      })}
                     />
                     <S.Span isError={errors.price}>원</S.Span>
                   </S.InputBox>
 
                   <S.ShippingTitle>배송방법</S.ShippingTitle>
                   <S.ShippingBox>
-                    <button
+                    <S.ShippingBtn
                       type="button"
                       name="shipping_method"
                       id="shipping_method"
@@ -149,8 +141,8 @@ const ProductUpload = () => {
                       {...register('shipping_method')}
                     >
                       택배,소포,등기
-                    </button>
-                    <button
+                    </S.ShippingBtn>
+                    <S.ShippingBtn
                       type="button"
                       name="shipping_method"
                       id="shipping_method"
@@ -160,7 +152,7 @@ const ProductUpload = () => {
                       {...register('shipping_method')}
                     >
                       직접배송(화물배달)
-                    </button>
+                    </S.ShippingBtn>
                   </S.ShippingBox>
 
                   <label htmlFor="shipping_fee">기본 배송비</label>
@@ -168,8 +160,10 @@ const ProductUpload = () => {
                     <S.Input
                       type="text"
                       id="shipping_fee"
-                      value={shipping.toLocaleString()}
-                      onChange={handleShippingChange}
+                      isError={errors.shipping_fee}
+                      {...register('shipping_fee', {
+                        pattern: /^[0-9]\d*$/,
+                      })}
                     />
                     <S.Span isError={errors.shipping_fee}>원</S.Span>
                   </S.InputBox>
@@ -186,11 +180,11 @@ const ProductUpload = () => {
                     />
                     <S.Span isError={errors.stock}>개</S.Span>
                   </S.InputBox>
-                </S.Info>
+                </S.InfoWrap>
               </S.TopSection>
               <S.BottomSection>
                 <label htmlFor="product_info">상품 상세 정보</label>
-                <input
+                <textarea
                   type="text"
                   id="product_info"
                   isError={errors.product_info}

@@ -86,9 +86,7 @@ export const ContentBox = styled.form`
 
   input {
     font-size: 15px;
-    :focus {
-      outline: none;
-    }
+    outline: none;
   }
 
   span {
@@ -106,9 +104,9 @@ export const TopSection = styled.section`
   }
 `;
 
-export const Image = styled.div``;
+export const ImageWrap = styled.div``;
 
-export const ImageInputBox = styled.div`
+export const ImageBox = styled.div`
   width: 410px;
   height: 410px;
   border-radius: 5px;
@@ -135,7 +133,7 @@ export const ImageInputBox = styled.div`
   }
 `;
 
-export const Info = styled.div`
+export const InfoWrap = styled.div`
   div {
     margin-bottom: 10px;
     :last-child {
@@ -186,7 +184,7 @@ export const Span = styled.span`
       : `1px solid ${props.theme.colors.gray}`};
 `;
 
-export const NameInputBox = styled(InputBox)`
+export const NameBox = styled(InputBox)`
   display: flex;
   position: relative;
   justify-content: space-between;
@@ -229,11 +227,6 @@ export const ShippingBox = styled.div`
     font-size: 15px;
     font-weight: bold;
     border-radius: 5px;
-    border: ${(props) => (props.isSelected ? 'none' : `1px solid ${props.theme.colors.gray}`)};
-    color: ${(props) =>
-      props.isSelected ? props.theme.colors.white : props.theme.colors.lightGrayText};
-    background-color: ${(props) =>
-      props.isSelected ? props.theme.colors.secondary : props.theme.colors.white};
 
     &:first-child {
       margin-right: 10px;
@@ -241,14 +234,25 @@ export const ShippingBox = styled.div`
   }
 `;
 
+export const ShippingBtn = styled.button`
+  border: ${(props) => (props.isSelected ? 'none' : `1px solid ${props.theme.colors.gray}`)};
+  color: ${(props) =>
+    props.isSelected ? props.theme.colors.white : props.theme.colors.lightGrayText};
+  background-color: ${(props) =>
+    props.isSelected ? props.theme.colors.secondary : props.theme.colors.white};
+`;
+
 export const BottomSection = styled.section`
-  input {
+  textarea {
     width: 100%;
     height: 700px;
     background-color: ${({ theme }) => theme.colors.lightGray};
     border-radius: 5px;
     border: ${({ theme }) => `1px solid ${theme.colors.gray}`};
     padding: 20px;
+    outline: none;
+    resize: none;
+    font-size: 15px;
   }
 `;
 
