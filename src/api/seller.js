@@ -53,7 +53,7 @@ export const putEditProduct = async (token, data) => {
         shipping_method: data.shipping_method,
         shipping_fee: data.shipping_fee,
         stock: data.stock,
-        products_info: data.products_info,
+        product_info: data.product_info,
       },
       {
         headers: {
