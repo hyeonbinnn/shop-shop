@@ -71,14 +71,17 @@ const ProductDetailBox = ({ loading }) => {
       </S.Container>
 
       <S.ProductInfo>
-        <input type="radio" id="detail" name="tab" defaultChecked />
-        <label htmlFor="detail">상품 상세</label>
-        <input type="radio" id="review" name="tab" />
-        <label htmlFor="review">리뷰</label>
-        <input type="radio" id="Q&A" name="tab" />
-        <label htmlFor="Q&A">Q&A</label>
-        <input type="radio" id="return" name="tab" />
-        <label htmlFor="return">반품 / 교환정보</label>
+        <S.Menu>
+          <input type="radio" id="detail" name="tab" defaultChecked />
+          <label htmlFor="detail">상품 상세</label>
+          <input type="radio" id="review" name="tab" />
+          <label htmlFor="review">리뷰</label>
+          <input type="radio" id="Q&A" name="tab" />
+          <label htmlFor="Q&A">Q&A</label>
+          <input type="radio" id="return" name="tab" />
+          <label htmlFor="return">반품 / 교환정보</label>
+        </S.Menu>
+        <S.Detail>{detail.product_info}</S.Detail>
       </S.ProductInfo>
     </S.Main>
   );

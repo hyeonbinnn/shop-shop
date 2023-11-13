@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const Main = styled.main`
-  /* max-width: 1280px; */
-
   padding: 100px 50px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
@@ -109,10 +107,13 @@ export const Shipping = styled.p`
 `;
 
 export const ProductInfo = styled.section`
-  display: flex;
-  align-items: center;
   max-width: 1280px;
   margin: 0 auto;
+`;
+
+export const Menu = styled.div`
+  display: flex;
+  align-items: center;
 
   label {
     display: inline-block;
@@ -120,7 +121,7 @@ export const ProductInfo = styled.section`
     color: ${({ theme }) => theme.colors.lightGrayText};
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 500px;
+    margin-bottom: 50px;
     padding: 19px 0 18px;
     border: none;
     background-color: ${({ theme }) => theme.colors.white};
@@ -141,8 +142,9 @@ export const ProductInfo = styled.section`
   @media ${(props) => props.theme.mediaQuery.mobile} {
     label {
       font-size: 18px;
-      margin-bottom: 300px;
       padding: 17px 0 16px;
     }
   }
 `;
+
+export const Detail = styled.div``;
