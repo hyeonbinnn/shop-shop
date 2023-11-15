@@ -26,7 +26,7 @@ const Header = () => {
 
   const onClickSearch = async () => {
     const searchResults = await getSearchProduct(searchText);
-    navigate('/searchResult', {
+    navigate('/search', {
       state: searchResults,
     });
   };

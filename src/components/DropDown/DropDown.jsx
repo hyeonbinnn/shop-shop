@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { axiosInstance } from '../../axios';
 import { removeCookie } from '../../services/cookies';
@@ -22,7 +22,9 @@ const DropDown = () => {
 
   return (
     <Menu>
-      <li>마이페이지</li>
+      <Link to="/comingSoon">
+        <li>마이페이지</li>
+      </Link>
       <li onClick={logoutUser}>로그아웃</li>
     </Menu>
   );

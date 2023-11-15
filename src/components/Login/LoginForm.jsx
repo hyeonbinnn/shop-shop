@@ -93,7 +93,7 @@ const LoginForm = () => {
           <Link to="/SignUp">
             <S.goToSignUp>회원가입</S.goToSignUp>
           </Link>
-          <Link to="/ComingSoon">
+          <Link to="/comingSoon">
             <span>비밀번호 찾기</span>
           </Link>
         </S.LinkBox>
