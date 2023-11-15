@@ -5,11 +5,14 @@ import * as S from './ProductList.style';
 import { getAllProduct } from '../../api/product';
 import { setProducts } from '../../redux/slices/slices';
 import Loading from '../common/Loading/Loading';
+import heart from '../../assets/icons/icon-heart.svg';
+import heartOn from '../../assets/icons/icon-heart-on.svg';
 
 const ProductList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [likedProduct, setLikedProduct] = useState({});
 
   useEffect(() => {
     getAllProduct()
@@ -25,6 +28,13 @@ const ProductList = () => {
 
   const products = useSelector((state) => state.products.products);
 
+  const toggleLike = (productId) => {
+    setLikedProduct((prevLikedProduct) => ({
+      ...prevLikedProduct,
+      [productId]: !prevLikedProduct[productId],
+    }));
+  };
+
   return (
     <S.Container>
       {loading && <Loading />}
@@ -35,7 +45,7 @@ const ProductList = () => {
               key={item.product_id}
               onClick={() => {
                 window.scrollTo(0, 0);
-                navigate(`/productDetail/${item.product_id}`, { replace: true });
+                navigate(`/productDetail/${item.product_id}`);
               }}
             >
               <S.ProductImg src={item.image} alt={item.product_name} />
@@ -43,7 +53,18 @@ const ProductList = () => {
               <S.ProductName className="product-name sl-ellipsis">
                 {item.product_name}
               </S.ProductName>
-              <S.LikeBtn className="like-btn"></S.LikeBtn>
+              <S.LikeBtn
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleLike(item.product_id);
+                }}
+              >
+                {likedProduct[item.product_id] ? (
+                  <S.LikeImg src={heartOn} alt="채워진 빨강 하트 아이콘" />
+                ) : (
+                  <S.LikeImg src={heart} alt="빈 하트 아이콘" />
+                )}
+              </S.LikeBtn>
               <S.ProductPrice>
                 <strong>
                   {item.price.toLocaleString()}

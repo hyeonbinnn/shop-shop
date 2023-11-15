@@ -65,6 +65,11 @@ export const LikeBtn = styled.button`
   bottom: 40px;
 `;
 
+export const LikeImg = styled.img`
+  width: 22px;
+  height: 22px;
+`;
+
 // 상품 가격
 export const ProductPrice = styled.div`
   display: flex;

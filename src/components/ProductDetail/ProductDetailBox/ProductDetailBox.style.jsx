@@ -121,7 +121,7 @@ export const Menu = styled.div`
     color: ${({ theme }) => theme.colors.lightGrayText};
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     padding: 19px 0 18px;
     border: none;
     background-color: ${({ theme }) => theme.colors.white};
@@ -147,4 +147,8 @@ export const Menu = styled.div`
   }
 `;
 
-export const Detail = styled.div``;
+export const Detail = styled.div`
+  height: 500px;
+  padding: 30px 10px;
+  font-size: 16px;
+`;

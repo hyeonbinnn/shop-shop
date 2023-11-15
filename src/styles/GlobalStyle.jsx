@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 import normalize from 'styled-normalize';
-import heart from '../assets/icons/icon-heart.svg';
 
 const GlobalStyle = createGlobalStyle`
 ${normalize}
@@ -97,14 +96,6 @@ body {
     .product-name {
       font-size: 18px;
       line-height: 22px;
-    }
-
-    /* 좋아요 버튼 */
-    .like-btn {
-      width: 22px;
-      height: 22px;
-      border: none;
-      background: url(${heart}) no-repeat center / contain;
     }
 
   

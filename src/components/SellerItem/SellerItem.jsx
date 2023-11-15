@@ -40,7 +40,7 @@ const SellerItem = ({
 
   const goToProductDetail = () => {
     window.scrollTo(0, 0);
-    navigate(`/productDetail/${product_id}`, { replace: true });
+    navigate(`/productDetail/${product_id}`);
   };
 
   return (
