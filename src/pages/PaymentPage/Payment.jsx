@@ -5,6 +5,7 @@ import Header from './../../components/common/Header/Header';
 import Footer from './../../components/common/Footer/Footer';
 import PaymentHeader from './../../components/PaymentBox/PaymentHeader';
 import PaymentItem from '../../components/PaymentBox/PaymentItem';
+import PaymentForm from './../../components/PaymentBox/PaymentForm/PaymentForm';
 
 const Payment = () => {
   const location = useLocation();
@@ -38,6 +39,12 @@ const Payment = () => {
           <S.TotalPrice>
             총 주문금액 <strong>{totalPay?.toLocaleString()}원</strong>
           </S.TotalPrice>
+          <PaymentForm
+            products={products}
+            totalPrice={totalPrice}
+            totalFee={totalFee}
+            totalPay={totalPay}
+          />
         </S.Container>
       </S.PaymentSection>
       <Footer />
