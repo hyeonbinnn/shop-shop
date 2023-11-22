@@ -15,7 +15,6 @@ const PaymentHeader = () => {
 export default PaymentHeader;
 
 const Container = styled.div`
-  max-width: 1280px;
   display: flex;
   justify-content: space-around;
   padding: 19px 0px 19px 90px;
@@ -27,13 +26,17 @@ const Container = styled.div`
     font-size: 17px;
     font-weight: bold;
 
-    :nth-child(2),
+    :nth-child(2) {
+      margin-left: 180px;
+      margin-right: -180px;
+    }
     :nth-child(3) {
-      margin-left: 140px;
-      margin-right: -140px;
+      margin-left: 120px;
+      margin-right: -120px;
     }
     :last-child {
-      margin-left: 140px;
+      margin-left: 30px;
+      margin-right: -30px;
     }
   }
 `;
