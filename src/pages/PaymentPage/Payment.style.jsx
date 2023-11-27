@@ -24,7 +24,6 @@ export const TotalPrice = styled.div`
   text-align: right;
   font-size: 18px;
   font-weight: bold;
-  padding-top: 20px;
 
   strong {
     font-size: 24px;
