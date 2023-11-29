@@ -9,6 +9,9 @@ import { postCreateOrder } from '../../../api/order';
 const PaymentForm = ({ products, totalPrice, totalFee, totalPay }) => {
   const navigate = useNavigate();
   const token = getCookie('token');
+  const [addressValue, setAddressValue] = useState('');
+  const [popup, setPopup] = useState('');
+  const [zipCode, setZipCode] = useState('');
 
   const {
     register,
@@ -19,7 +22,80 @@ const PaymentForm = ({ products, totalPrice, totalFee, totalPay }) => {
 
   const checkValid = watch('checkBox');
 
-  const onSubmit = handleSubmit((data) => {});
+  const onCompletePost = (data) => {
+    setAddressValue(data.address);
+    setZipCode(data.zoneCode);
+  };
+
+  const payFunc = async (data) => {
+    postCreateOrder(token, data);
+  };
+
+  const orderData = async (data, receiver_phoneNum, receiver_address) => {
+    const product_id = products[0].product_id;
+    const quantity = products[0].quantity;
+    const order_kind = products[0].order_kind;
+    const receiver = data.receiver;
+    const receiver_phone_number = receiver_phoneNum;
+    const address = receiver_address;
+    const address_message = data.address_message;
+    const payment_method = data.payMethod;
+
+    const direct_order_data = {
+      product_id,
+      quantity,
+      order_kind,
+      receiver,
+      receiver_phone_number,
+      address,
+      address_message,
+      payment_method,
+      total_price: totalPay,
+    };
+
+    const cart_order_data = {
+      total_price: totalPay,
+      order_kind,
+      receiver,
+      receiver_phone_number,
+      address,
+      address_message,
+      payment_method,
+    };
+
+    const cart_one_order_data = {
+      product_id,
+      quantity,
+      order_kind,
+      total_price: totalPay,
+      receiver,
+      receiver_phone_number,
+      address,
+      address_message,
+      payment_method,
+    };
+
+    try {
+      if (order_kind === 'direct_order') {
+        await payFunc(direct_order_data);
+      } else if (order_kind === 'cart_order') {
+        await payFunc(cart_order_data);
+      } else if (order_kind === 'cart_one_order') {
+        await payFunc(cart_one_order_data);
+      }
+      alert('주문 완료되었습니다!');
+      navigate('/');
+    } catch (error) {
+      return error.response.data;
+    }
+  };
+
+  const onSubmit = handleSubmit((data) => {
+    const receiver_phoneNum =
+      data.receiver_phoneNum1 + data.receiver_phoneNum2 + data.receiver_phoneNum3;
+    const receiver_address = addressValue + '' + data.address;
+    orderData(data, receiver_phoneNum, receiver_address);
+  });
 
   return (
     <S.Form>
