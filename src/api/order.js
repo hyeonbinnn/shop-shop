@@ -27,31 +27,3 @@ export const postCreateOrder = async (token, data) => {
     return error.response.data;
   }
 };
-
-// 카트에서 주문 생성하기
-export const postCreateOrderFromCart = async (token, data) => {
-  try {
-    const res = await axiosInstance.post('order/', data, {
-      headers: {
-        Authorization: token,
-      },
-    });
-    return res.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-// 카트에서 하나만 주문 생성하기
-export const postCreateSingleOrderFromCart = async (token, data) => {
-  try {
-    const res = await axiosInstance.post('order/', data, {
-      headers: {
-        Authorization: token,
-      },
-    });
-    return res.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
