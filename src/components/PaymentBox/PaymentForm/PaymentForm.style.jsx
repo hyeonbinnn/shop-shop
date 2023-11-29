@@ -47,16 +47,71 @@ export const InfoBox = styled.div`
   }
 
   input {
+    width: 340px;
     height: 40px;
     border: ${({ theme }) => `1px solid ${theme.colors.third}`};
     outline: none;
     padding-left: 10px;
+    font-weight: bold;
   }
 
   span {
     margin: 0px 10px;
     color: ${({ theme }) => theme.colors.lightGrayText};
   }
+`;
+
+export const Error = styled.p`
+  font-size: 14px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.error};
+  margin-left: 10px;
+`;
+
+export const PhoneNum = styled(InfoBox)`
+  input {
+    width: 95px;
+  }
+`;
+
+export const AddressMsg = styled(InfoBox)`
+  input {
+    width: 800px;
+  }
+`;
+
+export const Address = styled(InfoBox)`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-bottom: none;
+  padding: 0px;
+
+  input {
+    width: 176px;
+    font-size: 14px;
+    background: ${({ theme }) => theme.colors.white};
+  }
+
+  input:nth-child(2) {
+    width: 800px;
+  }
+  input:nth-child(3) {
+    width: 800px;
+  }
+`;
+
+export const ZipCode = styled.button`
+  width: 154px;
+  height: 40px;
+  background-color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.white};
+  padding: 10px 0px;
+  margin-left: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
 `;
 
 export const PaymentInfo = styled.section`
@@ -72,16 +127,15 @@ export const PaymentInfo = styled.section`
 export const PaymentMethod = styled.div``;
 
 export const MethodBox = styled.div`
+  display: flex;
   border-bottom: ${({ theme }) => `2px solid ${theme.colors.gray}`};
   padding: 18px 12px 18px 12px;
   line-height: 2;
+  margin-bottom: 15px;
 
   input {
     width: 20px;
     height: 20px;
-    flex-shrink: 0;
-    border: ${({ theme }) => `2px solid ${theme.colors.gray}`};
-    border-radius: 50%;
     margin-right: 10px;
   }
 
@@ -106,8 +160,20 @@ export const CheckFinal = styled.div`
   padding: 34px 30px 25px 30px;
 `;
 
+export const Won = styled.span`
+  margin-left: 5px;
+  color: ${({ theme }) => theme.colors.lightGrayText};
+`;
+
 export const TopInfo = styled.div`
   margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+
+  strong {
+    font-size: 18px;
+    font-weight: bold;
+  }
 
   :nth-child(3) {
     padding-bottom: 20px;
@@ -117,23 +183,19 @@ export const TopInfo = styled.div`
 
 export const BottomInfo = styled.div`
   margin-top: 29px;
+  display: flex;
+  justify-content: space-between;
+
+  strong {
+    font-size: 24px;
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.error};
+  }
 `;
 
 export const GoToFinal = styled.div`
   padding: 30px;
   background-color: ${({ theme }) => theme.colors.lightGray};
-
-  input {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    border: ${({ theme }) => `2px solid ${theme.colors.gray}`};
-    margin-right: 10px;
-  }
-
-  label {
-    line-height: 1.5;
-  }
 
   button {
     display: block;
@@ -145,5 +207,21 @@ export const GoToFinal = styled.div`
     font-weight: bold;
     padding: 19px 60px;
     border-radius: 10px;
+  }
+`;
+
+export const CheckBox = styled.div`
+  display: flex;
+  align-items: center;
+
+  input {
+    width: 20px;
+    height: 20px;
+    border: ${({ theme }) => `2px solid ${theme.colors.gray}`};
+    margin-right: 10px;
+  }
+
+  label {
+    line-height: 1.5;
   }
 `;

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import * as S from './PaymentForm.style';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import DaumPostCoed from 'react-daum-postcode';
 import { getCookie } from '../../../services/cookies';
 import { postCreateOrder } from '../../../api/order';
+import DaumPostcode from 'react-daum-postcode';
 
 const PaymentForm = ({ products, totalPrice, totalFee, totalPay }) => {
   const navigate = useNavigate();
@@ -25,6 +25,14 @@ const PaymentForm = ({ products, totalPrice, totalFee, totalPay }) => {
   const onCompletePost = (data) => {
     setAddressValue(data.address);
     setZipCode(data.zoneCode);
+  };
+
+  const postCodeStyle = {
+    margin: '25px 0 0 170px',
+    width: '800px',
+    height: '450px',
+    border: '1px solid var(--color-deep-gray)',
+    zIndex: 100,
   };
 
   const payFunc = async (data) => {
@@ -98,65 +106,198 @@ const PaymentForm = ({ products, totalPrice, totalFee, totalPay }) => {
   });
 
   return (
-    <S.Form>
+    <S.Form onSubmit={onSubmit}>
       <S.ShippingInfo>
         <S.Title>배송정보</S.Title>
         <S.SubTitle>주문자 정보</S.SubTitle>
         <S.InfoBox>
           <label htmlFor="name">이름</label>
-          <input />
+          <input
+            type="text"
+            id="name"
+            {...register('orderer', { required: '필수 응답 항목입니다.' })}
+          />
+          {errors.orderer && <S.Error>{errors.orderer?.message}</S.Error>}
         </S.InfoBox>
-        <S.InfoBox>
+        <S.PhoneNum>
           <label htmlFor="phoneNum">휴대폰</label>
-          <input />
+          <input
+            type="text"
+            id="phoneNum"
+            maxLength="3"
+            {...register('orderer_phonenum1', {
+              required: '필수 응답 항목입니다.',
+              pattern: { value: /^[0-9]+$/, message: '숫자만 입력해 주세요.' },
+            })}
+          />
           <span>-</span>
-          <input />
+          <input
+            type="text"
+            id="phoneNum"
+            maxLength="4"
+            {...register('orderer_phonenum2', {
+              required: '필수 응답 항목입니다.',
+              pattern: { value: /^[0-9]+$/, message: '숫자만 입력해 주세요.' },
+            })}
+          />
           <span>-</span>
-          <input />
-        </S.InfoBox>
+          <input
+            type="text"
+            id="phoneNum"
+            maxLength="4"
+            {...register('orderer_phonenum3', {
+              required: '필수 응답 항목입니다.',
+              pattern: { value: /^[0-9]+$/, message: '숫자만 입력해 주세요.' },
+            })}
+          />
+          {(errors.orderer_phonenum1 || errors.orderer_phonenum2 || errors.orderer_phonenum3) && (
+            <S.Error>{errors.orderer_phonenum1?.message}</S.Error>
+          )}
+        </S.PhoneNum>
         <S.InfoBox>
           <label htmlFor="email">이메일</label>
-          <input />
+          <input
+            type="email"
+            id="email"
+            {...register('email', {
+              required: '필수 응답 항목입니다.',
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
+                message: '이메일 형식이 아닙니다.',
+              },
+            })}
+          />
+          {errors.email && <S.Error>{errors.email?.message}</S.Error>}
         </S.InfoBox>
 
         <S.SubTitle>배송지 정보</S.SubTitle>
         <S.InfoBox>
           <label htmlFor="receiver">수령인</label>
-          <input />
+          <input
+            type="text"
+            id="receiver"
+            {...register('receiver', { required: '필수 응답 항목입니다.' })}
+          />
+          {errors.receiver && <S.Error>{errors.receiver?.message}</S.Error>}
         </S.InfoBox>
-        <S.InfoBox>
+
+        <S.PhoneNum>
           <label htmlFor="phoneNum">휴대폰</label>
-          <input />
+          <input
+            type="text"
+            id="phoneNum"
+            maxLength="3"
+            {...register('receiver_phonenum1', {
+              required: '필수 응답 항목입니다.',
+              pattern: { value: /^[0-9]+$/, message: '숫자만 입력해 주세요.' },
+            })}
+          />
           <span>-</span>
-          <input />
+          <input
+            type="text"
+            id="phoneNum"
+            maxLength="4"
+            {...register('receiver_phonenum2', {
+              required: '필수 응답 항목입니다.',
+              pattern: { value: /^[0-9]+$/, message: '숫자만 입력해 주세요.' },
+            })}
+          />
           <span>-</span>
-          <input />
-        </S.InfoBox>
+          <input
+            type="text"
+            id="phoneNum"
+            maxLength="4"
+            {...register('receiver_phonenum3', {
+              required: '필수 응답 항목입니다.',
+              pattern: { value: /^[0-9]+$/, message: '숫자만 입력해 주세요.' },
+            })}
+          />
+          {(errors.receiver_phonenum1 ||
+            errors.receiver_phonenum2 ||
+            errors.receiver_phonenum3) && <S.Error>{errors.receiver_phonenum1?.message}</S.Error>}
+        </S.PhoneNum>
+
         <S.InfoBox>
           <label htmlFor="address">배송주소</label>
-          <input />
+          <S.Address>
+            <div>
+              <input type="text" placeholder="우편번호" value={zipCode} disabled />
+              <S.ZipCode onClick={() => setPopup(!popup)}>우편번호 조회</S.ZipCode>
+              {popup && (
+                <span>
+                  <DaumPostcode style={postCodeStyle} autoClose onComplete={onCompletePost} />
+                </span>
+              )}{' '}
+            </div>
+            <input type="text" placeholder="주소" value={addressValue} disabled />
+            <input
+              type="text"
+              placeholder="상세주소"
+              {...register('address', { required: '필수 응답 항목입니다.' })}
+            />
+          </S.Address>
         </S.InfoBox>
-        <S.InfoBox>
+        <S.AddressMsg>
           <label htmlFor="address_message">배송메시지</label>
-          <input />
-        </S.InfoBox>
+          <input
+            type="text"
+            id="address_message"
+            placeholder="배송 요청사항을 입력해 주세요."
+            {...register('address_message', {
+              required: '필수 응답 항목입니다.',
+            })}
+          />
+        </S.AddressMsg>
       </S.ShippingInfo>
 
       <S.PaymentInfo>
         <S.PaymentMethod>
           <S.Title>결제수단</S.Title>
           <S.MethodBox>
-            <input />
+            <input
+              type="radio"
+              value="CARD"
+              id="card"
+              name="payMethod"
+              {...register('payMethod', {
+                required: '결제 수단을 선택해 주세요.',
+              })}
+            />
             <label htmlFor="card">신용/체크카드</label>
-            <input />
+            <input
+              type="radio"
+              value="DEPOSIT"
+              id="deposit"
+              name="payMethod"
+              {...register('payMethod')}
+            />
             <label htmlFor="deposit">무통장 입금</label>
-            <input />
+            <input
+              type="radio"
+              value="PHONEPAY"
+              id="phonePay"
+              name="payMethod"
+              {...register('payMethod')}
+            />
             <label htmlFor="phonePay">휴대폰 결제</label>
-            <input />
+            <input
+              type="radio"
+              value="NAVERPAY"
+              id="naverPay"
+              name="payMethod"
+              {...register('payMethod')}
+            />
             <label htmlFor="naverPay">네이버페이</label>
-            <input />
+            <input
+              type="radio"
+              value="KAKAOPAY"
+              id="kakaoPay"
+              name="payMethod"
+              {...register('payMethod')}
+            />
             <label htmlFor="kakaoPay">카카오페이</label>
           </S.MethodBox>
+          {errors.receiver && <S.Error>{errors.receiver?.message}</S.Error>}
         </S.PaymentMethod>
 
         <S.FinalPayment>
@@ -165,25 +306,38 @@ const PaymentForm = ({ products, totalPrice, totalFee, totalPay }) => {
             <S.CheckFinal>
               <S.TopInfo>
                 <span>- 상품금액</span>
-                <strong></strong>
+                <strong>
+                  {totalPrice.toLocaleString()}
+                  <S.Won>원</S.Won>
+                </strong>
               </S.TopInfo>
               <S.TopInfo>
                 <span>- 할인금액</span>
-                <strong></strong>
+                <strong>
+                  0<S.Won>원</S.Won>
+                </strong>
               </S.TopInfo>
               <S.TopInfo>
                 <span>- 배송비</span>
-                <strong></strong>
+                <strong>
+                  {totalFee.toLocaleString()}
+                  <S.Won>원</S.Won>
+                </strong>
               </S.TopInfo>
               <S.BottomInfo>
                 <span>- 결제금액</span>
-                <strong></strong>
+                <strong>{totalPay.toLocaleString()}원</strong>
               </S.BottomInfo>
             </S.CheckFinal>
+
             <S.GoToFinal>
-              <input />
-              <label htmlFor="check">주문 내용을 확인하였으며, 정보 제공 등에 동의합니다.</label>
-              <button>결제하기</button>
+              <S.CheckBox>
+                <input type="checkBox" id="check" {...register('checkBox', { required: true })} />
+                <label htmlFor="check">주문 내용을 확인하였으며, 정보 제공 등에 동의합니다.</label>
+              </S.CheckBox>
+              <button disabled={!isValid || !checkValid} onClick={onSubmit}>
+                결제하기
+              </button>
             </S.GoToFinal>
           </S.FinalBox>
         </S.FinalPayment>
