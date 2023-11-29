@@ -157,7 +157,7 @@ export const FinalBox = styled.div`
 `;
 
 export const CheckFinal = styled.div`
-  padding: 34px 30px 25px 30px;
+  padding: 34px 30px;
 `;
 
 export const Won = styled.span`
