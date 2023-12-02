@@ -131,7 +131,7 @@ export const MethodBox = styled.div`
   border-bottom: ${({ theme }) => `2px solid ${theme.colors.gray}`};
   padding: 18px 12px 18px 12px;
   line-height: 2;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 
   input {
     width: 20px;

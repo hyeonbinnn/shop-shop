@@ -297,7 +297,7 @@ const PaymentForm = ({ products, totalPrice, totalFee, totalPay }) => {
             />
             <label htmlFor="kakaoPay">카카오페이</label>
           </S.MethodBox>
-          {errors.receiver && <S.Error>{errors.receiver?.message}</S.Error>}
+          {errors.payMethod && <S.Error>{errors.payMethod?.message}</S.Error>}
         </S.PaymentMethod>
 
         <S.FinalPayment>
