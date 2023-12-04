@@ -5,7 +5,7 @@ import { getCookie } from '../../../services/cookies';
 import { getCartList, postAddCart } from '../../../api/cart';
 import Modal from '../../common/Modal/Modal';
 
-const TotalPrice = ({ detail, quantity, totalPrice, loginType }) => {
+const TotalPriceBox = ({ detail, quantity, totalPrice, loginType }) => {
   const navigate = useNavigate();
   const { product_id } = useParams();
   const token = getCookie('token');
@@ -94,4 +94,4 @@ const TotalPrice = ({ detail, quantity, totalPrice, loginType }) => {
   );
 };
 
-export default TotalPrice;
+export default TotalPriceBox;
