@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import check from '../../../assets/icons/icon-check.svg';
 
 export const Form = styled.form`
   margin: 90px 0px;
@@ -43,7 +44,7 @@ export const InfoBox = styled.div`
   border-bottom: ${({ theme }) => `1px solid ${theme.colors.third}`};
 
   label {
-    width: 200px;
+    min-width: 200px;
   }
 
   input {
@@ -53,11 +54,8 @@ export const InfoBox = styled.div`
     outline: none;
     padding-left: 10px;
     font-weight: bold;
-  }
-
-  span {
-    margin: 0px 10px;
-    color: ${({ theme }) => theme.colors.lightGrayText};
+    background: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.black};
   }
 `;
 
@@ -71,6 +69,11 @@ export const Error = styled.p`
 export const PhoneNum = styled(InfoBox)`
   input {
     width: 95px;
+  }
+
+  span {
+    margin: 0px 10px;
+    color: ${({ theme }) => theme.colors.lightGrayText};
   }
 `;
 
@@ -89,16 +92,14 @@ export const Address = styled(InfoBox)`
   padding: 0px;
 
   input {
-    width: 176px;
-    font-size: 14px;
-    background: ${({ theme }) => theme.colors.white};
+    width: 800px;
   }
 
-  input:nth-child(2) {
-    width: 800px;
-  }
-  input:nth-child(3) {
-    width: 800px;
+  div {
+    input {
+      width: 176px;
+      font-size: 14px;
+    }
   }
 `;
 
@@ -116,6 +117,7 @@ export const ZipCode = styled.button`
 
 export const PaymentInfo = styled.section`
   display: flex;
+  justify-content: space-between;
   gap: 40px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
@@ -133,10 +135,22 @@ export const MethodBox = styled.div`
   line-height: 2;
   margin-bottom: 10px;
 
-  input {
+  input[type='radio'] {
     width: 20px;
     height: 20px;
     margin-right: 10px;
+    background-color: ${({ theme }) => theme.colors.white};
+    border: ${({ theme }) => `2px solid ${theme.colors.gray}`};
+    border-radius: 50%;
+    appearance: none;
+
+    :checked {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      border: ${({ theme }) => `2px solid ${theme.colors.secondary}`};
+      background: url(${check}) no-repeat center / contain;
+    }
   }
 
   label {
@@ -206,7 +220,11 @@ export const GoToFinal = styled.div`
     font-size: 23px;
     font-weight: bold;
     padding: 19px 60px;
-    border-radius: 10px;
+    border-radius: 5px;
+
+    :disabled {
+      background-color: ${({ theme }) => theme.colors.gray};
+    }
   }
 `;
 
@@ -214,11 +232,21 @@ export const CheckBox = styled.div`
   display: flex;
   align-items: center;
 
-  input {
+  input[type='checkbox'] {
     width: 20px;
     height: 20px;
+    background-color: ${({ theme }) => theme.colors.white};
     border: ${({ theme }) => `2px solid ${theme.colors.gray}`};
+    appearance: none;
     margin-right: 10px;
+    :checked {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      border: ${({ theme }) => `2px solid ${theme.colors.secondary}`};
+      background: url(${check}) no-repeat center / contain;
+      background-color: white;
+    }
   }
 
   label {

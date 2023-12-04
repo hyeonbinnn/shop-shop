@@ -24,15 +24,14 @@ const PaymentForm = ({ products, totalPrice, totalFee, totalPay }) => {
 
   const onCompletePost = (data) => {
     setAddressValue(data.address);
-    setZipCode(data.zoneCode);
+    setZipCode(data.zonecode);
   };
 
   const postCodeStyle = {
-    margin: '25px 0 0 170px',
+    margin: '20px 0px',
     width: '800px',
     height: '450px',
-    border: '1px solid var(--color-deep-gray)',
-    zIndex: 100,
+    zIndex: 1,
   };
 
   const payFunc = async (data) => {
@@ -150,8 +149,14 @@ const PaymentForm = ({ products, totalPrice, totalFee, totalPay }) => {
               pattern: { value: /^[0-9]+$/, message: '숫자만 입력해 주세요.' },
             })}
           />
-          {(errors.orderer_phonenum1 || errors.orderer_phonenum2 || errors.orderer_phonenum3) && (
+          {errors.orderer_phonenum1 && !errors.orderer_phonenum2 && !errors.orderer_phonenum3 && (
             <S.Error>{errors.orderer_phonenum1?.message}</S.Error>
+          )}
+          {errors.orderer_phonenum2 && !errors.orderer_phonenum1 && !errors.orderer_phonenum3 && (
+            <S.Error>{errors.orderer_phonenum2?.message}</S.Error>
+          )}
+          {errors.orderer_phonenum3 && !errors.orderer_phonenum1 && !errors.orderer_phonenum2 && (
+            <S.Error>{errors.orderer_phonenum3?.message}</S.Error>
           )}
         </S.PhoneNum>
         <S.InfoBox>
@@ -212,9 +217,15 @@ const PaymentForm = ({ products, totalPrice, totalFee, totalPay }) => {
               pattern: { value: /^[0-9]+$/, message: '숫자만 입력해 주세요.' },
             })}
           />
-          {(errors.receiver_phonenum1 ||
-            errors.receiver_phonenum2 ||
-            errors.receiver_phonenum3) && <S.Error>{errors.receiver_phonenum1?.message}</S.Error>}
+          {errors.receiver_phonenum1 &&
+            !errors.receiver_phonenum2 &&
+            !errors.receiver_phonenum3 && <S.Error>{errors.receiver_phonenum1?.message}</S.Error>}
+          {errors.receiver_phonenum2 &&
+            !errors.receiver_phonenum1 &&
+            !errors.receiver_phonenum3 && <S.Error>{errors.receiver_phonenum2?.message}</S.Error>}
+          {errors.receiver_phonenum3 &&
+            !errors.receiver_phonenum1 &&
+            !errors.receiver_phonenum2 && <S.Error>{errors.receiver_phonenum3?.message}</S.Error>}
         </S.PhoneNum>
 
         <S.InfoBox>
@@ -227,7 +238,7 @@ const PaymentForm = ({ products, totalPrice, totalFee, totalPay }) => {
                 <span>
                   <DaumPostcode style={postCodeStyle} autoClose onComplete={onCompletePost} />
                 </span>
-              )}{' '}
+              )}
             </div>
             <input type="text" placeholder="주소" value={addressValue} disabled />
             <input
@@ -332,7 +343,7 @@ const PaymentForm = ({ products, totalPrice, totalFee, totalPay }) => {
 
             <S.GoToFinal>
               <S.CheckBox>
-                <input type="checkBox" id="check" {...register('checkBox', { required: true })} />
+                <input type="checkbox" id="check" {...register('checkBox', { required: true })} />
                 <label htmlFor="check">주문 내용을 확인하였으며, 정보 제공 등에 동의합니다.</label>
               </S.CheckBox>
               <button disabled={!isValid || !checkValid} onClick={onSubmit}>
