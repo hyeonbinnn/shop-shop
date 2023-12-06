@@ -64,19 +64,12 @@ const Modal = ({
               로그인이 필요한 서비스입니다.
               <br /> 로그인 하시겠습니까?
             </S.Question>
-          ) : option === 'cart' ? (
-            <S.Question>
-              이미 장바구니에 있는 상품입니다.
-              <br /> 장바구니로 이동하시겠습니까?
-            </S.Question>
           ) : null}
 
           <S.AnswerBox>
             {option === 'delete' || option === 'quantity' ? (
               <S.FirstBtn onClick={closeModal}>취소</S.FirstBtn>
             ) : option === 'login' ? (
-              <S.FirstBtn onClick={closeModal}>아니오</S.FirstBtn>
-            ) : option === 'cart' ? (
               <S.FirstBtn onClick={closeModal}>아니오</S.FirstBtn>
             ) : null}
             {option === 'delete' ? (
@@ -85,10 +78,6 @@ const Modal = ({
               <S.SecondeBtn onClick={editBtn}>수정</S.SecondeBtn>
             ) : option === 'login' ? (
               <Link to="/login">
-                <S.SecondeBtn>예</S.SecondeBtn>
-              </Link>
-            ) : option === 'cart' ? (
-              <Link to="/cart">
                 <S.SecondeBtn>예</S.SecondeBtn>
               </Link>
             ) : null}
