@@ -4,20 +4,27 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getCookie } from '../../../services/cookies';
 import { getCartList, postAddCart } from '../../../api/cart';
 import Modal from '../../common/Modal/Modal';
+import { useDispatch } from 'react-redux';
+import { setCarts } from '../../../redux/slices/slices';
 
 const TotalPriceBox = ({ detail, quantity, totalPrice, loginType }) => {
   const navigate = useNavigate();
   const { product_id } = useParams();
+  console.log('product_id:', product_id);
   const token = getCookie('token');
 
-  const [loginModal, setLoginModal] = useState(false);
-  const [cartModal, setCartModal] = useState(false);
-  const [cart, setCart] = useState([]);
+  const dispatch = useDispatch();
 
-  const addCart = () => {
-    postAddCart(token, product_id, quantity).then(() => {
-      navigate('/cart');
-    });
+  const [loginModal, setLoginModal] = useState(false);
+
+  const addCart = async () => {
+    try {
+      postAddCart(token, product_id, quantity).then(() => {
+        navigate('/cart');
+      });
+    } catch (error) {
+      console.error('장바구니에 추가 중 에러 발생', error);
+    }
   };
 
   const goToPayment = () => {
@@ -42,19 +49,11 @@ const TotalPriceBox = ({ detail, quantity, totalPrice, loginType }) => {
     setLoginModal(false);
   };
 
-  const openCartModal = () => {
-    setCartModal(true);
-  };
-
-  const closeCartModal = () => {
-    setCartModal(false);
-  };
-
   useEffect(() => {
-    getCartList(token);
-  }, [token]);
-
-  const isCart = cart?.filter((i) => i.product_id === product_id);
+    getCartList(token).then((cartData) => {
+      dispatch(setCarts(cartData)); // cartData 변수에 카트 정보를 저장
+    });
+  }, [token, dispatch]);
 
   return (
     <>
@@ -74,13 +73,13 @@ const TotalPriceBox = ({ detail, quantity, totalPrice, loginType }) => {
         <S.ButtonBox>
           <S.BuyButton
             disabled={loginType === 'SELLER' ? true : false}
-            onClick={!token ? openLoginModal : isCart.length > 0 ? openCartModal : goToPayment}
+            onClick={!token ? openLoginModal : goToPayment}
           >
             바로 구매
           </S.BuyButton>
           <S.CartButton
             disabled={loginType === 'SELLER' ? true : false}
-            onClick={!token ? openLoginModal : isCart.length > 0 ? openCartModal : addCart}
+            onClick={!token ? openLoginModal : addCart}
           >
             장바구니
           </S.CartButton>
@@ -89,7 +88,6 @@ const TotalPriceBox = ({ detail, quantity, totalPrice, loginType }) => {
       {loginModal && (
         <Modal option="login" openModal={openLoginModal} closeModal={closeLoginModal} />
       )}
-      {cartModal && <Modal option="cart" openModal={openCartModal} closeModal={closeCartModal} />}
     </>
   );
 };
