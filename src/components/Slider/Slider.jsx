@@ -6,11 +6,11 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { ReactComponent as Prev } from '../../assets/icons/icon-prev.svg';
 import { ReactComponent as Next } from '../../assets/icons/icon-next.svg';
-import banner1 from '../../assets/images/banner1.svg';
-import banner2 from '../../assets/images/banner2.svg';
-import banner3 from '../../assets/images/banner3.svg';
-import banner4 from '../../assets/images/banner4.svg';
-import banner5 from '../../assets/images/banner5.svg';
+import banner1 from '../../assets/images/banner1.jpeg';
+import banner2 from '../../assets/images/banner2.jpeg';
+import banner3 from '../../assets/images/banner3.jpeg';
+import banner4 from '../../assets/images/banner4.jpeg';
+import banner5 from '../../assets/images/banner5.jpeg';
 
 const ImageSlider = () => {
   const [loading, setLoading] = useState(true);
@@ -31,7 +31,6 @@ const ImageSlider = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     adaptiveHeight: true,
-    lazyLoad: 'ondemand',
     prevArrow: (
       <S.PrevDiv>
         <Prev />
@@ -67,7 +66,7 @@ const ImageSlider = () => {
       ) : (
         <S.SlideContainer {...settings}>
           {images.current.map((img, i) => (
-            <img key={i} src={img.src} alt={img.alt} />
+            <img key={i} src={img.src} alt={img.alt} loading="lazy" />
           ))}
         </S.SlideContainer>
       )}
