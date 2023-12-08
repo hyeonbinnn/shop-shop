@@ -141,17 +141,17 @@
 
 |   구매자 로그인   |   구매자 회원가입    |
 | :---------: | :---------: |
-| ![home](https://github.com/hyeonbinnn/my-company/assets/117449788/ead60c7c-3e1a-48bb-b312-89421c6e8b4b) | ![about](https://github.com/hyeonbinnn/my-company/assets/117449788/d5115ce4-4412-4936-a21f-98276833ca4f) |
+|  | |
 
 
 |   판매자 로그인   |   판매자 회원가입    | 
 | :---------: | :---------: |
-| ![home](https://github.com/hyeonbinnn/my-company/assets/117449788/ead60c7c-3e1a-48bb-b312-89421c6e8b4b) | ![about](https://github.com/hyeonbinnn/my-company/assets/117449788/d5115ce4-4412-4936-a21f-98276833ca4f) |
+| | |
 
 
 |   판매자 로그인   |   판매자 회원가입    | 
 | :---------: | :---------: |
-| ![home](https://github.com/hyeonbinnn/my-company/assets/117449788/ead60c7c-3e1a-48bb-b312-89421c6e8b4b) | ![about](https://github.com/hyeonbinnn/my-company/assets/117449788/d5115ce4-4412-4936-a21f-98276833ca4f) |
+|  |  |
 
 <br>
 <br>
