@@ -160,7 +160,7 @@
 
 |   메인, 소개   |   서비스, 게시판, 지도    |
 | :---------: | :---------: |
-| ![pc](https://github.com/hyeonbinnn/my-company/assets/117449788/2f69bf18-42fa-45e0-a6a1-9e229aeb0b7d) | ![pc2](https://github.com/hyeonbinnn/my-company/assets/117449788/4bfdc7ee-eceb-4d27-92e3-5f1ad63ca41d) |
+|  |  |
 
 
 <br>
