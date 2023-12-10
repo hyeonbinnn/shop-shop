@@ -6,6 +6,7 @@ import * as S from './SignUpForm.style';
 import logo from '../../assets/icons/icon-logo.svg';
 
 const SignUpForm = () => {
+  // 전체 체크 필요
   const [isSelected, setIsSelected] = useState(true);
   const [checkedPW, setCheckedPW] = useState(false);
   const [checkedPW2, setCheckedPW2] = useState(false);
