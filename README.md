@@ -285,7 +285,7 @@ useEffect(() => {
 
 - 이미지 `Lazy Loading` 설정은 브라우저에게 해당 이미지를 레이지 로딩으로 처리하도록 알려주는데, 이 속성은 이미지가 뷰포트에 나타날 때까지 로딩을 지연시키고, 사용자 경험을 향상시켜준다고 한다.<br><br>
 현재 코드에서는 이미지를 `useEffect`를 통해 로딩하고, `Skeleton` 컴포넌트를 사용하여 로딩 중에는 스켈레톤을 보여주고, 로딩이 완료되면 실제 이미지를 렌더링하고 있으니까 각 이미지에 `loading="lazy"` 속성을 직접 추가하여 브라우저가 최적의 로딩을 택할 수 있도록 코드를 수정해 본다. <br><br>
-아래를 보면 이제 로딩없이 사이트를 들어가면 바로 이미지 슬라이더가 나타나는 것을 알 수 있다.
+
 ```jsx
     <img key={i} src={img.src} alt={img.alt} />
 
@@ -293,6 +293,11 @@ useEffect(() => {
 
     <img key={i} src={img.src} alt={img.alt} loading="lazy" />
 ```
+<br>
+
+이제 사이트를 들어가면 로딩없이 바로 이미지 슬라이더가 나타나는 것을 알 수 있다.
+<br>
+
 ![image](https://github.com/hyeonbinnn/shop-shop/assets/117449788/ff29c0b3-2cc4-480c-85bf-177fb0f74984)
 
 <br>
