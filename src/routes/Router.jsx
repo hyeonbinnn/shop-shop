@@ -8,8 +8,8 @@ import Payment from './../pages/PaymentPage/Payment';
 import ProductDetail from './../pages/ProductPage/ProductDetail';
 import Error404 from './../pages/ErrorPage/Error404';
 import ComingSoon from './../pages/ErrorPage/ComingSoon';
-import SellerCenter from './../pages/SellerCenter/SellerCenter';
-import ProductUpload from './../pages/ProductUpload/ProductUpload';
+import SellerCenter from './../pages/SellerCenterPage/SellerCenter';
+import ProductUpload from './../pages/ProductUploadPage/ProductUpload';
 import Search from './../pages/SearchPage/Search';
 
 const Router = () => {
