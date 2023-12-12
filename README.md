@@ -143,7 +143,7 @@
 ## 구현 페이지
 
 ### 💻 PC ver.
-#### [페이지별 기능 상세 설명](https://shopx2.netlify.app)
+#### [페이지별 기능 상세 설명](https://github.com/hyeonbinnn/shop-shop/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80%EB%B3%84-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85)
 <br>
 
 |   구매자 로그인   |   구매자 회원가입    |
