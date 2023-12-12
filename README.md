@@ -1,3 +1,4 @@
+# 🛍️ SHOPSHOP OPEN MARKET 
 ![그림1](https://github.com/hyeonbinnn/shop-shop/assets/117449788/e1a0186a-3342-46ca-abec-7536b3dfa486)
 
 <br>
@@ -17,7 +18,7 @@
 
 ## 프로젝트 정보
 
-> ### 🛒 SHOPSHOP : 숍숍 오픈 마켓 서비스 
+> ### 🛍️ 숍숍 오픈 마켓 서비스 
 > **구현 기간 :**  `2023.10.01 ~ 2023.11.30` <br>
 >
 > **배포 사이트 :**  <strong>[`배포 URL 바로가기`](https://shopx2.netlify.app)</strong>
@@ -39,7 +40,7 @@
 
 ## 폴더 구조
 ```
-🛒 SHOP-SHOP
+🛍️ SHOP-SHOP
 ├─ 📦 public
 │  ├─ 🧾 _redirects
 │  ├─ ⭐ favicon.ico
