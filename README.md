@@ -1,5 +1,3 @@
-# 🛍️ SHOPSHOP OPEN MARKET
-
 ![그림1](https://github.com/hyeonbinnn/shop-shop/assets/117449788/e1a0186a-3342-46ca-abec-7536b3dfa486)
 
 <br>
@@ -141,30 +139,47 @@
 ## 구현 페이지
 
 ### 💻 PC ver.
+#### 페이지별 기능 상세 설명
+<br>
 
 |   구매자 로그인   |   구매자 회원가입    |
 | :---------: | :---------: |
-|  | |
-
+| ![구매자로그인](https://github.com/hyeonbinnn/shop-shop/assets/117449788/3e386a35-702d-49bc-868d-d8efeee65edd) | ![구매자 회원가입](https://github.com/hyeonbinnn/shop-shop/assets/117449788/dc0fcc75-2e11-44c4-917b-3eb6cb7cb980) |
+<br>
 
 |   판매자 로그인   |   판매자 회원가입    | 
 | :---------: | :---------: |
-| | |
-
-
-|   판매자 로그인   |   판매자 회원가입    | 
-| :---------: | :---------: |
-|  |  |
-
-<br>
+| ![판매자로그인](https://github.com/hyeonbinnn/shop-shop/assets/117449788/7b914d28-c017-43bb-92a4-b6b7ba27d3d2) | ![판매자 회원가입](https://github.com/hyeonbinnn/shop-shop/assets/117449788/1d4b06de-1e7f-465c-b090-2dbfe915f5d3) |
 <br>
 
-### 📱 mobile ver.
-
-|   메인, 소개   |   서비스, 게시판, 지도    |
+|   로그아웃   |   검색    | 
 | :---------: | :---------: |
-|  |  |
+| ![로그아웃](https://github.com/hyeonbinnn/shop-shop/assets/117449788/6b4e21de-6c87-4ff7-b5e9-15acf95c789f) | ![검색](https://github.com/hyeonbinnn/shop-shop/assets/117449788/dc9501f5-a862-4029-9aca-eac08fe66ddf) |
+<br>
 
+|   구매자 로그인 시   |   판매자 로그인 시    |  비로그인 시    | 
+| :---------: | :---------: | :---------: |
+| ![구매자 로그인 시](https://github.com/hyeonbinnn/shop-shop/assets/117449788/8b99dd10-1d71-4222-9b8b-101979eebe78) | ![판매자 로그인 시](https://github.com/hyeonbinnn/shop-shop/assets/117449788/3eb65caf-50cf-4da3-9ee5-fc477c05d5a0) | ![비로그인 시](https://github.com/hyeonbinnn/shop-shop/assets/117449788/a076fd73-7f3c-4e15-af54-c48c09e7d0ca) |
+<br>
+
+|   구매자 장바구니 수량 수정   |   구매자 장바구니 수량 누적    | 
+| :---------: | :---------: |
+| ![구매자 수량 수정](https://github.com/hyeonbinnn/shop-shop/assets/117449788/418933c7-468c-4fbe-93cf-048eb7c2619e) | ![구매자 수량 누적](https://github.com/hyeonbinnn/shop-shop/assets/117449788/34a0afab-5e3c-4b96-9662-82ce46aa1af4) |
+<br>
+
+|   구매자 장바구니 개별 주문   |   구매자 장바구니 전체 주문    | 
+| :---------: | :---------: |
+| ![구매자 장바구니 개별 주문](https://github.com/hyeonbinnn/shop-shop/assets/117449788/3728aad5-b1ae-4c59-991f-cfecd4e1e5fa) | ![구매자 장바구니 전체 주문](https://github.com/hyeonbinnn/shop-shop/assets/117449788/4bf6095a-79aa-40d3-a346-e28fd72ee479) |
+<br>
+
+|   구매자 장바구니 삭제   |   구매자 장바구니 결제    | 
+| :---------: | :---------: |
+| ![구매자 장바구니 삭제](https://github.com/hyeonbinnn/shop-shop/assets/117449788/fa3ba55e-8739-4985-a026-f6e0a0026c7a) | ![구매자 장바구니 결제](https://github.com/hyeonbinnn/shop-shop/assets/117449788/7c31cda8-bf9a-4995-93c1-b47f06f29db1) |
+<br>
+
+|   판매자 상품 등록   |   판매자 상품 수정    |   판매자 상품 삭제    | 
+| :---------: | :---------: | :---------: |
+| ![판매자 상품 등록](https://github.com/hyeonbinnn/shop-shop/assets/117449788/cc94f38b-7d8c-4d15-b2e6-7b3fbd22512c) | ![판매자 상품 수정](https://github.com/hyeonbinnn/shop-shop/assets/117449788/c707d653-8f0c-44df-916c-958c707699d5) | ![판매자 상품 삭제](https://github.com/hyeonbinnn/shop-shop/assets/117449788/221699b4-2575-45b4-9219-467766c7866f) |
 
 <br>
 <br>
