@@ -24,7 +24,7 @@ export const useAuth = () => {
     } catch (error) {
       if (error) {
         if (error.response.status === 401) {
-          reset(); // 사용자 입력 양식 초기화
+          reset();
           setError(
             'password',
             {
