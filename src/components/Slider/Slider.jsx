@@ -66,7 +66,7 @@ const ImageSlider = () => {
       ) : (
         <S.SlideContainer {...settings}>
           {images.current.map((img, i) => (
-            <img key={i} src={img.src} alt={img.alt} loading="lazy" />
+            <img key={i} src={img.src} alt={img.alt} loading={i === 0 ? 'eager' : 'lazy'} />
           ))}
         </S.SlideContainer>
       )}
