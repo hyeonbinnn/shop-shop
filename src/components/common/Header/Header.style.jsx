@@ -159,7 +159,7 @@ export const UserBtn = styled.button`
 
 export const CartBtn = styled.button`
   background: url(${(props) => (props.active ? cart2 : cart)}) center/contain no-repeat;
-  :active {
+  &:active {
     background: url(${cart2}) center/contain no-repeat;
   }
 `;

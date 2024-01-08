@@ -42,8 +42,14 @@ const Header = () => {
       return (
         <Link to="/cart">
           <S.MenuBox>
-            <S.CartBtn active={location.pathname === '/cart'} />
-            <S.CartSpan active={location.pathname === '/cart'}>장바구니</S.CartSpan>
+            <S.CartBtn
+              aria-label="cart button"
+              active={location.pathname === '/cart'}
+              type="button"
+            />
+            <S.CartSpan active={location.pathname === '/cart'} type="button">
+              장바구니
+            </S.CartSpan>
           </S.MenuBox>
         </Link>
       );
@@ -51,7 +57,7 @@ const Header = () => {
       return (
         <Link to="/login">
           <S.MenuBox>
-            <S.CartBtn />
+            <S.CartBtn type="button" aria-label="cart button" />
             <span>장바구니</span>
           </S.MenuBox>
         </Link>
@@ -63,7 +69,12 @@ const Header = () => {
     if (token) {
       return (
         <S.MenuBox modal={isOpen}>
-          <S.UserBtn onClick={toggleMenu} modal={isOpen} />
+          <S.UserBtn
+            onClick={toggleMenu}
+            modal={isOpen}
+            type="button"
+            aria-label="my page button"
+          />
           <span>마이페이지</span>
           {isOpen && <DropDown />}
         </S.MenuBox>
@@ -72,7 +83,7 @@ const Header = () => {
       return (
         <Link to="/login">
           <S.MenuBox>
-            <S.UserBtn />
+            <S.UserBtn type="button" aria-label="login button" />
             <span>로그인</span>
           </S.MenuBox>
         </Link>
@@ -98,7 +109,7 @@ const Header = () => {
                 onChange={handleSearch}
                 onKeyDown={handleKeyDown}
               />
-              <button onClick={onClickSearch}>
+              <button onClick={onClickSearch} aria-label="search button">
                 <span className="a11y-hidden">검색 버튼</span>
               </button>
             </label>
@@ -108,12 +119,19 @@ const Header = () => {
         {loginType === 'SELLER' ? (
           <S.MenuWrap>
             <S.MenuBox modal={isOpen}>
-              <S.UserBtn onClick={toggleMenu} modal={isOpen} />
+              <S.UserBtn
+                onClick={toggleMenu}
+                modal={isOpen}
+                type="button"
+                aria-label="my page button"
+              />
               <span>마이페이지</span>
               {isOpen && <DropDown />}
             </S.MenuBox>
             <Link to="/sellerCenter">
-              <S.SellerBtn>판매자 센터</S.SellerBtn>
+              <S.SellerBtn type="button" aria-label="seller center button">
+                판매자 센터
+              </S.SellerBtn>
             </Link>
           </S.MenuWrap>
         ) : (
