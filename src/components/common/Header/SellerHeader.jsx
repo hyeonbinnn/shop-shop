@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import logo from '../../../assets/icons/icon-logo.svg';
+import logo from '../../../assets/icons/icon-logo.webp';
 import { HeaderContainer, HeaderWrap } from './Header.style';
 
 const SellerHeader = () => {

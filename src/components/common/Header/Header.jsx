@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { getSearchProduct } from '../../../api/product';
 import { getCookie } from '../../../services/cookies';
 import * as S from './Header.style';
-import logo from '../../../assets/icons/icon-logo.svg';
+import logo from '../../../assets/icons/icon-logo.webp';
 import DropDown from './../../DropDown/DropDown';
 
 const Header = () => {

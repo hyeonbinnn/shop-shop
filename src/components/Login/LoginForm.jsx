@@ -3,7 +3,7 @@ import * as S from './LoginForm.style';
 import { useNavigate, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../auth/useAuth';
-import logo from '../../assets/icons/icon-logo.svg';
+import logo from '../../assets/icons/icon-logo.webp';
 
 const LoginForm = () => {
   const { loginUser } = useAuth();

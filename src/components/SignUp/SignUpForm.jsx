@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useAuth } from './../../auth/useAuth';
 import * as S from './SignUpForm.style';
-import logo from '../../assets/icons/icon-logo.svg';
+import logo from '../../assets/icons/icon-logo.webp';
 
 const SignUpForm = () => {
   const [isSelected, setIsSelected] = useState(true);
