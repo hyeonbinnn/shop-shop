@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import comingSoonBg from '../../assets/images/comingSoonBg.svg';
-import comingSoonLogo from '../../assets/images/comingSoonLogo.svg';
+import comingSoonBg from '../../assets/images/comingSoonBg.webp';
+import comingSoonLogo from '../../assets/images/comingSoonLogo.webp';
 import ErrorButton from '../../components/common/Button/ErrorButton';
 import {
   commonErrorContainer,

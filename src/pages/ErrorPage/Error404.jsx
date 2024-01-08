@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import errorBg from '../../assets/images/errorBg.svg';
-import errorLogo from '../../assets/images/errorLogo.svg';
+import errorBg from '../../assets/images/errorBg.webp';
+import errorLogo from '../../assets/images/errorLogo.webp';
 import ErrorButton from '../../components/common/Button/ErrorButton';
 import {
   commonErrorContainer,
