@@ -37,11 +37,12 @@ export const LogoSearchBox = styled.div`
 `;
 
 // 로고
-export const LogoBox = styled.div`
-  width: 230px;
-`;
+export const LogoBox = styled.div``;
 
-export const LogoImg = styled.img``;
+export const LogoImg = styled.img`
+  width: 230px;
+  height: auto;
+`;
 
 // 검색창
 export const SearchBox = styled.div`
