@@ -48,7 +48,11 @@ const ProductList = () => {
                 navigate(`/productDetail/${item.product_id}`);
               }}
             >
-              <S.ProductImg src={item.image} alt={item.product_name} />
+              <S.ProductImg
+                src={item.image}
+                alt={item.product_name}
+                loading={products.indexOf(item) < 3 ? 'eager' : 'lazy'}
+              />
               <S.ProductStore>{item.store_name}</S.ProductStore>
               <S.ProductName className="product-name sl-ellipsis">
                 {item.product_name}
