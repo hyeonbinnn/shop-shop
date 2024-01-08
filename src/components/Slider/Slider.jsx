@@ -6,11 +6,11 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { ReactComponent as Prev } from '../../assets/icons/icon-prev.svg';
 import { ReactComponent as Next } from '../../assets/icons/icon-next.svg';
-import banner1 from '../../assets/images/banner1.jpeg';
-import banner2 from '../../assets/images/banner2.jpeg';
-import banner3 from '../../assets/images/banner3.jpeg';
-import banner4 from '../../assets/images/banner4.jpeg';
-import banner5 from '../../assets/images/banner5.jpeg';
+import banner1 from '../../assets/images/banner1.webp';
+import banner2 from '../../assets/images/banner2.webp';
+import banner3 from '../../assets/images/banner3.webp';
+import banner4 from '../../assets/images/banner4.webp';
+import banner5 from '../../assets/images/banner5.webp';
 
 const ImageSlider = () => {
   const [loading, setLoading] = useState(true);
