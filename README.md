@@ -47,7 +47,7 @@
 ├─ 📦 public
 │  ├─ 🧾 _redirects
 │  ├─ ⭐ favicon.ico
-│  └─ 📃 index.html
+│  └─ 📄 index.html
 ├─ 📦 src
 │  ├─ 📂 api
 │  ├─ 📂 assets
@@ -61,11 +61,13 @@
 │  │  │  ├─ 📂 Footer
 │  │  │  ├─ 📂 Header
 │  │  │  ├─ 📂 Loading
+│  │  │  ├─ 📂 MetaTag
 │  │  │  └─ 📂 Modal
 │  │  ├─ 📂 DropDown
 │  │  ├─ 📂 Login
 │  │  ├─ 📂 PaymentBox
 │  │  ├─ 📂 ProductDetail
+│  │  ├─ 📂 ProductList
 │  │  ├─ 📂 SellerItem
 │  │  ├─ 📂 SignUp
 │  │  └─ 📂 Slider
@@ -85,7 +87,6 @@
 │  │  └─ 📜 store.js
 │  ├─ 📂 routes
 │  ├─ 📂 services
-│  │  └─ 📜 cookies.js
 │  ├─ 📂 styles
 |  ├─ 📜 App.js
 |  ├─ 📜 axios.js
