@@ -11,7 +11,9 @@ const SignUpForm = () => {
   const [checkedPW2, setCheckedPW2] = useState(false);
 
   const navigate = useNavigate();
+
   const { buyerSignUp, sellerSignUp, validID, validSellerCode } = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -213,8 +215,13 @@ const SignUpForm = () => {
                 })}
               />
             </S.PhoneBox>
-            {errors.phonenum2 && <S.Error>{errors.phonenum2?.message}</S.Error>}
-            {errors.phonenum3 && <S.Error>{errors.phonenum3?.message}</S.Error>}
+            {errors.phonenum2 && !errors.phonenum3 && (
+              <S.Error>{errors.phonenum2?.message}</S.Error>
+            )}
+            {errors.phonenum3 && !errors.phonenum2 && (
+              <S.Error>{errors.phonenum3?.message}</S.Error>
+            )}
+            {errors.phonenum2 && errors.phonenum3 && <S.Error>전화번호를 입력해주세요.</S.Error>}
           </S.Section>
 
           {!isSelected && (

@@ -117,7 +117,7 @@ export const useAuth = () => {
 
         if (error.response.data.phone_number) {
           setError(
-            'phonenum2',
+            'phonenum3',
             {
               message: error.response.data.phone_number[0],
             },
@@ -187,7 +187,7 @@ export const useAuth = () => {
 
         if (error.response.data.phone_number) {
           setError(
-            'phonenum2',
+            'phonenum3',
             {
               message: error.response.data.phone_number[0],
             },
