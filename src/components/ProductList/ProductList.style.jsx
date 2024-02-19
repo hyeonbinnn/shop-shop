@@ -20,9 +20,7 @@ export const ProductList = styled.ul`
   gap: 70px;
   margin: 0px auto;
   width: 1280px;
-
-  @media ${(props) => props.theme.mediaQuery.mobile} {
-  }
+  height: 100%;
 `;
 
 export const ProductItem = styled.li`
@@ -54,6 +52,7 @@ export const ProductStore = styled.span`
 // 상품 이름
 export const ProductName = styled.strong`
   width: 338px;
+  height: 22px;
   font-size: 20px;
   margin-bottom: 10px;
 `;

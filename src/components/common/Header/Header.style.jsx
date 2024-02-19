@@ -41,7 +41,7 @@ export const LogoBox = styled.div``;
 
 export const LogoImg = styled.img`
   width: 230px;
-  height: auto;
+  height: 120px;
 `;
 
 // 검색창
@@ -51,6 +51,7 @@ export const SearchBox = styled.div`
 
     input {
       width: 300px;
+      height: 45px;
       border: ${({ theme }) => `2px solid ${theme.colors.text}`};
       border-radius: 30px;
       padding: 12px 18px;
@@ -80,6 +81,7 @@ export const SearchBox = styled.div`
     label {
       input {
         width: 250px;
+        height: 40px;
         font-size: 13px;
         padding: 8px 17px;
         margin-left: 10px;

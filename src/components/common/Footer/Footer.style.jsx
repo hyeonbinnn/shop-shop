@@ -2,10 +2,14 @@ import styled from 'styled-components';
 
 // Footer 레이아웃
 export const FooterWrap = styled.footer`
+  width: 100%;
+  height: 300px;
   background-color: ${({ theme }) => theme.colors.lightGray};
   padding: 50px 50px;
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
+    width: 100%;
+    height: 330px;
     padding: 50px 30px;
   }
 `;
