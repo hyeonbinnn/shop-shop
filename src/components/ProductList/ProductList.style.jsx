@@ -32,6 +32,7 @@ export const ProductItem = styled.li`
 export const ProductImg = styled.img`
   position: relative;
   width: 100%;
+  height: auto;
   aspect-ratio: 280/280;
   object-fit: cover;
   vertical-align: top;
