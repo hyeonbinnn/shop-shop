@@ -11,6 +11,7 @@
 - [사용 기술](#사용-기술)
 - [구현 페이지](#구현-페이지)
 - [기능 상세 설명](#기능-상세-설명)
+- [핵심 기술](#핵심-기술)
 - [트러블 슈팅](#트러블-슈팅)
 
 <br>
@@ -18,24 +19,30 @@
 <br>
 
 ## 프로젝트 정보
+### 🛍️ 숍숍 오픈 마켓 서비스
+숍숍 오픈 마켓 서비스는 판매자와 구매자를 구별하여 판매자가 상품을 등록, 판매하고 구매자는 구매, 결제하는 서비스입니다.
+<br>
 
-> ### 🛍️ 숍숍 오픈 마켓 서비스
-> 숍숍 오픈 마켓 서비스는 판매자와 구매자를 구별하여 판매자가 상품을 등록, 판매하고 구매자는 구매, 결제하는 서비스입니다.
-> <br>
->
-> **구현 기간 : 2023.10.01 ~ 2023.11.30** <br>
->
-> **배포 사이트 :**  <strong>[배포 URL 바로가기](https://shopx2.netlify.app)</strong>
->
+**구현 기간 : 2023.10.01 ~ 2023.11.30** <br>
+
+**배포 사이트 :**  <strong>[배포 URL 바로가기](https://shopx2.netlify.app)</strong>
+
 > **테스트 계정   ↓** <br>
->
->| 구매자 ID | 구매자 PW |
->| :---: | :---: |
->|`buyer1`|`hodu0910`|
->
+> | 구매자 ID | 구매자 PW |
+> | :---: | :---: |
+> |`buyer1`|`hodu0910`|
+> 
 >| 판매자 ID | 판매자 PW |
 >| :---: | :---: |
 >|`seller1`|`hodu0910`|
+<br>
+
+### 🛍️ 숍숍 오픈 마켓 소개
+- 회사가 추구하는 가치와 방향성을 담아냈습니다.
+- 이메일을 통해 구독 서비스를 제공합니다.
+- 회사 브랜드와, CEO, 제공하는 서비스를 보여줍니다.
+- 게시판을 통해 게시글과 댓글을 작성하며 소통할 수 있습니다.
+- 지도기능과 위치 서비스를 통해 연락망을 구축합니다.
 
 <br>
 <br>
@@ -284,6 +291,16 @@
 <br>
 <br>
 
+## 핵심 기술
+### ✔️
+
+
+
+
+<br>
+<br>
+<br>
+
 ## 트러블 슈팅
 ### ✔️ 장바구니 업데이트 반영 오류
 #### 조건
@@ -376,7 +393,7 @@ useEffect(() => {
 <br>
 
 #### 해결 방안
-- 이미지 포맷 최적화를 해보려고 한다. 나의 배너 이미지 슬라이더 포맷은 전부 `SVG`다. `SVG`는 벡터 그래픽 형식으로 해상도에 따라 확대/축소에 적합하지만, 일반적으로 파일 크기가 크고, 특히 복잡한 이미지의 경우 로딩 시간이 오래 걸릴 수 있기에 배너 이미지일 경우 `JPEG` 혹은 `WebP`를 고려하는게 맞다. <br><br> `WHY?` 이 또한 근거를 살펴보니, `JPEG`는 비트맵 이미지로 파일 크기를 줄이고 모든 브라우저에서 지원되고, `WebP`는 `JPEG`보다 높은 압축률을 제공하면서도 더 높은 품질을 유지할 수 있지만, 모든 브라우저에서 지원되지는 않는다. 이제 파일 형식을 변환해 보자! 이름 모를 곳에서 변환하려는데 파일 크기가 너무 커서 실패했기에 [`https://convertio.co/kr/`](https://convertio.co/kr/image-converter/) 여기서 파일 형식을 변환했다. <br><br> 그리고 나서 [`https://kraken.io/`](https://kraken.io/) 여기서 이미지 크기를 압축하면 된다.
+- 이미지 포맷 최적화를 해보려고 한다. 나의 배너 이미지 슬라이더 포맷은 전부 `SVG`다. `SVG`는 벡터 그래픽 형식으로 해상도에 따라 확대/축소에 적합하지만, 일반적으로 파일 크기가 크고, 특히 복잡한 이미지의 경우 로딩 시간이 오래 걸릴 수 있기에 배너 이미지일 경우 `JPEG` 혹은 `WebP`를 고려하는게 맞다. <br><br> `WHY?` 이 또한 근거를 살펴보니, `JPEG`는 비트맵 이미지로 파일 크기를 줄이고 모든 브라우저에서 지원되고, `WebP`는 `JPEG`보다 높은 압축률을 제공하면서도 더 높은 품질을 유지할 수 있지만, 모든 브라우저에서 지원되지는 않으니 조심하자. 이제 파일 형식을 변환해 보자! 이름 모를 곳에서 변환하려는데 파일 크기가 너무 커서 실패했기에 [`https://convertio.co/kr/`](https://convertio.co/kr/image-converter/) 여기서 파일 형식을 변환했다. <br><br> 그리고 나서 [`https://kraken.io/`](https://kraken.io/) 여기서 이미지 크기를 압축하면 된다.
 <br>
 
 ![image](https://github.com/hyeonbinnn/shop-shop/assets/117449788/7578d22e-1858-45d9-8a47-ce6919d90d7d)
@@ -387,14 +404,14 @@ useEffect(() => {
     import banner3 from '../../assets/images/banner3.svg';
     import banner4 from '../../assets/images/banner4.svg';
     import banner5 from '../../assets/images/banner5.svg';
-
+    
     ↓ ↓ ↓
-
-    import banner1 from '../../assets/images/banner1.jpeg';
-    import banner2 from '../../assets/images/banner2.jpeg';
-    import banner3 from '../../assets/images/banner3.jpeg';
-    import banner4 from '../../assets/images/banner4.jpeg';
-    import banner5 from '../../assets/images/banner5.jpeg';
+    
+    import banner1 from '../../assets/images/banner1.webp';
+    import banner2 from '../../assets/images/banner2.webp';
+    import banner3 from '../../assets/images/banner3.webp';
+    import banner4 from '../../assets/images/banner4.webp';
+    import banner5 from '../../assets/images/banner5.webp';
 ```
 
 <br>
