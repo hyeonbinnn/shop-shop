@@ -1,11 +1,5 @@
 import Slider from 'react-slick';
 import styled from 'styled-components';
-import Skeleton from 'react-loading-skeleton';
-
-export const SkeletonCustom = styled(Skeleton)`
-  width: 100%;
-  height: 350px;
-`;
 
 export const SlideContainer = styled(Slider)`
   .slick-prev::before,

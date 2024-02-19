@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as S from './Slider.style';
-
+import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -62,7 +62,7 @@ const ImageSlider = () => {
   return (
     <>
       {loading ? (
-        <S.SkeletonCustom />
+        <Skeleton width="100%" height="350px" />
       ) : (
         <S.SlideContainer {...settings}>
           {images.current.map((img, i) => (
