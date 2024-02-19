@@ -292,10 +292,141 @@
 <br>
 
 ## 핵심 기술
-### ✔️
+### ✔️ Redux -> Redux-Toolkit으로 전환해 코드의 복잡성 줄이기
+1. 리덕스 툴킷 사용 전에는 순수 리덕스로 각 액션 유형마다 액션 생성자 함수를 만들고, 각 리듀서는 해당 액션 유형에 따라 상태를 업데이트했습니다.
+ 
+2. 그러나 리덕스 툴킷으로 전환 후, `createSlice` 함수를 사용해 별도의 액션 타입을 정의할 필요 없이, 슬라이스 리듀서 함수를 작성해 간결한 코드로 작성할 수 있고, 각각의 슬라이스에 대한 리렌더링을 최소화할 수 있습니다. 또 내부적으로 Immer 라이브러리를 사용해 불변성을 유지하기 때문에 더 직관적으로 상태를 업데이트할 수 있습니다.
+<br>
+
+#### [ 변경 전 ]
+```js
+// ActionTypes.js
+export const SET_PRODUCTS = 'SET_PRODUCTS';
+export const GET_PRODUCTS = 'GET_PRODUCTS';
+export const SET_CARTS = 'SET_CARTS';
+```
+```js
+// Actions.js
+export const setProducts = (products) => ({
+  type: SET_PRODUCTS,
+  payload: products,
+});
+
+export const getProducts = (products) => ({
+  type: GET_PRODUCTS,
+  payload: products,
+});
+
+export const setCarts = (carts) => ({
+  type: SET_CARTS,
+  payload: carts,
+});
+```
+```js
+// Reducers.js
+const initialState = {
+  products: [],
+  carts: [],
+};
+
+export const productsReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case SET_PRODUCTS:
+      return {
+        ...state,
+        products: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const productDetailReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_PRODUCTS:
+      return {
+        ...state,
+        products: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const cartsReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case SET_CARTS:
+      return {
+        ...state,
+        carts: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+```
+<br>
+
+#### [ 변경 후 ]
+```js
+// slces.js
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+  products: [],
+  carts: [],
+};
+
+export const productSlice = createSlice({
+  name: 'products',
+  initialState,
+  reducers: {
+    setProducts: (state, action) => {
+      state.products = action.payload;
+    },
+  },
+});
+
+export const { setProducts } = productSlice.actions;
+
+export const productDetailSlice = createSlice({
+  name: 'productsDetail',
+  initialState,
+  reducers: {
+    getProducts: (state, action) => {
+      state.products = action.payload;
+    },
+  },
+});
+
+export const { getProducts } = productDetailSlice.actions;
+
+export const cartSlice = createSlice({
+  name: 'carts',
+  initialState,
+  reducers: {
+    setCarts: (state, action) => {
+      state.carts = action.payload;
+    },
+  },
+});
+
+export const { setCarts } = cartSlice.actions;
+```
+
+<br>
+<br>
 
 
+### ✔️ API 파일 구조화
+1. API 관련 파일을 각각의 기능 또는 역할에 따라 분리하여 `cart.js, order.js, product.js, seller.js, useAuth.js` 파일로 나누었습니다. 이렇게 파일을 분리하면 코드의 모듈성과 가독성을 높일 수 있습니다.
 
+2. 각 파일은 특정한 기능 또는 역할을 담당하고 있으며, 해당 기능과 관련된 API 요청을 처리합니다. 이러한 구조를 통해 코드베이스를 관리하기 쉽고, 협업할 때도 각 파일이 어떤 역할을 수행하는지 명확히 파악할 수 있습니다.
+
+3. 또한 새로운 기능이나 엔드포인트를 추가할 때 해당 파일만 수정하면 되므로 다른 파일에 영향을 미치지 않아 코드의 일부를 변경하거나 확장할 때 발생할 수 있는 위험을 최소화할 수 있습니다.
+<br>
+
+![제목 없음](https://github.com/hyeonbinnn/shop-shop/assets/117449788/bc12471a-800f-4cce-8ebc-a86bf63a20df)
 
 <br>
 <br>
@@ -304,24 +435,21 @@
 ## 트러블 슈팅
 ### ✔️ 장바구니 업데이트 반영 오류
 #### 조건
-- 장바구니 즉, `CartButton`을 눌렀을 때, 만약 사용자가 로그인하지 않았다면 `openLoginModal`을 호출하고, 그게 아니면 `addCart` 함수를 호출한다.
+1.장바구니 즉, `CartButton`을 눌렀을 때, 만약 사용자가 로그인하지 않았다면 `openLoginModal`을 호출하고, 그게 아니면 `addCart` 함수를 호출합니다.
 
-- 동일한 상품이 경우, `/cart` 페이지로 이동 시 이미 존재하는 상품의 변경된 수량의 업데이트가 반영되어야 하고, 다른 상품일 경우 바로 추가되어야 한다.
-
+2.동일한 상품이 경우, `/cart` 페이지로 이동 시 이미 존재하는 상품의 변경된 수량의 업데이트가 반영되어야 하고, 다른 상품일 경우 바로 추가되어야 합니다.
 <br>
 
 #### 문제점
-- 장바구니 버튼을 눌렀을 때, `/cart` 페이지로 이동한 뒤 동일한 상품인데도 변경된 수량의 업데이트가 반영되지 않고, 새로고침을 해야지만 업데이트가 반영되는 상황이 발생했다.
-
+1. 장바구니 버튼을 눌렀을 때, `/cart` 페이지로 이동한 뒤 동일한 상품인데도 변경된 수량의 업데이트가 반영되지 않고, 새로고침을 해야지만 업데이트가 반영되는 상황이 발생합니다.
 <br>
 
 
 #### 해결 방안
-- 리덕스 툴킷으로 만들어 둔 `carts` 장바구니를 이용해서 업데이트 해야하는데, 혼자 `useState`로 상태를 만들어서 장바구니 업데이트하려 했다.
-
+1. 리덕스 툴킷으로 만들어 둔 `carts` 장바구니를 이용해서 업데이트 해야하는데, 혼자 `useState`로 상태를 만들어서 장바구니 업데이트하려 했습니다.
 <br>
 
-##### [ 문제 코드 수정 전 ]
+#### [ 문제 코드 수정 전 ]
 ```jsx
 // 해당 컴포넌트에서 문제의 코드를 간추려 모아보면...
 
@@ -345,8 +473,9 @@ useEffect(() => {
   getCartList(token);
 }, [token]);
 ```
+<br>
 
-##### [ 문제 코드 수정 후 ]
+#### [ 문제 코드 수정 후 ]
 ```jsx
 // 일단 필요한 모듈을 임포트하자
 import { useDispatch } from 'react-redux';
@@ -386,52 +515,57 @@ useEffect(() => {
 
 ### ✔️ 이미지 슬라이더 로딩 시간
 #### 문제점
-- `Netlify`에 배포 후, 사이트에 들어가면 등장하는 메인 홈 페이지에서 슬라이더 이미지가 나타나기까지 로딩 시간이 너무 걸린다. 
+1. `Netlify`에 배포 후, 사이트에 들어가면 등장하는 메인 홈 페이지에서 슬라이더 이미지가 나타나기까지 로딩 시간이 너무 걸립니다. 
 
-- 일단 이미지 크기가 커서 로딩 시간이 길어지는 것 같다. 한국인이라면 끄고 다시 들어가기를 무한 반복할 것임이 분명하다. 그리고 문제는 다시 들어가도 여전히 로딩 시간이 오래 걸린다.
-
+2. 일단 이미지 크기가 커서 로딩 시간이 길어지기에 한국인이라면 끄고 다시 들어가기를 무한 반복할 것임이 분명합니다. 그리고 문제는 다시 들어가도 여전히 로딩 시간이 오래 걸립니다.
 <br>
 
 #### 해결 방안
-- 이미지 포맷 최적화를 해보려고 한다. 나의 배너 이미지 슬라이더 포맷은 전부 `SVG`다. `SVG`는 벡터 그래픽 형식으로 해상도에 따라 확대/축소에 적합하지만, 일반적으로 파일 크기가 크고, 특히 복잡한 이미지의 경우 로딩 시간이 오래 걸릴 수 있기에 배너 이미지일 경우 `JPEG` 혹은 `WebP`를 고려하는게 맞다. <br><br> `WHY?` 이 또한 근거를 살펴보니, `JPEG`는 비트맵 이미지로 파일 크기를 줄이고 모든 브라우저에서 지원되고, `WebP`는 `JPEG`보다 높은 압축률을 제공하면서도 더 높은 품질을 유지할 수 있지만, 모든 브라우저에서 지원되지는 않으니 조심하자. 이제 파일 형식을 변환해 보자! 이름 모를 곳에서 변환하려는데 파일 크기가 너무 커서 실패했기에 [`https://convertio.co/kr/`](https://convertio.co/kr/image-converter/) 여기서 파일 형식을 변환했다. <br><br> 그리고 나서 [`https://kraken.io/`](https://kraken.io/) 여기서 이미지 크기를 압축하면 된다.
+1. 이미지 포맷 최적화를 해보려 합니다. 현재 배너 이미지 슬라이더 포맷은 전부 `SVG`입니다. `SVG`는 벡터 그래픽 형식으로 해상도에 따라 확대/축소에 적합하지만, 일반적으로 파일 크기가 크고, 특히 복잡한 이미지의 경우 로딩 시간이 오래 걸릴 수 있기에 배너 이미지일 경우 `JPEG` 혹은 `WebP`를 고려하는게 맞습니다.
+
+2. `WHY?` 이 또한 근거를 살펴보니, `JPEG`는 비트맵 이미지로 파일 크기를 줄이고 모든 브라우저에서 지원되고, `WebP`는 `JPEG`보다 높은 압축률을 제공하면서도 더 높은 품질을 유지할 수 있지만, 모든 브라우저에서 지원되지는 않으니 조심합시다.
+
+3. 이제 파일 형식을 변환해 봅시다! 이름 모를 곳에서 변환하려는데 파일 크기가 너무 커서 실패했기에 [`https://convertio.co/kr/`](https://convertio.co/kr/image-converter/) 여기서 파일 형식을 변환했습니다. 그리고 나서 [`https://kraken.io/`](https://kraken.io/) 여기서 이미지 크기를 압축하면 됩니다.
 <br>
 
 ![image](https://github.com/hyeonbinnn/shop-shop/assets/117449788/7578d22e-1858-45d9-8a47-ce6919d90d7d)
 
 ```jsx
-    import banner1 from '../../assets/images/banner1.svg';
-    import banner2 from '../../assets/images/banner2.svg';
-    import banner3 from '../../assets/images/banner3.svg';
-    import banner4 from '../../assets/images/banner4.svg';
-    import banner5 from '../../assets/images/banner5.svg';
-    
-    ↓ ↓ ↓
-    
-    import banner1 from '../../assets/images/banner1.webp';
-    import banner2 from '../../assets/images/banner2.webp';
-    import banner3 from '../../assets/images/banner3.webp';
-    import banner4 from '../../assets/images/banner4.webp';
-    import banner5 from '../../assets/images/banner5.webp';
+import banner1 from '../../assets/images/banner1.svg';
+import banner2 from '../../assets/images/banner2.svg';
+import banner3 from '../../assets/images/banner3.svg';
+import banner4 from '../../assets/images/banner4.svg';
+import banner5 from '../../assets/images/banner5.svg';
+
+↓ ↓ ↓
+
+import banner1 from '../../assets/images/banner1.webp';
+import banner2 from '../../assets/images/banner2.webp';
+import banner3 from '../../assets/images/banner3.webp';
+import banner4 from '../../assets/images/banner4.webp';
+import banner5 from '../../assets/images/banner5.webp';
 ```
-
 <br>
 <br>
 
-- 이미지 `Lazy Loading` 설정은 브라우저에게 해당 이미지를 레이지 로딩으로 처리하도록 알려주는데, 이 속성은 이미지가 뷰포트에 나타날 때까지 로딩을 지연시키고, 사용자 경험을 향상시켜준다고 한다.<br><br>
-현재 코드에서는 이미지를 `useEffect`를 통해 로딩하고, `Skeleton` 컴포넌트를 사용하여 로딩 중에는 스켈레톤을 보여주고, 로딩이 완료되면 실제 이미지를 렌더링하고 있으며 이미지 슬라이더의 이미지들이 순차적으로 전환되는 상황이고, 이미지 슬라이더 자체에 자동 전환 기능이 포함되어 있다. <br><br>
-각 이미지에 `loading="lazy"` 속성을 직접 추가하려 했는데, 메인 홈 페이지 같이 첫 시작 페이지에서의 배너 이미지는 일반적으로 중요한 이미지들을 즉시 로드하고자 할 때가 많기에 첫 번째 이미지는 즉시 로드되고, 나머지 이미지들은 `lazy-loading`을 통해 필요한 시점에 로드되도록 한다. <br><br>
+1. 이미지 `Lazy Loading` 설정은 브라우저에게 해당 이미지를 레이지 로딩으로 처리하도록 알려주는데, 이 속성은 이미지가 뷰포트에 나타날 때까지 로딩을 지연시키고, 사용자 경험을 향상시켜준다고 합니다.
+
+2. 현재 코드에서는 이미지를 `useEffect`를 통해 로딩하고, `Skeleton` 컴포넌트를 사용하여 로딩 중에는 스켈레톤을 보여주고, 로딩이 완료되면 실제 이미지를 렌더링하고 있으며 이미지 슬라이더의 이미지들이 순차적으로 전환되는 상황이고, 이미지 슬라이더 자체에 자동 전환 기능이 포함되어 있습니다.
+
+3. 각 이미지에 `loading="lazy"` 속성을 직접 추가하려 했는데, 메인 홈 페이지 같이 첫 시작 페이지에서의 배너 이미지는 일반적으로 중요한 이미지들을 즉시 로드하고자 할 때가 많기에 첫 번째 이미지는 즉시 로드되고, 나머지 이미지들은 `lazy-loading`을 통해 필요한 시점에 로드되도록 힙니다.
+<br>
 
 ```jsx
-    <img key={i} src={img.src} alt={img.alt} />
+<img key={i} src={img.src} alt={img.alt} />
 
-    ↓ ↓ ↓
+↓ ↓ ↓
 
-    <img key={i} src={img.src} alt={img.alt} loading={i === 0 ? 'eager' : 'lazy'} />
+<img key={i} src={img.src} alt={img.alt} loading={i === 0 ? 'eager' : 'lazy'} />
 ```
 <br>
 <br>
 
-- 이제 사이트를 들어가면 로딩없이 바로 이미지 슬라이더가 나타나는 것을 알 수 있다.
+1. 이제 사이트를 들어가면 로딩없이 바로 이미지 슬라이더가 나타나는 것을 알 수 있습니다!
 <br>
 
 ![image](https://github.com/hyeonbinnn/shop-shop/assets/117449788/ff29c0b3-2cc4-480c-85bf-177fb0f74984)
@@ -439,5 +573,5 @@ useEffect(() => {
 <br>
 <br>
 
-- 그 외에도 현재 로딩 시에 `react-loading-skeleton`을 통해 스켈레톤을 적용했는데, 이게 개발 환경에서는 유용할 수 있지만, 실제 사용자에게 서비스를 제공할 때는 성능 저하를 가져올 수 있다고 한다. <br><br>
-그래서 로딩 시에는 간단한 스피너를 사용하거나, 필요한 경우에만 `react-loading-skeleton`을 사용하는 것을 고려해야 하는데 라이브러리를 슬라이더에서만 아주 조금 사용하고 있기에 패스한다.
+2. 그 외에도 현재 로딩 시에 `react-loading-skeleton`을 통해 스켈레톤을 적용했는데, 이게 개발 환경에서는 유용할 수 있지만, 실제 사용자에게 서비스를 제공할 때는 성능 저하를 가져올 수 있다고 합니다. <br><br>
+그래서 로딩 시에는 간단한 스피너를 사용하거나, 필요한 경우에만 `react-loading-skeleton`을 사용하는 것을 고려해야 하는데 라이브러리를 슬라이더에서만 아주 조금 사용하고 있기에 패스합니다!
