@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import previewImageIcon from '../../assets/icons/icon-preview.png';
+import previewImageIcon from '../../assets/icons/icon-preview.svg';
 
 export const Main = styled.main`
   padding: 40px 50px;
