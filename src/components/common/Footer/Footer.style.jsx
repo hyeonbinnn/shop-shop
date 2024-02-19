@@ -65,17 +65,21 @@ export const FooterSocialList = styled.ul`
   gap: 10px;
 `;
 
-export const SocialList = styled.li`
-  width: 40px;
-  height: 40px;
+export const SocialList = styled.li``;
+
+export const SocialLink = styled.a`
+  img {
+    width: 40px;
+    height: 40px;
+  }
 
   @media ${(props) => props.theme.mediaQuery.mobile} {
-    width: 35px;
-    height: 35px;
+    img {
+      width: 35px;
+      height: 35px;
+    }
   }
 `;
-
-export const SocialLink = styled.a``;
 
 // Footer 하단
 export const FooterBox2 = styled.div`
