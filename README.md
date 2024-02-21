@@ -520,7 +520,7 @@ useEffect(() => {
 
 2. `WHY?` 이 또한 근거를 살펴보니, `JPEG`는 비트맵 이미지로 파일 크기를 줄이고 모든 브라우저에서 지원되고, `WebP`는 `JPEG`보다 높은 압축률을 제공하면서도 더 높은 품질을 유지할 수 있지만, 모든 브라우저에서 지원되지는 않으니 조심합시다.
 
-3. 이제 파일 형식을 변환해 봅시다! 이름 모를 곳에서 변환하려는데 파일 크기가 너무 커서 실패했기에 [`https://convertio.co/kr/`](https://convertio.co/kr/image-converter/) 여기서 파일 형식을 변환했습니다. 그리고 나서 [`https://kraken.io/`](https://kraken.io/) 여기서 이미지 크기를 압축하면 됩니다.
+3. 이제 파일 형식을 변환해 봅시다! 이름 모를 곳에서 변환하려는데 파일 크기가 너무 커서 실패했기에 [https://convertio.co/kr/](https://convertio.co/kr/image-converter/) 여기서 파일 형식을 변환했습니다. 그리고 나서 [https://kraken.io/](https://kraken.io/) 여기서 이미지 크기를 압축하면 됩니다.
 <br>
 
 ![image](https://github.com/hyeonbinnn/shop-shop/assets/117449788/7578d22e-1858-45d9-8a47-ce6919d90d7d)
