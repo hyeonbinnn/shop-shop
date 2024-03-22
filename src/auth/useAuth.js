@@ -18,7 +18,6 @@ export const useAuth = () => {
         });
         setCookie('loginType', loginType);
       }
-
       alert('환영합니다!');
       goToHome();
     } catch (error) {
@@ -70,7 +69,6 @@ export const useAuth = () => {
         phone_number: phonenum,
         name: data.name,
       });
-
       alert('환영합니다! 로그인해 주세요!');
       goToLogin();
     } catch (error) {
@@ -140,7 +138,6 @@ export const useAuth = () => {
         company_registration_number: data.sellerCode,
         store_name: data.storeName,
       });
-
       alert('환영합니다! 로그인해 주세요!');
       goToLogin();
     } catch (error) {
